@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { createPageUrl } from '@/utils';
 
 const navLinks = [
   { label: 'Services', href: '#services' },
