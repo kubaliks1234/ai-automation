@@ -57,13 +57,23 @@ export default function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
-                >
-                  {link.label}
-                </button>
+                link.isPage ? (
+                  <a
+                    key={link.label}
+                    href={createPageUrl('Blog')}
+                    className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    key={link.label}
+                    onClick={() => scrollToSection(link.href)}
+                    className="text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                  >
+                    {link.label}
+                  </button>
+                )
               ))}
             </div>
 
