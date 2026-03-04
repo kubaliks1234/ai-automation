@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Beispiele', href: '#automations' },
   { label: 'Prozess', href: '#process' },
   { label: 'Über mich', href: '#about' },
+  { label: 'Blog', href: '/blog', isPage: true },
 ];
 
 export default function Navbar() {
