@@ -26,11 +26,16 @@ export default function Navbar() {
 
   const scrollToSection = (href) => {
     setMobileMenuOpen(false);
-    if (href === '#cta') {
-      document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+    const isHomePage = window.location.pathname === '/' || window.location.pathname.includes('Home');
+    if (isHomePage) {
+      if (href === '#cta') {
+        document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      window.location.href = createPageUrl('Home') + (href === '#cta' ? '#cta' : href);
     }
   };
 
