@@ -48,10 +48,12 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center">
-                <Bot className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white hidden sm:block">AI Automation</span>
+              <img
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png"
+                alt="Logo"
+                className="w-10 h-10 rounded-xl object-cover"
+              />
+              <span className="text-xl font-bold text-white hidden sm:block">Jakub Kaczmarek</span>
             </a>
 
             {/* Desktop Navigation */}
