@@ -153,16 +153,19 @@ export default function BlogPost() {
                   )}
                 </div>
               </div>
-              {post.ai_tool_url && (
+              {(post.affiliate_url || post.ai_tool_url) && (
                 <Button
                   asChild
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl flex-shrink-0"
                 >
-                  <a href={post.ai_tool_url} target="_blank" rel="noopener noreferrer">
-                    Tool besuchen
+                  <a href={post.affiliate_url || post.ai_tool_url} target="_blank" rel="noopener noreferrer sponsored">
+                    {post.affiliate_url ? '🔗 Jetzt ausprobieren*' : 'Tool besuchen'}
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </a>
                 </Button>
+              )}
+              {post.affiliate_url && (
+                <p className="text-xs text-gray-600 mt-1">*Affiliate-Link</p>
               )}
             </div>
           )}
