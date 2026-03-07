@@ -7,6 +7,7 @@ import { ArrowLeft, Star, ExternalLink, Tag, Calendar, CheckCircle } from 'lucid
 import { Button } from '@/components/ui/button';
 import { createPageUrl } from '@/utils';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const categoryColors = {
   Marketing: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
