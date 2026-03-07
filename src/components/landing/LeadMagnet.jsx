@@ -20,8 +20,6 @@ export default function LeadMagnet() {
         await base44.functions.invoke('sendGuideEmail', { email, name });
         setLoading(false);
         setStep('success');
-        // trigger PDF download
-        window.open('https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/7d20b6d5f_KI_Automationen_Guidepdf.pdf', '_blank');
     };
 
     return (
