@@ -51,6 +51,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Home from './pages/Home';
 import Analyse from './pages/Analyse';
+import Datenschutz from './pages/Datenschutz';
 
 
 export const PAGES = {
@@ -58,6 +59,7 @@ export const PAGES = {
     "BlogPost": BlogPost,
     "Home": Home,
     "Analyse": Analyse,
+    "Datenschutz": Datenschutz,
 }
 
 export const pagesConfig = {
