@@ -78,7 +78,7 @@ Deno.serve(async (req) => {
 
       <p>Wenn du möchtest, analysiere ich gerne kostenlos, welche Automationen in deinem Unternehmen am meisten Sinn machen.</p>
 
-      <a href="https://jakubkaczmarek.de/ki-analyse" class="cta-btn">👉 Kostenlose KI Analyse buchen</a>
+      <a href="https://jakubkaczmarek.base44.app/Analyse" class="cta-btn">👉 Kostenlose KI Analyse buchen</a>
 
       <p>Ich freue mich auf dein Feedback zum Guide.</p>
 
