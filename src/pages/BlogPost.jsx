@@ -206,6 +206,9 @@ export default function BlogPost() {
           >{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
         </motion.div>
 
+        {/* Newsletter */}
+        <NewsletterSignup variant="inline" source="blog-artikel" />
+
         {/* Tags */}
         {post.tags?.length > 0 && (
           <div className="mt-12 pt-8 border-t border-gray-800">
