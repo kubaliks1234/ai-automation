@@ -176,21 +176,31 @@ export default function BlogPost() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="prose prose-invert prose-lg max-w-none
-            prose-headings:text-white prose-headings:font-bold
-            prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4
-            prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-            prose-p:text-gray-400 prose-p:leading-relaxed
-            prose-a:text-cyan-400 prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-white
-            prose-ul:text-gray-400 prose-ol:text-gray-400
-            prose-li:text-gray-400 prose-li:my-1
-            prose-code:text-cyan-400 prose-code:bg-gray-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded
-            prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-800 prose-pre:rounded-2xl
-            prose-blockquote:border-cyan-500 prose-blockquote:text-gray-400
-            prose-hr:border-gray-800"
+          className="max-w-none"
         >
-          <ReactMarkdown>{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
+          <ReactMarkdown
+            components={{
+              h1: ({children}) => <h1 className="text-3xl font-bold text-white mt-12 mb-4">{children}</h1>,
+              h2: ({children}) => <h2 className="text-2xl font-bold text-white mt-12 mb-4 border-b border-gray-800 pb-3">{children}</h2>,
+              h3: ({children}) => <h3 className="text-xl font-semibold text-white mt-8 mb-3">{children}</h3>,
+              p: ({children}) => <p className="text-gray-400 leading-relaxed mb-4">{children}</p>,
+              strong: ({children}) => <strong className="text-white font-semibold">{children}</strong>,
+              a: ({href, children}) => <a href={href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">{children}</a>,
+              ul: ({children}) => <ul className="text-gray-400 list-disc list-inside space-y-2 mb-4 ml-2">{children}</ul>,
+              ol: ({children}) => <ol className="text-gray-400 list-decimal list-inside space-y-2 mb-4 ml-2">{children}</ol>,
+              li: ({children}) => <li className="text-gray-400">{children}</li>,
+              hr: () => <hr className="border-gray-800 my-8" />,
+              blockquote: ({children}) => <blockquote className="border-l-4 border-cyan-500 pl-4 text-gray-400 italic my-4">{children}</blockquote>,
+              code: ({inline, children}) => inline
+                ? <code className="text-cyan-400 bg-gray-800 px-1.5 py-0.5 rounded text-sm">{children}</code>
+                : <pre className="bg-gray-900 border border-gray-800 rounded-2xl p-4 overflow-x-auto my-4"><code className="text-cyan-400 text-sm">{children}</code></pre>,
+              table: ({children}) => <div className="overflow-x-auto my-6"><table className="w-full border-collapse text-sm">{children}</table></div>,
+              thead: ({children}) => <thead className="bg-gray-800">{children}</thead>,
+              th: ({children}) => <th className="text-white font-semibold px-4 py-3 text-left border border-gray-700">{children}</th>,
+              td: ({children}) => <td className="text-gray-400 px-4 py-3 border border-gray-700">{children}</td>,
+              tr: ({children}) => <tr className="hover:bg-gray-800/50 transition-colors">{children}</tr>,
+            }}
+          >{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
         </motion.div>
 
         {/* Tags */}
