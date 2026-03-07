@@ -180,6 +180,7 @@ export default function BlogPost() {
           className="max-w-none"
         >
           <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
             components={{
               h1: ({children}) => <h1 className="text-3xl font-bold text-white mt-12 mb-4">{children}</h1>,
               h2: ({children}) => <h2 className="text-2xl font-bold text-white mt-12 mb-4 border-b border-gray-800 pb-3">{children}</h2>,
