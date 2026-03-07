@@ -4,6 +4,7 @@ import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, ExternalLink, Tag, Calendar, CheckCircle } from 'lucide-react';
+import NewsletterSignup from '@/components/blog/NewsletterSignup';
 import { Button } from '@/components/ui/button';
 import { createPageUrl } from '@/utils';
 import ReactMarkdown from 'react-markdown';
