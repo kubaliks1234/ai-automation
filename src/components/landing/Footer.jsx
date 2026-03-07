@@ -1,5 +1,6 @@
 import React from 'react';
 import { Bot, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { createPageUrl } from '@/utils';
 
 export default function Footer() {
   const scrollToTop = () => {
