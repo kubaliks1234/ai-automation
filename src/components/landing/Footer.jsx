@@ -68,9 +68,14 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-gray-800 gap-4">
-          <p className="text-sm text-gray-600">
-            © {new Date().getFullYear()} AI Automation. Alle Rechte vorbehalten.
-          </p>
+          <div className="flex flex-wrap gap-4 items-center">
+            <p className="text-sm text-gray-600">
+              © {new Date().getFullYear()} AI Automation. Alle Rechte vorbehalten.
+            </p>
+            <a href={createPageUrl('Datenschutz')} className="text-sm text-gray-500 hover:text-cyan-400 transition-colors">
+              Datenschutz
+            </a>
+          </div>
           <button
             onClick={scrollToTop}
             className="text-sm text-gray-500 hover:text-cyan-400 transition-colors"
