@@ -76,6 +76,7 @@ export default function Home() {
         </section>
         <LeadMagnet />
         <CTASection />
+        <CityLinksSection />
       </main>
       <Footer />
     </div>
