@@ -10,7 +10,6 @@ import ProcessSection from '@/components/landing/ProcessSection';
 import AboutSection from '@/components/landing/AboutSection';
 import LeadMagnet from '@/components/landing/LeadMagnet';
 import CTASection from '@/components/landing/CTASection';
-import CityLinksSection from '@/components/landing/CityLinksSection';
 import Footer from '@/components/landing/Footer';
 
 const homeStructuredData = {
