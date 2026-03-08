@@ -1,4 +1,5 @@
 import React from 'react';
+import SEOMeta from '@/components/SEOMeta';
 import Navbar from '@/components/landing/Navbar';
 import HeroSection from '@/components/landing/HeroSection';
 import ProblemSection from '@/components/landing/ProblemSection';
