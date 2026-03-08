@@ -33,7 +33,7 @@ export default function BlogCard({ post, index }) {
 
       <div
         className="relative h-full flex flex-col bg-gray-900/60 border border-gray-800 rounded-3xl overflow-hidden hover:border-gray-700 transition-all duration-300 cursor-pointer"
-        onClick={() => window.location.href = createPageUrl(`BlogPost?slug=${post.slug}`)}
+        onClick={() => { window.location.href = createPageUrl('BlogPost') + '?slug=' + post.slug; }}
       >
         {/* Cover Image */}
         <div className="relative h-52 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden flex-shrink-0">
@@ -41,6 +41,8 @@ export default function BlogCard({ post, index }) {
             <img
               src={post.cover_image}
               alt={post.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           ) : (
