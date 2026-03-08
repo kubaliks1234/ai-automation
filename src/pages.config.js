@@ -55,6 +55,7 @@ import Home from './pages/Home';
 import Impressum from './pages/Impressum';
 import KiAgentur from './pages/KiAgentur';
 import Service from './pages/Service';
+import Upsell from './pages/Upsell';
 
 
 export const PAGES = {
@@ -66,6 +67,7 @@ export const PAGES = {
     "Impressum": Impressum,
     "KiAgentur": KiAgentur,
     "Service": Service,
+    "Upsell": Upsell,
 }
 
 export const pagesConfig = {
