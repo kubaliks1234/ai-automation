@@ -5,6 +5,7 @@ import { createPageUrl } from '@/utils';
 
 const services = [
   {
+    slug: 'ai-marketing',
     icon: Megaphone,
     title: 'AI Marketing Systeme',
     description: 'Automatisierte Content- und Marketingmaschinen.',
