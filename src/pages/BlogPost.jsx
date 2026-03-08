@@ -255,6 +255,9 @@ export default function BlogPost() {
           >{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
         </motion.div>
 
+        {/* Related Posts */}
+        <RelatedPosts currentPost={post} />
+
         {/* Product Box */}
         <ProductBox />
 
