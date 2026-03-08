@@ -157,6 +157,8 @@ Gib das Ergebnis als JSON zurück:
 
   return Response.json({
     success: true,
+    batch: batchIndex,
+    totalBatches: Math.ceil(topics.length / batchSize),
     created: results.length,
     failed: errors.length,
     results,
