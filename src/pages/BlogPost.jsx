@@ -25,10 +25,13 @@ export default function BlogPost() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const params = new URLSearchParams(window.location.search);
+  const paymentStatus = params.get('payment');
+
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
     const slug = params.get('slug');
     if (slug) loadPost(slug);
+    else setLoading(false);
   }, []);
 
   const loadPost = async (slug) => {
