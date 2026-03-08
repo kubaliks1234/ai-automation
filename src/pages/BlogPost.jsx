@@ -39,22 +39,7 @@ export default function BlogPost() {
   const loadPost = async (slug) => {
     setLoading(true);
     const results = await base44.entities.BlogPost.filter({ slug, status: 'published' });
-    if (results.length > 0) {
-      const p = results[0];
-      setPost(p);
-      // SEO
-      document.title = p.meta_title || p.title;
-      let metaDesc = document.querySelector('meta[name="description"]');
-      if (!metaDesc) { metaDesc = document.createElement('meta'); metaDesc.name = 'description'; document.head.appendChild(metaDesc); }
-      metaDesc.setAttribute('content', p.meta_description || p.excerpt || '');
-      // OG tags
-      let ogTitle = document.querySelector('meta[property="og:title"]');
-      if (!ogTitle) { ogTitle = document.createElement('meta'); ogTitle.setAttribute('property', 'og:title'); document.head.appendChild(ogTitle); }
-      ogTitle.setAttribute('content', p.meta_title || p.title);
-      let ogDesc = document.querySelector('meta[property="og:description"]');
-      if (!ogDesc) { ogDesc = document.createElement('meta'); ogDesc.setAttribute('property', 'og:description'); document.head.appendChild(ogDesc); }
-      ogDesc.setAttribute('content', p.meta_description || p.excerpt || '');
-    }
+    if (results.length > 0) setPost(results[0]);
     setLoading(false);
   };
 
