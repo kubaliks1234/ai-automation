@@ -128,7 +128,7 @@ export default function BlogPost() {
     <div className="min-h-screen bg-[#0a0a0f]">
       <Navbar />
 
-      <main className="max-w-4xl mx-auto px-6 pt-28 pb-24">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
         {/* Back button */}
         <motion.button
           initial={{ opacity: 0, x: -20 }}
@@ -175,7 +175,7 @@ export default function BlogPost() {
           {/* Cover image */}
           {post.cover_image && (
             <div className="relative rounded-3xl overflow-hidden mb-10 aspect-video">
-              <img src={post.cover_image} alt={post.title} className="w-full h-full object-cover" />
+              <img src={post.cover_image} alt={post.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/50 to-transparent" />
             </div>
           )}
