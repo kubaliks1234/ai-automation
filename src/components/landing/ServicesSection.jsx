@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Megaphone, Target, TrendingUp, Workflow, CheckCircle2 } from 'lucide-react';
+import { Megaphone, Target, TrendingUp, Workflow, CheckCircle2, ArrowRight } from 'lucide-react';
+import { createPageUrl } from '@/utils';
 
 const services = [
   {

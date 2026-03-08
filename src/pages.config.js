@@ -54,6 +54,7 @@ import Datenschutz from './pages/Datenschutz';
 import Home from './pages/Home';
 import Impressum from './pages/Impressum';
 import KiAgentur from './pages/KiAgentur';
+import Service from './pages/Service';
 
 
 export const PAGES = {
@@ -64,6 +65,7 @@ export const PAGES = {
     "Home": Home,
     "Impressum": Impressum,
     "KiAgentur": KiAgentur,
+    "Service": Service,
 }
 
 export const pagesConfig = {
