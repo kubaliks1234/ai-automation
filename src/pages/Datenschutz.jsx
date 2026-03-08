@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/landing/Navbar';
 import Footer from '../components/landing/Footer';
+import SEOMeta from '../components/SEOMeta';
 
 export default function Datenschutz() {
     return (

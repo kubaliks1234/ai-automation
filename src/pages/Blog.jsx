@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
+import SEOMeta from '@/components/SEOMeta';
 import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
 import BlogHero from '@/components/blog/BlogHero';

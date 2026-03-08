@@ -4,6 +4,7 @@ import { Calendar, CheckCircle, Clock, Video } from 'lucide-react';
 import Navbar from '../components/landing/Navbar';
 import Footer from '../components/landing/Footer';
 import CalendarBooking from '../components/landing/CalendarBooking';
+import SEOMeta from '../components/SEOMeta';
 
 export default function Analyse() {
     return (
