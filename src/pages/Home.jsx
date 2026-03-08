@@ -35,6 +35,8 @@ const homeStructuredData = {
       "description": "KI-Automatisierung und digitale Systeme für Unternehmen. Spare Zeit, generiere mehr Leads und steigere deinen Umsatz.",
       "url": "https://jakubkaczmarek.de",
       "image": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png",
+      "email": "jakub.kaczmarek669@gmail.com",
+      "telephone": "+4917643942729",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Sebastian-Frank-Str. 11",
@@ -43,7 +45,20 @@ const homeStructuredData = {
         "addressCountry": "DE"
       },
       "areaServed": "DE",
-      "serviceType": ["KI Automatisierung", "AI Marketing", "Lead Generation", "Sales Automation"]
+      "serviceType": ["KI Automatisierung", "AI Marketing", "Lead Generation", "Sales Automation", "Workflow Automatisierung"],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+4917643942729",
+        "contactType": "customer service",
+        "availableLanguage": "German"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jakubkaczmarek.de/#website",
+      "url": "https://jakubkaczmarek.de",
+      "name": "Jakub Kaczmarek – AI Automation",
+      "inLanguage": "de-DE"
     }
   ]
 };
