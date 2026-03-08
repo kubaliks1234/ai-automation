@@ -5,6 +5,7 @@ import Footer from '@/components/landing/Footer';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, ExternalLink, Tag, Calendar, CheckCircle } from 'lucide-react';
 import NewsletterSignup from '@/components/blog/NewsletterSignup';
+import RelatedPosts from '@/components/blog/RelatedPosts';
 import ProductBox from '@/components/blog/ProductBox';
 import { Button } from '@/components/ui/button';
 import { createPageUrl } from '@/utils';
