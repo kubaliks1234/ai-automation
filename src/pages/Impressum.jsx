@@ -36,8 +36,8 @@ export default function Impressum() {
                     <section className="mb-8">
                         <h2 className="text-xl font-semibold text-white mb-3">Kontakt</h2>
                         <p className="text-gray-400 leading-relaxed">
-                            E-Mail: <a href="mailto:[IHRE-EMAIL@DOMAIN.DE]" className="text-cyan-400 hover:underline">[IHRE-EMAIL@DOMAIN.DE]</a><br />
-                            Telefon: <span className="text-yellow-500">[TELEFONNUMMER EINTRAGEN]</span>
+                            E-Mail: <a href="mailto:jakub.kaczmarek669@gmail.com" className="text-cyan-400 hover:underline">jakub.kaczmarek669@gmail.com</a><br />
+                            Telefon: 017643942729
                         </p>
                     </section>
 
@@ -45,15 +45,14 @@ export default function Impressum() {
                         <h2 className="text-xl font-semibold text-white mb-3">Umsatzsteuer-ID</h2>
                         <p className="text-gray-400 leading-relaxed">
                             Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:<br />
-                            <span className="text-yellow-500">[USt-IdNr. EINTRAGEN oder Kleinunternehmerregelung § 19 UStG angeben]</span>
+                            Steuer-ID beantragt
                         </p>
                     </section>
 
                     <section className="mb-8">
                         <h2 className="text-xl font-semibold text-white mb-3">Berufsrechtliche Angaben</h2>
                         <p className="text-gray-400 leading-relaxed">
-                            Tätigkeitsbereich: KI-Automatisierung und digitale Beratung<br />
-                            <span className="text-yellow-500">[Falls zutreffend: Kammer, Berufsrecht, Berufsbezeichnung eintragen]</span>
+                            Tätigkeitsbereich: KI-Automatisierung und digitale Beratung
                         </p>
                     </section>
 
@@ -111,11 +110,7 @@ export default function Impressum() {
                         </p>
                     </section>
 
-                    <div className="mt-10 p-4 rounded-xl border border-yellow-500/30 bg-yellow-500/5">
-                        <p className="text-yellow-500 text-sm">
-                            ⚠️ <strong>Hinweis:</strong> Felder in gelber Farbe müssen noch ausgefüllt werden. Bitte ergänze E-Mail, Telefonnummer und ggf. Umsatzsteuer-ID, bevor die Seite live geht.
-                        </p>
-                    </div>
+
                 </motion.div>
             </div>
             <Footer />
