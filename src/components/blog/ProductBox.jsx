@@ -176,18 +176,6 @@ export default function ProductBox() {
 
             {/* CTA Box */}
             <div className="bg-gray-800/60 rounded-2xl p-6 border border-gray-700/50">
-              <p className="text-white font-semibold mb-1 text-center text-lg">Jetzt starten</p>
-              <p className="text-gray-500 text-xs text-center mb-5">Sofortiger Download nach Kauf</p>
-
-              <input
-                type="email"
-                placeholder="Deine E-Mail für den Download"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleBuy()}
-                className="w-full bg-gray-900 border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 mb-4 focus:outline-none focus:border-cyan-500 transition-colors text-sm"
-              />
-
               {error && (
                 <div className="flex items-center gap-2 text-red-400 text-sm mb-3">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" />
