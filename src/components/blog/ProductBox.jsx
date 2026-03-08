@@ -64,9 +64,8 @@ export default function ProductBox() {
     setError('');
     setLoading(true);
     const currentUrl = window.location.href.split('?')[0];
-    const upsellUrl = window.location.origin + createPageUrl('Upsell') + '?from=purchase';
     const response = await base44.functions.invoke('createCheckout', {
-      success_url: upsellUrl,
+      success_url: currentUrl + '?payment=success',
       cancel_url: currentUrl + '?payment=cancelled',
     });
     setLoading(false);
