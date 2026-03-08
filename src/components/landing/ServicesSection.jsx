@@ -44,6 +44,7 @@ const services = [
     bgGlow: 'bg-purple-500/20',
   },
   {
+    slug: 'workflow-automation',
     icon: Workflow,
     title: 'Workflow Automationen',
     description: 'Automatisierung interner Prozesse.',
