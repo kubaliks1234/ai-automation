@@ -23,9 +23,9 @@ const pricingColors = {
 export default function BlogCard({ post, index }) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.06, 0.4) }}
       className="group relative h-full"
     >
       {/* Hover glow */}

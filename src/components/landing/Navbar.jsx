@@ -116,13 +116,23 @@ export default function Navbar() {
           >
             <div className="px-6 py-6 space-y-4">
               {navLinks.map((link) => (
-                <button
-                  key={link.label}
-                  onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left text-lg text-gray-300 hover:text-white py-2"
-                >
-                  {link.label}
-                </button>
+                link.isPage ? (
+                  <a
+                    key={link.label}
+                    href={createPageUrl('Blog')}
+                    className="block w-full text-left text-lg text-gray-300 hover:text-white py-2"
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    key={link.label}
+                    onClick={() => scrollToSection(link.href)}
+                    className="block w-full text-left text-lg text-gray-300 hover:text-white py-2"
+                  >
+                    {link.label}
+                  </button>
+                )
               ))}
               <Button
                 onClick={() => scrollToSection('#cta')}
