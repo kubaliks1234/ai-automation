@@ -43,13 +43,29 @@ export default function Blog() {
     });
   }, [posts, search, activeCategory, activePricing]);
 
+  const blogListSchema = posts.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "KI Tools Blog",
+    "description": "Die besten KI Tools für Unternehmen – getestet und bewertet",
+    "url": "https://jakubkaczmarek.de/Blog",
+    "itemListElement": posts.slice(0, 20).map((post, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": post.title,
+      "description": post.excerpt,
+      "url": `https://jakubkaczmarek.de/BlogPost?slug=${post.slug}`
+    }))
+  } : null;
+
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <SEOMeta
         title="KI Tools Blog | Beste AI Tools für Unternehmen | Jakub Kaczmarek"
-        description="Entdecke die besten KI Tools für Marketing, Vertrieb und Automatisierung. Getestet und bewertet für Unternehmen."
-        keywords="KI Tools, AI Tools, Künstliche Intelligenz Marketing, AI Blog, beste KI Software, Automatisierung Tools"
-        canonical="https://jakubkaczmarek.de/blog"
+        description="Entdecke die besten KI Tools für Marketing, Vertrieb und Automatisierung. Getestet und bewertet für Unternehmen. Über 50 KI Tools im Test."
+        keywords="KI Tools, AI Tools, Künstliche Intelligenz, AI Blog, KI Software Vergleich, Automatisierung Tools, beste KI Tools 2025, KI Agentur Deutschland"
+        canonical="https://jakubkaczmarek.de/Blog"
+        structuredData={blogListSchema}
       />
       <Navbar />
       
