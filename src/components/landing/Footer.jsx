@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import { Linkedin, Mail, ArrowUpRight } from 'lucide-react';
 import { createPageUrl } from '@/utils';
 
 export default function Footer() {
@@ -30,10 +30,10 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-medium mb-4">Services</h4>
             <ul className="space-y-3 text-sm text-gray-500">
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">AI Marketing</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Lead Generation</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Sales Automation</a></li>
-              <li><a href="#services" className="hover:text-cyan-400 transition-colors">Workflow Automation</a></li>
+              <li><a href={createPageUrl('Service') + '?service=ai-marketing'} className="hover:text-cyan-400 transition-colors">AI Marketing</a></li>
+              <li><a href={createPageUrl('Service') + '?service=lead-generation'} className="hover:text-cyan-400 transition-colors">Lead Generation</a></li>
+              <li><a href={createPageUrl('Service') + '?service=sales-automation'} className="hover:text-cyan-400 transition-colors">Sales Automation</a></li>
+              <li><a href={createPageUrl('Service') + '?service=workflow-automation'} className="hover:text-cyan-400 transition-colors">Workflow Automation</a></li>
             </ul>
           </div>
 
