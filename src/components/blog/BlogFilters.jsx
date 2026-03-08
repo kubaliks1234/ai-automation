@@ -30,30 +30,29 @@ export default function BlogFilters({ search, setSearch, activeCategory, setActi
       </div>
 
       {/* Category Filter */}
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide snap-x justify-start sm:justify-center sm:flex-wrap">
         {categories.map((cat) => (
-          <motion.button
+          <button
             key={cat}
-            whileTap={{ scale: 0.95 }}
             onClick={() => setActiveCategory(cat)}
-            className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+            className={`flex-shrink-0 snap-start px-5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 active:scale-95 ${
               activeCategory === cat
                 ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25'
                 : 'bg-gray-900/60 border border-gray-700 text-gray-400 hover:border-gray-600 hover:text-white'
             }`}
           >
             {cat}
-          </motion.button>
+          </button>
         ))}
       </div>
 
       {/* Pricing Filter */}
-      <div className="flex flex-wrap justify-center gap-3">
+      <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide justify-start sm:justify-center sm:flex-wrap">
         {pricingOptions.map((price) => (
           <button
             key={price}
             onClick={() => setActivePricing(price)}
-            className={`px-4 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 ${
+            className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-200 active:scale-95 ${
               activePricing === price
                 ? 'bg-gray-700 text-white border border-gray-600'
                 : 'bg-gray-900/40 border border-gray-800 text-gray-500 hover:text-gray-300'
