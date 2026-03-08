@@ -80,13 +80,14 @@ export default function ServicesSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={createPageUrl('Service') + '?service=' + service.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative"
+              className="group relative block"
             >
               {/* Glow effect */}
               <div className={`absolute -inset-px ${service.bgGlow} rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500`} />
@@ -106,7 +107,7 @@ export default function ServicesSection() {
                 </p>
 
                 {/* Examples */}
-                <div className="space-y-3">
+                <div className="space-y-3 mb-6">
                   {service.examples.map((example, i) => (
                     <div key={i} className="flex items-center gap-3">
                       <CheckCircle2 className="w-5 h-5 text-cyan-400 flex-shrink-0" />
@@ -114,8 +115,12 @@ export default function ServicesSection() {
                     </div>
                   ))}
                 </div>
+
+                <div className="flex items-center gap-2 text-cyan-400 text-sm font-medium group-hover:gap-3 transition-all">
+                  Mehr erfahren <ArrowRight className="w-4 h-4" />
+                </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
