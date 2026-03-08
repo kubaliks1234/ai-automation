@@ -7,6 +7,12 @@ import SEOMeta from '../components/SEOMeta';
 export default function Datenschutz() {
     return (
         <div className="min-h-screen bg-[#0a0a0f]">
+            <SEOMeta
+                title="Datenschutzerklärung | Jakub Kaczmarek"
+                description="Datenschutzerklärung von Jakub Kaczmarek – KI Automatisierung. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
+                canonical="https://jakubkaczmarek.de/datenschutz"
+                noIndex={true}
+            />
             <Navbar />
             <div className="max-w-3xl mx-auto px-6 pt-36 pb-20">
                 <motion.div

@@ -7,6 +7,12 @@ import SEOMeta from '../components/SEOMeta';
 export default function Impressum() {
     return (
         <div className="min-h-screen bg-[#0a0a0f]">
+            <SEOMeta
+                title="Impressum | Jakub Kaczmarek – AI Automation"
+                description="Impressum von Jakub Kaczmarek – KI Automatisierung. Angaben gemäß § 5 TMG."
+                canonical="https://jakubkaczmarek.de/impressum"
+                noIndex={true}
+            />
             <Navbar />
             <div className="max-w-3xl mx-auto px-6 pt-36 pb-20">
                 <motion.div

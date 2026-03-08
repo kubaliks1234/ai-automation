@@ -9,6 +9,13 @@ import SEOMeta from '../components/SEOMeta';
 export default function Analyse() {
     return (
         <div className="min-h-screen bg-[#0a0a0f]">
+            <SEOMeta
+                title="Kostenlose KI-Analyse buchen | Jakub Kaczmarek"
+                description="Buche jetzt deine kostenlose 30-minütige KI-Analyse. Ich zeige dir, welche Automationen in deinem Unternehmen sofort Wirkung zeigen."
+                keywords="Kostenlose KI Analyse, AI Beratung, Automatisierung Unternehmen, KI Erstgespräch"
+                canonical="https://jakubkaczmarek.de/analyse"
+                noIndex={false}
+            />
             <Navbar />
             <div className="max-w-2xl mx-auto px-6 pt-36 pb-20">
                 <motion.div
