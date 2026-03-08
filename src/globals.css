@@ -101,3 +101,12 @@ html {
 .glow-effect {
   animation: glow 3s ease-in-out infinite;
 }
+
+/* Hide scrollbar for filter rows */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
