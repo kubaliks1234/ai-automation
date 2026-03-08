@@ -78,10 +78,15 @@ Deno.serve(async (req) => {
     return Response.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
+  const body = await req.json().catch(() => ({}));
+  const batchIndex = body.batchIndex ?? 0; // 0-4 (2 topics each)
+  const batchSize = 2;
+  const batchTopics = topics.slice(batchIndex * batchSize, batchIndex * batchSize + batchSize);
+
   const results = [];
   const errors = [];
 
-  for (const topic of topics) {
+  for (const topic of batchTopics) {
     try {
       const prompt = `Du bist ein professioneller SEO-Texter. Schreibe einen vollständigen, SEO-optimierten Artikel auf Deutsch zum Thema: "${topic.focus}".
 
