@@ -88,7 +88,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4">
               <Button
                 onClick={() => scrollToSection('#cta')}
-                className="hidden sm:flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl"
+                className="hidden sm:flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl text-sm px-4"
               >
                 Kostenlose Analyse
               </Button>
