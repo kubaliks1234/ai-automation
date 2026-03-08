@@ -40,8 +40,22 @@ export default function Footer() {
             <h4 className="text-white font-medium mb-4">Ressourcen</h4>
             <ul className="space-y-3 text-sm text-gray-500">
               <li><a href="#automations" className="hover:text-cyan-400 transition-colors">Beispiele</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-cyan-400 transition-colors">PDF Guide</a></li>
+              <li><a href={createPageUrl('Blog')} className="hover:text-cyan-400 transition-colors">Blog</a></li>
+              <li><a href={createPageUrl('KiAgentur')} className="hover:text-cyan-400 transition-colors">KI Agentur</a></li>
+            </ul>
+          </div>
+
+          {/* Cities */}
+          <div>
+            <h4 className="text-white font-medium mb-4">KI Agentur Städte</h4>
+            <ul className="space-y-3 text-sm text-gray-500">
+              {['berlin','hamburg','muenchen','koeln','frankfurt'].map(slug => (
+                <li key={slug}>
+                  <a href={createPageUrl('KiAgentur') + '?city=' + slug} className="hover:text-cyan-400 transition-colors capitalize">
+                    KI Agentur {slug.charAt(0).toUpperCase() + slug.slice(1).replace('muenchen','München').replace('koeln','Köln')}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
