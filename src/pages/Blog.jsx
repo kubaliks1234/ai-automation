@@ -17,18 +17,6 @@ export default function Blog() {
   const [activePricing, setActivePricing] = useState('Alle');
 
   useEffect(() => {
-    // Update page meta for SEO
-    document.title = 'KI Tools Blog | Beste AI Tools für Unternehmen';
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', 'Entdecke die besten KI Tools für Marketing, Vertrieb und Automatisierung. Getestet und bewertet für Unternehmen.');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Entdecke die besten KI Tools für Marketing, Vertrieb und Automatisierung. Getestet und bewertet für Unternehmen.';
-      document.head.appendChild(meta);
-    }
-
     loadPosts();
   }, []);
 
