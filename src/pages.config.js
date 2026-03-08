@@ -47,19 +47,21 @@
  *
  * The mainPage value must match a key in the PAGES object exactly.
  */
+import Analyse from './pages/Analyse';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
-import Home from './pages/Home';
-import Analyse from './pages/Analyse';
 import Datenschutz from './pages/Datenschutz';
+import Home from './pages/Home';
+import Impressum from './pages/Impressum';
 
 
 export const PAGES = {
+    "Analyse": Analyse,
     "Blog": Blog,
     "BlogPost": BlogPost,
-    "Home": Home,
-    "Analyse": Analyse,
     "Datenschutz": Datenschutz,
+    "Home": Home,
+    "Impressum": Impressum,
 }
 
 export const pagesConfig = {
