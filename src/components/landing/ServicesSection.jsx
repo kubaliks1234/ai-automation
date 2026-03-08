@@ -18,6 +18,7 @@ const services = [
     bgGlow: 'bg-cyan-500/20',
   },
   {
+    slug: 'lead-generation',
     icon: Target,
     title: 'AI Lead Generation',
     description: 'KI findet automatisch neue Leads.',
