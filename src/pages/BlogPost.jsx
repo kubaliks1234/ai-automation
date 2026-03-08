@@ -66,6 +66,50 @@ export default function BlogPost() {
   }
 
   if (!post) {
+    // Payment Success Page
+    if (paymentStatus === 'success') {
+      return (
+        <div className="min-h-screen bg-[#0a0a0f]">
+          <Navbar />
+          <div className="flex flex-col items-center justify-center min-h-[80vh] text-center px-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-lg"
+            >
+              <div className="w-24 h-24 rounded-full bg-gradient-to-br from-cyan-500/20 to-green-500/20 border border-green-500/30 flex items-center justify-center mx-auto mb-8">
+                <CheckCircle className="w-12 h-12 text-green-400" />
+              </div>
+              <h1 className="text-4xl font-bold text-white mb-4">Zahlung erfolgreich! 🎉</h1>
+              <p className="text-gray-400 text-lg mb-4 leading-relaxed">
+                Vielen Dank für deinen Kauf! Du erhältst in Kürze eine E-Mail mit deinen Download-Links.
+              </p>
+              <p className="text-gray-500 text-sm mb-10">
+                Bitte prüfe auch deinen Spam-Ordner, falls du keine E-Mail erhältst.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  onClick={() => window.location.href = createPageUrl('Blog')}
+                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl"
+                >
+                  Zum Blog
+                </Button>
+                <Button
+                  onClick={() => window.location.href = createPageUrl('Home')}
+                  variant="outline"
+                  className="border-gray-700 text-gray-300 hover:text-white px-8 py-3 rounded-xl"
+                >
+                  Zur Startseite
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+          <Footer />
+        </div>
+      );
+    }
+
     return (
       <div className="min-h-screen bg-[#0a0a0f]">
         <Navbar />
