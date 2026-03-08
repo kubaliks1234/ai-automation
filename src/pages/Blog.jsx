@@ -45,6 +45,12 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      <SEOMeta
+        title="KI Tools Blog | Beste AI Tools für Unternehmen | Jakub Kaczmarek"
+        description="Entdecke die besten KI Tools für Marketing, Vertrieb und Automatisierung. Getestet und bewertet für Unternehmen."
+        keywords="KI Tools, AI Tools, Künstliche Intelligenz Marketing, AI Blog, beste KI Software, Automatisierung Tools"
+        canonical="https://jakubkaczmarek.de/blog"
+      />
       <Navbar />
       
       <main>
