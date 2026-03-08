@@ -75,6 +75,9 @@ export default function Footer() {
             <a href={createPageUrl('Datenschutz')} className="text-sm text-gray-500 hover:text-cyan-400 transition-colors">
               Datenschutz
             </a>
+            <a href={createPageUrl('Impressum')} className="text-sm text-gray-500 hover:text-cyan-400 transition-colors">
+              Impressum
+            </a>
           </div>
           <button
             onClick={scrollToTop}
