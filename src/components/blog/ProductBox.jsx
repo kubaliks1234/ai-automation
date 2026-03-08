@@ -3,6 +3,7 @@ import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Zap, BookOpen, List, Star, ShieldCheck, AlertCircle, Gift, Users, Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { createPageUrl } from '@/utils';
 
 const items = [
   {
