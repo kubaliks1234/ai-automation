@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
+import SEOMeta from '@/components/SEOMeta';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Star, ExternalLink, Tag, Calendar, CheckCircle } from 'lucide-react';
 import NewsletterSignup from '@/components/blog/NewsletterSignup';
