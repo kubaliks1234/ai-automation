@@ -110,8 +110,42 @@ export default function BlogPost() {
     );
   }
 
+  const articleSchema = post ? {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.meta_title || post.title,
+    "description": post.meta_description || post.excerpt,
+    "image": post.cover_image || '',
+    "author": {
+      "@type": "Person",
+      "name": "Jakub Kaczmarek",
+      "url": "https://jakubkaczmarek.de"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Jakub Kaczmarek – AI Automation",
+      "url": "https://jakubkaczmarek.de"
+    },
+    "datePublished": post.published_at || post.created_date,
+    "dateModified": post.updated_date || post.published_at,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://jakubkaczmarek.de/BlogPost?slug=${post.slug}`
+    }
+  } : null;
+
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
+      {post && (
+        <SEOMeta
+          title={post.meta_title || post.title}
+          description={post.meta_description || post.excerpt}
+          keywords={post.tags?.join(', ')}
+          canonical={`https://jakubkaczmarek.de/BlogPost?slug=${post.slug}`}
+          ogImage={post.cover_image}
+          structuredData={articleSchema}
+        />
+      )}
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
