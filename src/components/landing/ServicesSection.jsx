@@ -31,6 +31,7 @@ const services = [
     bgGlow: 'bg-blue-500/20',
   },
   {
+    slug: 'sales-automation',
     icon: TrendingUp,
     title: 'AI Sales Automationen',
     description: 'Vertriebssysteme mit KI.',
