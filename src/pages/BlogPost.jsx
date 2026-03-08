@@ -207,6 +207,9 @@ export default function BlogPost() {
           >{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
         </motion.div>
 
+        {/* Product Box */}
+        <ProductBox />
+
         {/* Newsletter */}
         <NewsletterSignup variant="inline" source="blog-artikel" />
 
