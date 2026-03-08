@@ -40,19 +40,19 @@ Deno.serve(async (req) => {
     <div style="margin-bottom: 16px; padding: 16px; background: #0f172a; border-radius: 8px; border-left: 4px solid #06b6d4;">
       <h3 style="color: #06b6d4; margin: 0 0 8px 0;">📘 E-Book: Mit KI dein erstes Einkommen</h3>
       <p style="color: #94a3b8; margin: 0 0 12px 0;">Der komplette Leitfaden, wie du mit KI-Tools online Geld verdienst.</p>
-      <a href="https://drive.google.com/drive/folders/PLACEHOLDER_EBOOK" style="display: inline-block; background: #06b6d4; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">📥 E-Book herunterladen</a>
+      <a href="https://drive.google.com/drive/folders/1uUWmqjqYnT0bBDA9Xyj6dO_ZyMWdDw2I?usp=drive_link" style="display: inline-block; background: #06b6d4; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">📥 E-Book herunterladen</a>
     </div>
 
     <div style="margin-bottom: 16px; padding: 16px; background: #0f172a; border-radius: 8px; border-left: 4px solid #8b5cf6;">
       <h3 style="color: #8b5cf6; margin: 0 0 8px 0;">⚡ Prompt-Bibliothek (100+ Prompts)</h3>
       <p style="color: #94a3b8; margin: 0 0 12px 0;">Über 100 sofort einsetzbare ChatGPT-Prompts für dein Online Business.</p>
-      <a href="https://drive.google.com/drive/folders/PLACEHOLDER_PROMPTS" style="display: inline-block; background: #8b5cf6; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">📥 Prompts herunterladen</a>
+      <a href="https://drive.google.com/drive/folders/1uUWmqjqYnT0bBDA9Xyj6dO_ZyMWdDw2I?usp=drive_link" style="display: inline-block; background: #8b5cf6; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">📥 Prompts herunterladen</a>
     </div>
 
     <div style="padding: 16px; background: #0f172a; border-radius: 8px; border-left: 4px solid #10b981;">
       <h3 style="color: #10b981; margin: 0 0 8px 0;">✅ Checklisten-Paket</h3>
       <p style="color: #94a3b8; margin: 0 0 12px 0;">Schritt-für-Schritt Checklisten für dein KI Business.</p>
-      <a href="https://drive.google.com/drive/folders/PLACEHOLDER_CHECKLISTEN" style="display: inline-block; background: #10b981; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">📥 Checklisten herunterladen</a>
+      <a href="https://drive.google.com/drive/folders/1uUWmqjqYnT0bBDA9Xyj6dO_ZyMWdDw2I?usp=drive_link" style="display: inline-block; background: #10b981; color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">📥 Checklisten herunterladen</a>
     </div>
   </div>
 
