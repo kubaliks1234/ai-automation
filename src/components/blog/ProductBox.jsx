@@ -56,10 +56,6 @@ export default function ProductBox() {
   const [error, setError] = useState('');
 
   const handleBuy = async () => {
-    if (!email || !email.includes('@')) {
-      setError('Bitte gib eine gültige E-Mail-Adresse ein.');
-      return;
-    }
     if (window.self !== window.top) {
       alert('Der Kauf ist nur in der veröffentlichten App möglich, nicht in der Vorschau.');
       return;
