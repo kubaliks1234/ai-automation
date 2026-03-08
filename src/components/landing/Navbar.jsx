@@ -135,8 +135,8 @@ export default function Navbar() {
                 )
               ))}
               <Button
-                onClick={() => scrollToSection('#cta')}
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl mt-4"
+                onClick={() => { setMobileMenuOpen(false); scrollToSection('#cta'); }}
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl mt-4 py-3 text-base"
               >
                 Kostenlose Analyse
               </Button>
