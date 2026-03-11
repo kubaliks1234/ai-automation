@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="relative py-16 bg-[#0a0a0f] border-t border-gray-800">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
@@ -44,6 +44,17 @@ export default function Footer() {
               <li><a href="#automations" className="hover:text-cyan-400 transition-colors">Beispiele</a></li>
               <li><a href={createPageUrl('Blog')} className="hover:text-cyan-400 transition-colors">Blog</a></li>
               <li><a href={createPageUrl('KiAgentur')} className="hover:text-cyan-400 transition-colors">KI Agentur</a></li>
+            </ul>
+          </div>
+
+          {/* Best Of Tools */}
+          <div>
+            <h4 className="text-white font-medium mb-4">Best Of</h4>
+            <ul className="space-y-3 text-sm text-gray-500">
+              <li><a href={createPageUrl('BlogPost') + '?slug=beste-ki-marketing-tools'} className="hover:text-cyan-400 transition-colors">Beste Marketing Tools</a></li>
+              <li><a href={createPageUrl('BlogPost') + '?slug=beste-ki-content-creator-tools'} className="hover:text-cyan-400 transition-colors">Beste Content Creator Tools</a></li>
+              <li><a href={createPageUrl('BlogPost') + '?slug=beste-ki-produktivitaets-tools'} className="hover:text-cyan-400 transition-colors">Beste Produktivitäts-Tools</a></li>
+              <li><a href={createPageUrl('Blog')} className="hover:text-cyan-400 transition-colors">Alle KI-Tools</a></li>
             </ul>
           </div>
 
