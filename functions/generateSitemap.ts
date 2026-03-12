@@ -4,16 +4,9 @@ const STATIC_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/Blog', priority: '0.9', changefreq: 'daily' },
   { path: '/KiAgentur', priority: '0.8', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=berlin', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=hamburg', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=muenchen', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=koeln', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=frankfurt', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=ai-marketing', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=lead-generation', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=sales-automation', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=workflow-automation', priority: '0.7', changefreq: 'monthly' },
   { path: '/Analyse', priority: '0.6', changefreq: 'monthly' },
+  { path: '/Datenschutz', priority: '0.3', changefreq: 'yearly' },
+  { path: '/Impressum', priority: '0.3', changefreq: 'yearly' },
 ];
 
 Deno.serve(async (req) => {
@@ -32,9 +25,11 @@ Deno.serve(async (req) => {
 
   const today = new Date().toISOString().split('T')[0];
 
+  const escapeXml = (str) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  
   const staticEntries = STATIC_PAGES.map(page => `
   <url>
-    <loc>${baseUrl}${page.path}</loc>
+    <loc>${escapeXml(baseUrl + page.path)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
@@ -42,7 +37,7 @@ Deno.serve(async (req) => {
 
   const blogEntries = posts.map(post => `
   <url>
-    <loc>${baseUrl}/blog/${encodeURIComponent(post.slug)}</loc>
+    <loc>${escapeXml(baseUrl + '/BlogPost?slug=' + post.slug)}</loc>
     <lastmod>${post.published_at || today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
