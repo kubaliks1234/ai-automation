@@ -42,7 +42,7 @@ Deno.serve(async (req) => {
 
   const blogEntries = posts.map(post => `
   <url>
-    <loc>${baseUrl}/BlogPost?slug=${post.slug}</loc>
+    <loc>${baseUrl}/blog/${encodeURIComponent(post.slug)}</loc>
     <lastmod>${post.published_at || today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
