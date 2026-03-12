@@ -18,6 +18,9 @@ export default function Footer() {
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png"
                 alt="Jakub Kaczmarek Logo"
                 className="w-10 h-10 rounded-xl object-cover"
+                width="40"
+                height="40"
+                loading="lazy"
               />
               <span className="text-base font-bold text-white">Jakub Kaczmarek</span>
             </div>

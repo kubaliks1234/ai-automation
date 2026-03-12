@@ -55,8 +55,11 @@ export default function Navbar() {
             <a href={createPageUrl('Home')} className="flex items-center gap-3">
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png"
-                alt="Logo"
+                alt="Jakub Kaczmarek Logo"
                 className="w-10 h-10 rounded-xl object-cover"
+                width="40"
+                height="40"
+                loading="eager"
               />
               <span className="text-xl font-bold text-white hidden sm:block">Jakub Kaczmarek</span>
             </a>
