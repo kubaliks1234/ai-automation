@@ -21,15 +21,15 @@ export default function Footer() {
               />
               <span className="text-base font-bold text-white">Jakub Kaczmarek</span>
             </div>
-            <p className="text-gray-500 text-sm">
+            <p className="text-gray-400 text-sm">
               KI Systeme für Unternehmen, die Zeit sparen und Umsatz bringen.
             </p>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-medium mb-4">Services</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
+            <h3 className="text-white font-medium mb-4 text-base">Services</h3>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li><a href={createPageUrl('Service') + '?service=ai-marketing'} className="hover:text-cyan-400 transition-colors">AI Marketing</a></li>
               <li><a href={createPageUrl('Service') + '?service=lead-generation'} className="hover:text-cyan-400 transition-colors">Lead Generation</a></li>
               <li><a href={createPageUrl('Service') + '?service=sales-automation'} className="hover:text-cyan-400 transition-colors">Sales Automation</a></li>
@@ -39,8 +39,8 @@ export default function Footer() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-white font-medium mb-4">Ressourcen</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
+            <h3 className="text-white font-medium mb-4 text-base">Ressourcen</h3>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li><a href="#automations" className="hover:text-cyan-400 transition-colors">Beispiele</a></li>
               <li><a href={createPageUrl('Blog')} className="hover:text-cyan-400 transition-colors">Blog</a></li>
               <li><a href={createPageUrl('KiAgentur')} className="hover:text-cyan-400 transition-colors">KI Agentur</a></li>
@@ -49,8 +49,8 @@ export default function Footer() {
 
           {/* Best Of Tools */}
           <div>
-            <h4 className="text-white font-medium mb-4">Best Of</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
+            <h3 className="text-white font-medium mb-4 text-base">Best Of</h3>
+            <ul className="space-y-3 text-sm text-gray-400">
               <li><a href={createPageUrl('BlogPost') + '?slug=beste-ki-marketing-tools'} className="hover:text-cyan-400 transition-colors">Beste Marketing Tools</a></li>
               <li><a href={createPageUrl('BlogPost') + '?slug=beste-ki-content-creator-tools'} className="hover:text-cyan-400 transition-colors">Beste Content Creator Tools</a></li>
               <li><a href={createPageUrl('BlogPost') + '?slug=beste-ki-produktivitaets-tools'} className="hover:text-cyan-400 transition-colors">Beste Produktivitäts-Tools</a></li>
@@ -60,8 +60,8 @@ export default function Footer() {
 
           {/* Cities */}
           <div>
-            <h4 className="text-white font-medium mb-4">KI Agentur Städte</h4>
-            <ul className="space-y-3 text-sm text-gray-500">
+            <h3 className="text-white font-medium mb-4 text-base">KI Agentur Städte</h3>
+            <ul className="space-y-3 text-sm text-gray-400">
               {['berlin','hamburg','muenchen','koeln','frankfurt'].map(slug => (
                 <li key={slug}>
                   <a href={createPageUrl('KiAgentur') + '?city=' + slug} className="hover:text-cyan-400 transition-colors capitalize">
@@ -74,16 +74,16 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-medium mb-4">Kontakt</h4>
+            <h3 className="text-white font-medium mb-4 text-base">Kontakt</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="mailto:kontakt@example.com" className="flex items-center gap-2 text-gray-500 hover:text-cyan-400 transition-colors">
+                <a href="mailto:kontakt@example.com" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors">
                   <Mail className="w-4 h-4" />
                   kontakt@example.com
                 </a>
               </li>
               <li>
-                <a href="#" className="flex items-center gap-2 text-gray-500 hover:text-cyan-400 transition-colors">
+                <a href="#" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors" aria-label="LinkedIn Profil besuchen">
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
                   <ArrowUpRight className="w-3 h-3" />
@@ -99,16 +99,17 @@ export default function Footer() {
             <p className="text-sm text-gray-600">
               © {new Date().getFullYear()} AI Automation. Alle Rechte vorbehalten.
             </p>
-            <a href={createPageUrl('Datenschutz')} className="text-sm text-gray-500 hover:text-cyan-400 transition-colors">
+            <a href={createPageUrl('Datenschutz')} className="text-sm text-gray-400 hover:text-cyan-400 transition-colors">
               Datenschutz
             </a>
-            <a href={createPageUrl('Impressum')} className="text-sm text-gray-500 hover:text-cyan-400 transition-colors">
+            <a href={createPageUrl('Impressum')} className="text-sm text-gray-400 hover:text-cyan-400 transition-colors">
               Impressum
             </a>
           </div>
           <button
             onClick={scrollToTop}
-            className="text-sm text-gray-500 hover:text-cyan-400 transition-colors"
+            className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+            aria-label="Nach oben scrollen"
           >
             Nach oben ↑
           </button>
