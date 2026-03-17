@@ -10,6 +10,7 @@ import RelatedPosts from '@/components/blog/RelatedPosts';
 import ProductBox from '@/components/blog/ProductBox';
 import { Button } from '@/components/ui/button';
 import { createPageUrl } from '@/utils';
+import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -27,14 +28,15 @@ export default function BlogPost() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const params = new URLSearchParams(window.location.search);
-  const paymentStatus = params.get('payment');
+  const routeParams = useParams();
+  const queryParams = new URLSearchParams(window.location.search);
+  const paymentStatus = queryParams.get('payment');
+  const slug = routeParams.slug || queryParams.get('slug');
 
   useEffect(() => {
-    const slug = params.get('slug');
     if (slug) loadPost(slug);
     else setLoading(false);
-  }, []);
+  }, [slug]);
 
   const loadPost = async (slug) => {
     setLoading(true);
@@ -130,7 +132,7 @@ export default function BlogPost() {
     "dateModified": post.updated_date || post.published_at,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://jakubkaczmarek.de/BlogPost?slug=${post.slug}`
+      "@id": `https://jakubkaczmarek.de/blog/${post.slug}`
     }
   } : null;
 
@@ -141,7 +143,7 @@ export default function BlogPost() {
           title={post.meta_title || post.title}
           description={post.meta_description || post.excerpt}
           keywords={post.tags?.join(', ')}
-          canonical={`https://jakubkaczmarek.de/BlogPost?slug=${post.slug}`}
+          canonical={`https://jakubkaczmarek.de/blog/${post.slug}`}
           ogImage={post.cover_image}
           structuredData={articleSchema}
         />
