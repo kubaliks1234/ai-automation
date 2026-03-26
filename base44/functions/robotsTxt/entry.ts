@@ -1,12 +1,15 @@
-Deno.serve(async (req) => {
-  const url = new URL(req.url);
-  const baseUrl = url.searchParams.get('base_url') || 'https://jakubkaczmarek.de';
+Deno.serve(async (_req) => {
+  const baseUrl = 'https://jakubkaczmarek.de';
 
   const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${baseUrl}/api/generateSitemap?base_url=${baseUrl}
-`;
+# Keine Admin/Draft Seiten indexieren
+Disallow: /admin
+Disallow: /api/
+
+# Sitemap
+Sitemap: ${baseUrl}/sitemap.xml`;
 
   return new Response(robots, {
     headers: {

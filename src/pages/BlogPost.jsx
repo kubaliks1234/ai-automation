@@ -136,6 +136,35 @@ export default function BlogPost() {
     }
   } : null;
 
+  const breadcrumbSchema = post ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://jakubkaczmarek.de" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jakubkaczmarek.de/Blog" },
+      { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://jakubkaczmarek.de/blog/${post.slug}` }
+    ]
+  } : null;
+
+  const reviewSchema = (post && post.rating && post.ai_tool_name) ? {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": {
+      "@type": "SoftwareApplication",
+      "name": post.ai_tool_name,
+      "applicationCategory": "BusinessApplication",
+      "url": post.ai_tool_url || ''
+    },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": post.rating,
+      "bestRating": 5,
+      "worstRating": 1
+    },
+    "author": { "@type": "Person", "name": "Jakub Kaczmarek" },
+    "publisher": { "@type": "Organization", "name": "jakubkaczmarek.de" }
+  } : null;
+
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       {post && (
@@ -148,9 +177,24 @@ export default function BlogPost() {
           structuredData={articleSchema}
         />
       )}
+      {breadcrumbSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      )}
+      {reviewSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
+      )}
       <Navbar />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 pt-24 pb-20">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-600 mb-6">
+          <a href="/" className="hover:text-cyan-400 transition-colors">Startseite</a>
+          <span>/</span>
+          <a href="/Blog" className="hover:text-cyan-400 transition-colors">Blog</a>
+          <span>/</span>
+          <span className="text-gray-500 truncate max-w-[200px]">{post?.title}</span>
+        </nav>
+
         {/* Back button */}
         <motion.button
           initial={{ opacity: 0, x: -20 }}
