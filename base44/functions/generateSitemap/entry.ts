@@ -37,7 +37,7 @@ Deno.serve(async (req) => {
 
   const blogEntries = posts.map(post => `
   <url>
-    <loc>${escapeXml(baseUrl + '/BlogPost?slug=' + post.slug)}</loc>
+    <loc>${escapeXml(baseUrl + '/blog/' + post.slug)}</loc>
     <lastmod>${post.published_at || today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
