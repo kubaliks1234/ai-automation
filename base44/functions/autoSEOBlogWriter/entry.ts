@@ -1,6 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
 
 Deno.serve(async (req) => {
+  try {
   const base44 = createClientFromRequest(req);
 
   // Allow scheduled calls (no user) OR admin users
@@ -207,7 +208,7 @@ Gib mir das Ergebnis als JSON:
   const result = await base44.asServiceRole.integrations.Core.InvokeLLM({
     prompt,
     add_context_from_internet: true,
-    model: "gemini_3_pro",
+    model: "gemini_3_flash",
     response_json_schema: {
       type: "object",
       properties: {
@@ -249,4 +250,10 @@ Gib mir das Ergebnis als JSON:
     title: result.title,
     message: `Artikel "${result.title}" wurde erfolgreich erstellt.`
   });
+
+  } catch (error) {
+    console.error(`[ERROR] autoSEOBlogWriter fehlgeschlagen: ${error.message}`);
+    console.error(error.stack);
+    return Response.json({ error: error.message }, { status: 500 });
+  }
 });
