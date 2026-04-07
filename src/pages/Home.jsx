@@ -27,7 +27,8 @@ const homeStructuredData = {
         "postalCode": "86609",
         "addressCountry": "DE"
       },
-      "url": "https://jakubkaczmarek.de"
+      "url": "https://jakubkaczmarek.de",
+      "knowsAbout": ["KI Automatisierung", "AI Automation", "Lead Generation", "Marketing Automatisierung", "Sales Automation"]
     },
     {
       "@type": "LocalBusiness",
@@ -51,14 +52,20 @@ const homeStructuredData = {
         "telephone": "+4917643942729",
         "contactType": "customer service",
         "availableLanguage": "German"
-      }
+      },
+      "priceRange": "$$"
     },
     {
       "@type": "WebSite",
       "@id": "https://jakubkaczmarek.de/#website",
       "url": "https://jakubkaczmarek.de",
       "name": "Jakub Kaczmarek – AI Automation",
-      "inLanguage": "de-DE"
+      "inLanguage": "de-DE",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jakubkaczmarek.de/Blog?search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     }
   ]
 };
@@ -67,9 +74,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <SEOMeta
-        title="KI Automatisierung für Unternehmen | Jakub Kaczmarek"
+        title="KI Automatisierung für Unternehmen | Jakub Kaczmarek – AI Experte"
         description="Jakub Kaczmarek – KI-Automatisierung und digitale Systeme für Unternehmen. Spare Zeit, generiere mehr Leads und steigere deinen Umsatz mit maßgeschneiderten AI-Workflows."
-        keywords="KI Automatisierung, AI Automation, Workflow Automatisierung, Lead Generation, Sales Automation, Marketing Automatisierung, Donauwörth, Bayern"
+        keywords="KI Automatisierung, AI Automation, Workflow Automatisierung, Lead Generation, Sales Automation, Marketing Automatisierung, KI Agentur Deutschland, KI Beratung, Donauwörth, Bayern, KI Experte, künstliche Intelligenz Unternehmen, AI Lösungen, Prozessautomatisierung"
         canonical="https://jakubkaczmarek.de/"
         structuredData={homeStructuredData}
       />
