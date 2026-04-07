@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 
+const DEFAULT_IMAGE = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png';
+
 export default function SEOMeta({
   title,
   description,
   keywords,
   canonical,
-  ogImage = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png',
+  ogImage = DEFAULT_IMAGE,
   noIndex = false,
   structuredData = null,
 }) {
   useEffect(() => {
-    // Title
     document.title = title;
     document.documentElement.lang = 'de';
 
@@ -40,8 +41,6 @@ export default function SEOMeta({
     if (keywords) setMeta('keywords', keywords);
     setMeta('author', 'Jakub Kaczmarek');
     setMeta('robots', noIndex ? 'noindex, nofollow' : 'index, follow');
-
-    // Canonical
     if (canonical) setLink('canonical', canonical);
 
     // Open Graph
@@ -49,6 +48,8 @@ export default function SEOMeta({
     setMeta('og:title', title, true);
     setMeta('og:description', description, true);
     setMeta('og:image', ogImage, true);
+    setMeta('og:image:width', '1200', true);
+    setMeta('og:image:height', '630', true);
     setMeta('og:locale', 'de_DE', true);
     setMeta('og:site_name', 'Jakub Kaczmarek – AI Automation', true);
     if (canonical) setMeta('og:url', canonical, true);
@@ -58,6 +59,8 @@ export default function SEOMeta({
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
     setMeta('twitter:image', ogImage);
+    setMeta('twitter:creator', '@jakubkaczmarek');
+    setMeta('twitter:site', '@jakubkaczmarek');
 
     // Structured Data
     if (structuredData) {
@@ -73,11 +76,10 @@ export default function SEOMeta({
     }
 
     return () => {
-      // cleanup structured data on unmount
       const script = document.getElementById('structured-data-json');
       if (script) script.remove();
     };
-  }, [title, description, keywords, canonical, ogImage, noIndex]);
+  }, [title, description, keywords, canonical, ogImage, noIndex, structuredData]);
 
   return null;
 }
