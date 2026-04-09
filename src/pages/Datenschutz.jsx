@@ -83,7 +83,7 @@ export default function Datenschutz() {
                             <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
                         </ul>
                         <p className="text-gray-400 mt-3">
-                            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:jk@jakubkaczmarek.de" className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a> className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a> className="text-cyan-400 hover:underline">jakub@jakubkaczmarek.de</a>
+                            Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:jk@jakubkaczmarek.de" className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a>
                         </p>
                     </section>
 
@@ -101,7 +101,7 @@ export default function Datenschutz() {
                             Jakub Kaczmarek<br />
                             Sebastian-Frank-Str. 11<br />
                             86609 Donauwörth<br />
-                            E-Mail: <a href="mailto:jk@jakubkaczmarek.de" className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a> className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a> className="text-cyan-400 hover:underline">jakub@jakubkaczmarek.de</a>
+                            E-Mail: <a href="mailto:jk@jakubkaczmarek.de" className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a>
                         </p>
                     </section>
                 </motion.div>
