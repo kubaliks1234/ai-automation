@@ -75,25 +75,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h3 className="text-white font-medium mb-4 text-base">Kontakt</h3>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <a href="mailto:kontakt@example.com" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors">
-                  <Mail className="w-4 h-4" />
-                  kontakt@example.com
-                </a>
-              </li>
-              <li>
-                <a href="#" className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors" aria-label="LinkedIn Profil besuchen">
-                  <Linkedin className="w-4 h-4" />
-                  LinkedIn
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom */}
