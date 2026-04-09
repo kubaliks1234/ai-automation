@@ -36,7 +36,7 @@ export default function Impressum() {
                     <section className="mb-8">
                         <h2 className="text-xl font-semibold text-white mb-3">Kontakt</h2>
                         <p className="text-gray-400 leading-relaxed">
-                            E-Mail: <a href="mailto:jakub.kaczmarek669@gmail.com" className="text-cyan-400 hover:underline">jakub.kaczmarek669@gmail.com</a><br />
+                            E-Mail: <a href="mailto:jk@jakubkaczmarek.de" className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a><br /> className="text-cyan-400 hover:underline">jk@jakubkaczmarek.de</a><br /> className="text-cyan-400 hover:underline">jakub.kaczmarek669@gmail.com</a><br />
                             Telefon: 017643942729
                         </p>
                     </section>
