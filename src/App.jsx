@@ -4,6 +4,7 @@ import { queryClientInstance } from '@/lib/query-client'
 import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BlogPost from './pages/BlogPost';
+import SeoOptimierung from './pages/SeoOptimierung';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
@@ -59,6 +60,7 @@ const AuthenticatedApp = () => {
         />
       ))}
       <Route path="/blog/:slug" element={<BlogPost />} />
+      <Route path="/SeoOptimierung" element={<SeoOptimierung />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
