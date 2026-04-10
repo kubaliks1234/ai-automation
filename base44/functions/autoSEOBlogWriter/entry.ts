@@ -174,6 +174,24 @@ ARTIKEL-TYP: ${selected.type.toUpperCase()}
 
 ${typeInstructions}
 
+🚫 ABSOLUT VERBOTENE WÖRTER UND AUSDRÜCKE – diese darfst du NIEMALS verwenden:
+- Game Changer, unlock, unleash, delve, realm, landscape
+- revolutionize / revolutionieren, cutting-edge, robust, elevate, foster
+- navigate (complexities), embark on journey, spearhead
+- utilize (schreibe stattdessen: nutzen/verwenden), commence (schreibe: starten), endeavor, paramount
+- synergy, thought leader, value-add, holistic, transformative
+- "in today's world", "in today's fast-paced", "look no further"
+- "let's dive in", "at the end of the day", "nestled in"
+- Gedankenstriche (—) → nutze stattdessen Komma, Punkt oder Klammern
+- Rhetorische Ein-Wort-Fragen wie: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
+- Übermäßige Adjektive: unglaublich, bahnbrechend, wegweisend, visionär
+
+✅ SCHREIBE WIE EIN MENSCH:
+- Direkt, konkret, ohne Blabla
+- Schreibe kurze Sätze statt langer verschachtelter Konstrukte
+- Verwende aktive Sprache: "du sparst Zeit" statt "es ermöglicht dir, Zeit zu sparen"
+- Nenne konkrete Zahlen und Fakten
+
 🎯 WICHTIGE SEO-REGELN:
 - Keyword "${selected.keyword || mainTopic}" in: Titel (mit Jahreszahl 2026), erster Absatz, H1, Meta Title, Meta Description, Slug
 - Longtail-Keyword Fokus: Ziele auf spezifische Nische, nicht allgemeine Begriffe

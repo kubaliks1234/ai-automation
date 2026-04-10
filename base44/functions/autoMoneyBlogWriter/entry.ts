@@ -66,6 +66,24 @@ Deno.serve(async (req) => {
 
     const prompt = `Du bist ein professioneller SEO-Texter und KI-Experte. Schreibe einen vollständigen, SEO-optimierten Blogartikel auf Deutsch.
 
+🚫 ABSOLUT VERBOTENE WÖRTER UND AUSDRÜCKE – diese darfst du NIEMALS verwenden:
+- Game Changer, unlock, unleash, delve, realm, landscape
+- revolutionize / revolutionieren, cutting-edge, robust, elevate, foster
+- navigate (complexities), embark on journey, spearhead
+- utilize (schreibe stattdessen: nutzen/verwenden), commence (schreibe: starten), endeavor, paramount
+- synergy, thought leader, value-add, holistic, transformative
+- "in today's world", "in today's fast-paced", "look no further"
+- "let's dive in", "at the end of the day", "nestled in"
+- Gedankenstriche (—) → nutze stattdessen Komma, Punkt oder Klammern
+- Rhetorische Ein-Wort-Fragen wie: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
+- Übermäßige Adjektive: unglaublich, bahnbrechend, wegweisend, visionär
+
+✅ SCHREIBE WIE EIN MENSCH:
+- Direkt, konkret, ohne Blabla
+- Kurze Sätze statt langer verschachtelter Konstrukte
+- Aktive Sprache: "du sparst Zeit" statt "es ermöglicht dir, Zeit zu sparen"
+- Konkrete Zahlen und Fakten statt vager Versprechen
+
 **Titel:** "${article.title}"
 **Hauptkeyword:** "${article.keyword}"
 **Zielgruppe:** Menschen die online Geld verdienen wollen, Einsteiger bis Fortgeschrittene
