@@ -16,17 +16,17 @@ Deno.serve(async (req) => {
       return Response.json({ error: 'Forbidden' }, { status: 403 });
     }
 
-    // Simple word-level replacements (case-insensitive)
+    // Word-level replacements (case-insensitive)
     const replacements = [
-      // Einzelne Wörter
+      // English banned words
       [/\bgame[- ]changer\b/gi, 'echter Vorteil'],
+      [/\bgame[- ]changing\b/gi, 'wirkungsvoll'],
       [/\bunlock\b/gi, 'freischalten'],
-      [/\bunleash\b/gi, 'entfesseln'],
+      [/\bunleash\b/gi, 'voll ausschöpfen'],
       [/\bdelve\b/gi, 'vertiefen'],
       [/\brealm\b/gi, 'Bereich'],
       [/\blandscape\b/gi, 'Umfeld'],
       [/\brevolutionize\b/gi, 'grundlegend verändern'],
-      [/\brevolutionieren\b/gi, 'grundlegend verändern'],
       [/\bcutting-edge\b/gi, 'modern'],
       [/\brobust\b/gi, 'zuverlässig'],
       [/\belevate\b/gi, 'verbessern'],
@@ -37,23 +37,62 @@ Deno.serve(async (req) => {
       [/\bendeavor\b/gi, 'Bemühung'],
       [/\bparamount\b/gi, 'entscheidend'],
       [/\bsynergy\b/gi, 'Zusammenarbeit'],
+      [/\bsynergies\b/gi, 'Synergieeffekte'],
       [/\bthought leader\b/gi, 'Experte'],
+      [/\bthought leadership\b/gi, 'Expertise'],
       [/\bvalue-add\b/gi, 'Mehrwert'],
       [/\bholistic\b/gi, 'ganzheitlich'],
       [/\btransformative\b/gi, 'wirkungsvoll'],
+      // German banned words
+      [/\brevolutionieren\b/gi, 'grundlegend verändern'],
+      [/\brevolutioniert\b/gi, 'grundlegend verändert'],
+      [/\brevolutionierend\b/gi, 'wirkungsvoll'],
       [/\bbahnbrechend\b/gi, 'wirkungsvoll'],
+      [/\bbahnbrechende[rnsm]?\b/gi, 'wirkungsvolle'],
       [/\bwegweisend\b/gi, 'richtungsweisend'],
-      [/\bunglaublich\b/gi, 'bemerkenswert'],
+      [/\bwegweisende[rnsm]?\b/gi, 'richtungsweisende'],
+      [/\bunglaublich\b/gi, 'sehr'],
+      [/\bunglaubliche[rnsm]?\b/gi, 'bemerkenswerte'],
       [/\bvisionär\b/gi, 'zukunftsorientiert'],
-      // Verbotene Phrasen
+      [/\bvisionäre[rnsm]?\b/gi, 'zukunftsorientierte'],
+      [/\bim Sturm erobert\b/gi, 'stark geprägt'],
+      [/\bim Sturm genommen\b/gi, 'stark verändert'],
+      [/\bSpielbuch\b/gi, 'Regeln'],
+      [/\bSpielregeln grundlegend\b/gi, 'Regeln'],
+      [/\bauf das nächste Level\b/gi, 'auf ein höheres Niveau'],
+      [/\bauf ein neues Level\b/gi, 'auf ein höheres Niveau'],
+      [/\bnächste Level\b/gi, 'nächste Stufe'],
+      [/\bChampions League\b/gi, 'Spitzengruppe'],
+      [/\bKiller-Feature\b/gi, 'Hauptfunktion'],
+      [/\bKiller Feature\b/gi, 'Hauptfunktion'],
+      [/\bim Sturm\b/gi, 'schnell'],
+      [/\btransformiert\b/gi, 'verändert'],
+      [/\bTransformation\b/gi, 'Veränderung'],
+      [/\btransformieren\b/gi, 'verändern'],
+      // Banned phrases
       [/in today's world[,]?/gi, 'heute'],
-      [/in today's fast-paced[^,.]*/gi, 'heute'],
+      [/in today's fast-paced[^,.]*[,]?/gi, 'heute'],
       [/look no further[.!]?/gi, ''],
-      [/let's dive in[.!]?/gi, 'Hier ist der Überblick:'],
+      [/let's dive in[.!]?/gi, 'Hier der Überblick:'],
       [/at the end of the day[,]?/gi, 'letztlich'],
       [/nestled in/gi, 'in'],
-      [/embark on [a-z]+ journey/gi, 'starten'],
+      [/embark on [a-zäöü]+ journey/gi, 'starten'],
       [/navigate (the )?(complexities|challenges)/gi, 'mit den Herausforderungen umgehen'],
+      // Rhetorical one-word questions (worst AI tell)
+      [/\bErgebnis\?/g, ''],
+      [/\bDer Haken\?/g, 'Aber:'],
+      [/\bMein Tipp\?/g, 'Tipp:'],
+      [/\bDie Lösung\?/g, 'Die Lösung:'],
+      [/\bDas Ergebnis\?/g, ''],
+      [/\bDie Antwort\?/g, 'Die Antwort:'],
+      [/\bDer Trick\?/g, 'Der Trick:'],
+      [/\bDie Moral\?/g, ''],
+      [/\bDas Fazit\?/g, 'Das Fazit:'],
+      [/\bThe result\?/gi, ''],
+      [/\bThe catch\?/gi, 'Aber:'],
+      // Em dashes
+      [/ — /g, ', '],
+      [/—/g, ', '],
     ];
 
     const fields = ['title', 'excerpt', 'meta_title', 'meta_description', 'content'];
