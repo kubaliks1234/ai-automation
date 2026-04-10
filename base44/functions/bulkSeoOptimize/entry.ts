@@ -31,15 +31,16 @@ Deno.serve(async (req) => {
     if (!isAuthorized) return Response.json({ error: 'Forbidden' }, { status: 403 });
 
     const body = await req.json().catch(() => ({}));
-    const postIds = body.post_ids || null; // optional: specific post IDs
+    const postIds = body.post_ids || null;
     const batchSize = body.batch_size || 10;
+    const skip = body.skip || 0;
 
     const allPosts = await base44.asServiceRole.entities.BlogPost.list('-published_at', 200);
     const posts = postIds
       ? allPosts.filter(p => postIds.includes(p.id))
       : allPosts.filter(p => p.status === 'published');
 
-    const batch = posts.slice(0, batchSize);
+    const batch = posts.slice(skip, skip + batchSize);
 
     let updated = 0;
     const results = [];
