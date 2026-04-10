@@ -19,37 +19,34 @@ Deno.serve(async (req) => {
     const existingPosts = await base44.asServiceRole.entities.BlogPost.list('-published_at', 200);
     const existingTitles = existingPosts.map(p => p.title?.toLowerCase()).filter(Boolean);
 
+    // SEO-Guide Strategie: BOFU→MOFU Cluster für jakubkaczmarek.de
     const articlePool = [
-      { title: "10 Wege Geld mit KI zu verdienen", keyword: "geld verdienen mit ki", tags: ["KI", "Geld verdienen", "AI", "Online Business", "Side Hustle"] },
-      { title: "20 AI Tools die dir Geld verdienen – Komplette Liste 2026", keyword: "ai tools geld verdienen", tags: ["AI Tools", "Geld verdienen", "Online Business", "KI Tools", "Passives Einkommen"] },
-      { title: "Online Business mit KI starten: Schritt-für-Schritt Anleitung", keyword: "online business mit ki starten", tags: ["Online Business", "KI", "Business Ideen", "Einsteiger", "Automation"] },
-      { title: "Geld verdienen mit ChatGPT: 15 bewährte Ideen 2026", keyword: "geld verdienen mit chatgpt", tags: ["ChatGPT", "Geld verdienen", "KI", "Side Hustle", "Online Business"] },
-      { title: "AI Side Hustle Ideen: So verdienst du nebenbei mit KI Geld", keyword: "ai side hustle ideen", tags: ["Side Hustle", "KI", "AI", "Nebenverdienst", "Online Geld verdienen"] },
-      { title: "Passives Einkommen mit KI aufbauen – 8 realistische Methoden", keyword: "passives einkommen mit ki", tags: ["Passives Einkommen", "KI", "AI", "Online Business", "Automation"] },
-      { title: "KI Business Ideen 2026: Die besten Geschäftsmodelle mit AI", keyword: "ki business ideen 2026", tags: ["Business Ideen", "KI", "AI", "Online Business", "2026"] },
-      { title: "AI Tools für Online Unternehmer: Die 15 besten Tools im Vergleich", keyword: "ai tools für online business", tags: ["AI Tools", "Online Business", "KI Tools", "Unternehmer", "Produktivität"] },
-      { title: "KI Automatisierung für mehr Einkommen: So funktioniert es", keyword: "ai automatisierung business", tags: ["KI Automatisierung", "Einkommen", "AI", "Online Business", "Effizienz"] },
-      { title: "AI Tools für Affiliate Marketing: Mehr Provision mit KI verdienen", keyword: "affiliate marketing mit ki", tags: ["Affiliate Marketing", "KI", "AI Tools", "Online Marketing", "Passives Einkommen"] },
-      { title: "Geld verdienen im Internet für Anfänger: Der komplette Guide 2026", keyword: "geld verdienen im internet für anfänger", tags: ["Geld verdienen", "Anfänger", "Online Business", "Internet", "2026"] },
-      { title: "Online Geld verdienen ohne Startkapital: 12 Methoden die funktionieren", keyword: "online geld verdienen ohne startkapital", tags: ["Geld verdienen", "Ohne Startkapital", "Online Business", "Einsteiger", "Nebenverdienst"] },
-      { title: "Geld verdienen mit KI für Anfänger: Einstieg in 2026", keyword: "geld verdienen mit ki für anfänger", tags: ["KI", "Anfänger", "Geld verdienen", "AI", "Einsteiger Guide"] },
-      { title: "Automatisiertes Affiliate Marketing mit KI: So geht's", keyword: "automatisiertes affiliate marketing", tags: ["Affiliate Marketing", "Automation", "KI", "Passives Einkommen", "AI Tools"] },
-      { title: "Digitales Business aufbauen: Mit KI schneller zum Erfolg", keyword: "digitales business aufbauen", tags: ["Digitales Business", "KI", "Online Business", "Aufbauen", "AI"] },
-      { title: "Geld verdienen mit Content und KI: Die besten Strategien", keyword: "geld verdienen mit content", tags: ["Content", "KI", "Geld verdienen", "Content Creation", "AI Tools"] },
-      { title: "Geld verdienen mit Social Media und KI-Tools 2026", keyword: "geld verdienen mit social media", tags: ["Social Media", "KI", "Geld verdienen", "Content Creator", "AI Tools"] },
-      { title: "AI Tools für Content Creator: Diese Tools sparen dir Stunden", keyword: "ai tools für content creator", tags: ["Content Creator", "AI Tools", "KI", "Social Media", "Produktivität"] },
-      { title: "Side Hustle Ideen mit KI: 10 Nebenjobs die wirklich funktionieren", keyword: "side hustle ideen mit künstlicher intelligenz", tags: ["Side Hustle", "KI", "Nebenjob", "Online Geld", "AI"] },
-      { title: "Geld verdienen mit digitalen Produkten + KI: Schritt für Schritt", keyword: "geld verdienen mit digitalen produkten", tags: ["Digitale Produkte", "KI", "Passives Einkommen", "Online Business", "AI"] },
-      { title: "Wie man mit AI Geld verdient: Der ehrliche Leitfaden 2026", keyword: "wie man mit ai geld verdient", tags: ["AI", "Geld verdienen", "KI", "Online Business", "Einsteiger"] },
-      { title: "Nebenverdienst online: 15 Ideen für 2026 mit und ohne KI", keyword: "nebenverdienst online", tags: ["Nebenverdienst", "Online", "Geld verdienen", "KI", "Side Hustle"] },
-      { title: "Geld verdienen mit YouTube und KI: Kanal automatisieren 2026", keyword: "geld verdienen mit youtube", tags: ["YouTube", "KI", "Geld verdienen", "Content Creator", "AI Tools"] },
-      { title: "KI Business Ideen für Anfänger: So startest du ohne Vorkenntnisse", keyword: "ki business ideen für anfänger", tags: ["KI Business", "Anfänger", "Business Ideen", "AI", "Einsteiger"] },
-      { title: "Beste AI Tools für Online Business 2026: Mein ehrlicher Vergleich", keyword: "beste ai tools für online business", tags: ["AI Tools", "Online Business", "KI", "Vergleich", "2026"] },
-      { title: "Affiliate Marketing für Anfänger mit KI: Der Starter Guide", keyword: "affiliate marketing für anfänger", tags: ["Affiliate Marketing", "Anfänger", "KI", "Passives Einkommen", "AI"] },
-      { title: "Online Marketing Geld verdienen: Mit KI auf Autopilot", keyword: "online marketing geld verdienen", tags: ["Online Marketing", "KI", "Geld verdienen", "Automation", "AI Tools"] },
-      { title: "AI Marketing Tools 2026: Die besten Tools für dein Business", keyword: "ai marketing tools", tags: ["AI Marketing", "Tools", "KI", "Online Marketing", "Business"] },
-      { title: "Geld verdienen mit TikTok und KI: Strategie für 2026", keyword: "geld verdienen mit tiktok", tags: ["TikTok", "KI", "Geld verdienen", "Social Media", "Content Creator"] },
-      { title: "Internet Business Ideen 2026: Mit KI durchstarten", keyword: "internet business ideen", tags: ["Internet Business", "KI", "Business Ideen", "Online", "2026"] },
+      // === BOFU: Kaufabsicht (KI-Automatisierung Freelancer/Agentur) ===
+      { title: "KI Automatisierung Spezialist beauftragen: Was kostet es & was bringt es?", keyword: "ki automatisierung spezialist beauftragen", tags: ["KI Automatisierung", "Spezialist", "B2B", "DACH", "Freelancer"] },
+      { title: "n8n Automatisierung Agentur finden: Worauf du achten solltest", keyword: "n8n automatisierung agentur", tags: ["n8n", "Automatisierung", "Agentur", "DACH", "B2B"] },
+      { title: "KI Consultant Deutschland beauftragen: Kosten, Ablauf & Erfahrungen", keyword: "ki consultant deutschland", tags: ["KI Consultant", "Deutschland", "Beratung", "DACH", "B2B"] },
+      { title: "AI Automation Freelancer Deutschland: So findest du den richtigen", keyword: "ai automation freelancer deutschland", tags: ["AI Automation", "Freelancer", "Deutschland", "B2B", "DACH"] },
+      { title: "Automatisierung Berater DACH: So wählst du den richtigen Partner", keyword: "automatisierung berater dach", tags: ["Automatisierung", "Berater", "DACH", "B2B", "KI"] },
+      // === MOFU: Vergleiche & Guides ===
+      { title: "KI Automatisierung B2B: Der vollständige Leitfaden 2026", keyword: "ki automatisierung b2b", tags: ["KI Automatisierung", "B2B", "Leitfaden", "DACH", "2026"] },
+      { title: "n8n Tutorial Deutsch: Von Null zur ersten Automatisierung 2026", keyword: "n8n tutorial deutsch", tags: ["n8n", "Tutorial", "Deutsch", "Automatisierung", "Einsteiger"] },
+      { title: "Marketing mit KI automatisieren: 7 Wege die wirklich funktionieren", keyword: "marketing mit ki automatisieren", tags: ["Marketing", "KI", "Automatisierung", "B2B", "Effizienz"] },
+      { title: "LinkedIn Automatisierung legal 2026: Was geht, was nicht?", keyword: "linkedin automatisierung legal", tags: ["LinkedIn", "Automatisierung", "Legal", "B2B", "DACH"] },
+      { title: "KI Tools für Unternehmen 2026: Die besten im Vergleich", keyword: "ki tools für unternehmen 2026", tags: ["KI Tools", "Unternehmen", "2026", "B2B", "DACH"] },
+      { title: "ElevenLabs n8n verbinden: Schritt-für-Schritt Guide", keyword: "elevenlabs n8n verbinden", tags: ["ElevenLabs", "n8n", "Integration", "Voice Agent", "Automatisierung"] },
+      { title: "WhatsApp Automatisierung Business: KI-Lösungen für Unternehmen", keyword: "whatsapp automatisierung business ki", tags: ["WhatsApp", "Automatisierung", "Business", "KI", "B2B"] },
+      { title: "Perplexity API Integration: So nutzt du sie mit n8n", keyword: "perplexity api integration n8n", tags: ["Perplexity", "API", "n8n", "KI", "Automatisierung"] },
+      { title: "Recruiting Automatisierung Erfahrungen: Was wirklich klappt", keyword: "recruiting automatisierung erfahrungen", tags: ["Recruiting", "Automatisierung", "KI", "HR", "Erfahrungen"] },
+      { title: "AI Content Strategie B2B: So baust du thematische Autorität auf", keyword: "ai content strategie b2b", tags: ["AI Content", "B2B", "Strategie", "SEO", "Autorität"] },
+      // === TOFU: Reichweite aufbauen ===
+      { title: "KI Automatisierungsexperte werden: Wege und Gehalt 2026", keyword: "ki automatisierungsexperte werden", tags: ["KI Automatisierung", "Experte", "Karriere", "Gehalt", "2026"] },
+      { title: "n8n Agentur Deutschland: Leistungen und Preise im Überblick", keyword: "n8n agentur deutschland", tags: ["n8n", "Agentur", "Deutschland", "Preise", "Leistungen"] },
+      { title: "Automatisierungsberater Freelance: So startest du 2026", keyword: "automatisierungsberater freelance", tags: ["Automatisierung", "Freelance", "Berater", "Starten", "2026"] },
+      { title: "KI Spezialist DACH: Gefragte Skills und Projekte 2026", keyword: "ki spezialist dach", tags: ["KI", "Spezialist", "DACH", "Skills", "2026"] },
+      { title: "Geld verdienen mit KI-Automatisierung: 8 realistische Methoden", keyword: "geld verdienen ki automatisierung", tags: ["Geld verdienen", "KI", "Automatisierung", "Methoden", "2026"] },
+      { title: "Online Business mit KI automatisieren: Der Starter-Guide 2026", keyword: "online business mit ki automatisieren", tags: ["Online Business", "KI", "Automatisierung", "Starter", "2026"] },
+      { title: "Side Hustle mit n8n und KI: Wie ich monatlich X Euro verdiene", keyword: "side hustle n8n ki", tags: ["Side Hustle", "n8n", "KI", "Nebenverdienst", "Automatisierung"] },
+      { title: "Passives Einkommen mit KI-Automatisierung aufbauen", keyword: "passives einkommen ki automatisierung", tags: ["Passives Einkommen", "KI", "Automatisierung", "Online Business", "2026"] },
     ];
 
     const remaining = articlePool.filter(a =>
@@ -64,74 +61,69 @@ Deno.serve(async (req) => {
 
     console.log(`[INFO] Starte Artikel-Generierung: "${article.title}"`);
 
-    const prompt = `Du bist ein professioneller SEO-Texter und KI-Experte. Schreibe einen vollständigen, SEO-optimierten Blogartikel auf Deutsch.
+    const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen, SEO-optimierten Blogartikel auf Deutsch.
 
-🚫 ABSOLUT VERBOTENE WÖRTER UND AUSDRÜCKE – diese darfst du NIEMALS verwenden:
-- Game Changer, unlock, unleash, delve, realm, landscape
-- revolutionize / revolutionieren, cutting-edge, robust, elevate, foster
-- navigate (complexities), embark on journey, spearhead
-- utilize (schreibe stattdessen: nutzen/verwenden), commence (schreibe: starten), endeavor, paramount
-- synergy, thought leader, value-add, holistic, transformative
-- "in today's world", "in today's fast-paced", "look no further"
-- "let's dive in", "at the end of the day", "nestled in"
-- Gedankenstriche (—) → nutze stattdessen Komma, Punkt oder Klammern
-- Rhetorische Ein-Wort-Fragen wie: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
-- Übermäßige Adjektive: unglaublich, bahnbrechend, wegweisend, visionär
-
-✅ SCHREIBE WIE EIN MENSCH:
-- Direkt, konkret, ohne Blabla
-- Kurze Sätze statt langer verschachtelter Konstrukte
-- Aktive Sprache: "du sparst Zeit" statt "es ermöglicht dir, Zeit zu sparen"
-- Konkrete Zahlen und Fakten statt vager Versprechen
+DIE WEBSITE: jakubkaczmarek.de – positioniert als KI-Automatisierungs-Spezialist für den deutschen B2B-Markt.
+ZIELGRUPPE: B2B-Entscheider, Unternehmer, Freelancer im DACH-Raum, die KI-Automatisierung einsetzen wollen.
 
 **Titel:** "${article.title}"
 **Hauptkeyword:** "${article.keyword}"
-**Zielgruppe:** Menschen die online Geld verdienen wollen, Einsteiger bis Fortgeschrittene
+**Tags/Nebenkeywords:** ${article.tags.join(', ')}
 
-## Pflichtstruktur:
-- H1: Haupttitel (mit Keyword)
-- Einleitung: Warum das Thema wichtig ist (ca. 150 Wörter)
+🚫 ABSOLUT VERBOTENE WÖRTER – NIEMALS verwenden:
+- Game Changer, unlock, unleash, delve, realm, landscape
+- revolutionize / revolutionieren / revolutioniert, cutting-edge, robust, elevate, foster
+- navigate (complexities), embark on journey, spearhead
+- utilize (→ nutzen), commence (→ starten), endeavor, paramount
+- synergy / Synergie, thought leader, value-add, holistic, transformative / transformieren
+- "in today's world", "look no further", "let's dive in", "at the end of the day"
+- Gedankenstriche (—) → nutze Komma, Punkt oder Klammern
+- Rhetorische Ein-Wort-Fragen: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
+- Übertriebene Adjektive: unglaublich, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos
+- Digitale Transformation, Next-Level, Spielregeln
+
+✅ SCHREIBE WIE EIN EXPERTE UND MENSCH:
+- Direkt, konkret, ohne Blabla
+- Kurze Sätze (max. 20 Wörter pro Satz)
+- Aktive Sprache: "du sparst 3 Stunden" statt "es ermöglicht dir, Zeit zu sparen"
+- Konkrete Zahlen, reale Beispiele, klare Empfehlungen
+- Ehrliche Einschätzung inkl. Nachteile
+- Autor-Perspektive: "In meiner Praxis...", "Ich empfehle..."
+
+## Pflichtstruktur (SEO-Guide jakubkaczmarek.de):
+- H1: Haupttitel (Keyword exakt oder nah verwandt)
+- Einleitung: Problem und Lösung klar benennen, Keyword in ersten 100 Wörtern (ca. 150 Wörter)
 - H2: Was du in diesem Artikel lernst
-- H2: [Hauptteil je nach Thema: Methoden, Tools, Schritte, etc. – mindestens 5 H2 Sektionen]
-- H2: Welche KI Tools helfen dir dabei
-- H2: Meine Empfehlungen (hier Affiliate-Möglichkeiten erwähnen)
-- H2: Häufige Fehler vermeiden
-- H2: Fazit
-- H2: FAQ (5 Fragen & Antworten)
+- H2: [Hauptteil – mind. 5 H2-Sektionen je nach Thema]
+- H2: Tools & Ressourcen (mit Links zu: n8n.io, elevenlabs.io, perplexity.ai)
+- H2: Häufige Fehler und wie du sie vermeidest
+- H2: Fazit & nächste Schritte
+- H2: FAQ (5 Fragen im People-Also-Ask-Stil)
 
-## WICHTIG - KI Tools & Interne Links einbauen:
-Im Abschnitt "Welche KI Tools helfen dir dabei" und "Meine Empfehlungen" MUSST du folgende Tools erwähnen und verlinken:
-- ChatGPT: https://chat.openai.com (für Content, Texte, Ideen)
-- Jasper AI: https://jasper.ai (für Marketing-Texte, Affiliate-Content)
-- Copy.ai: https://copy.ai (für schnelle Texte)
-- Notion AI: https://notion.so (für Organisation)
-- n8n: https://n8n.io (für Automatisierung)
-- Surfer SEO: https://surferseo.com (für SEO-Artikel)
-- Canva AI: https://canva.com (für visuelle Inhalte)
-
-Schreibe bei diesen Tools: "Du kannst [Tool] hier testen: [Link]" und erwähne kurz was Affiliate-Partner verdienen können.
-
-## SEO-Regeln:
-- Hauptkeyword in Title, H1, ersten 100 Wörtern, Meta Description
-- 3-5 Nebenkeywords natürlich einbauen: ${article.tags.join(', ')}
-- Mindestens eine Tabelle (z.B. Tool-Vergleich oder Methoden-Übersicht)
+## SEO-Regeln (On-Page Checkliste):
+- Keyword an Position 1 im Titel-Tag (≤60 Zeichen im meta_title)
+- Keyword exakt im H1
+- Keyword in den ersten 100 Wörtern
+- LSI-Keywords: ${article.tags.join(', ')}
+- Mindestens eine Tabelle (Tool-Vergleich oder Methoden-Übersicht)
 - Bullet-Listen für alle Aufzählungen
-- Konkrete Zahlen und realistische Einschätzungen (kein Hype!)
-- Gesamtlänge: 1800-2500 Wörter
+- Interne Verlinkung: Erwähne jakubkaczmarek.de als Referenz für KI-Automatisierung im DACH-Raum
+- Meta Description: Keyword + konkreter Nutzen + CTA (≤160 Zeichen)
+- Gesamtlänge: 1800–2500 Wörter
 
 Gib das Ergebnis als JSON zurück:
 {
   "title": "...",
   "slug": "...(URL-freundlich, lowercase, mit Bindestrichen)...",
-  "excerpt": "...(Teaser, max 160 Zeichen)...",
-  "content": "...(vollständiger Markdown-Artikel mit allen Links)...",
+  "excerpt": "...(Teaser, max 160 Zeichen, mit Keyword)...",
+  "content": "...(vollständiger Markdown-Artikel)...",
   "cover_image": "https://images.unsplash.com/photo-XXXXX?w=1200&q=80",
   "category": "eines von: Marketing, Vertrieb, Produktivität, Content, Analyse, Automatisierung, Allgemein",
   "tags": ${JSON.stringify(article.tags)},
   "pricing": "Freemium",
   "rating": 4.5,
-  "meta_title": "...(max 60 Zeichen, mit Keyword)...",
-  "meta_description": "...(max 160 Zeichen, mit Keyword + CTA)..."
+  "meta_title": "...(max 60 Zeichen, Keyword vorne)...",
+  "meta_description": "...(max 160 Zeichen, Keyword + Nutzen + CTA)..."
 }`;
 
     const result = await base44.asServiceRole.integrations.Core.InvokeLLM({

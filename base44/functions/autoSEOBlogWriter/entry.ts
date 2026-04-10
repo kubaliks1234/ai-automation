@@ -21,66 +21,59 @@ Deno.serve(async (req) => {
   const existingTitles = existingPosts.map(p => p.title).filter(Boolean);
   const existingSlugs = existingPosts.map(p => p.slug).filter(Boolean);
 
-  // Content-Hub Themen-Pool: Mix aus allen Cluster-Typen
+  // SEO-Guide Themen-Pool: 4 Topic Cluster (jakubkaczmarek.de)
+  // Strategie: BOFU → MOFU → TOFU | Positionierung: KI-Automatisierung Spezialist DACH
   const contentPool = [
-    // === Cluster 1: AI Tools (Longtail!) ===
-    { type: "use-case", topic: "AI Tools für Recruiter", keyword: "ai tools recruiter", category: "Vertrieb" },
-    { type: "use-case", topic: "AI Tools für Social Media Manager", keyword: "ai tools social media", category: "Marketing" },
-    { type: "use-case", topic: "AI Tools für Handwerker", keyword: "ai tools handwerker", category: "Allgemein" },
-    { type: "use-case", topic: "AI Tools für Coaches und Berater", keyword: "ai tools coaches berater", category: "Produktivität" },
-    { type: "use-case", topic: "AI Tools für E-Commerce Shops", keyword: "ai tools e-commerce", category: "Marketing" },
-    { type: "use-case", topic: "AI für kleine Unternehmen", keyword: "ki für kleine unternehmen", category: "Allgemein" },
-    { type: "use-case", topic: "AI Tools für Content Creator", keyword: "ai tools content creator", category: "Content" },
-    { type: "use-case", topic: "ChatGPT für den Vertrieb nutzen", keyword: "chatgpt vertrieb", category: "Vertrieb" },
-    { type: "use-case", topic: "AI im Kundenservice einsetzen", keyword: "ki kundenservice", category: "Vertrieb" },
-    { type: "use-case", topic: "AI für Immobilienmakler", keyword: "ki immobilienmakler", category: "Allgemein" },
-    
-    // === Cluster 1: Tool Reviews ===
-    { type: "review", tool: "Claude AI", keyword: "claude ai test", category: "Produktivität" },
-    { type: "review", tool: "Midjourney", keyword: "midjourney test deutsch", category: "Content" },
-    { type: "review", tool: "Perplexity AI", keyword: "perplexity ai test", category: "Analyse" },
-    { type: "review", tool: "n8n", keyword: "n8n automatisierung test", category: "Automatisierung" },
-    { type: "review", tool: "Jasper AI", keyword: "jasper ai test", category: "Marketing" },
+    // === CLUSTER 1: KI-Automatisierung für Unternehmen (BOFU) ===
+    { type: "review", tool: "n8n", keyword: "n8n automatisierung test deutsch", category: "Automatisierung" },
+    { type: "vergleich", topic: "n8n vs. Make vs. Zapier: Automatisierung für den DACH-Markt", keyword: "n8n vs make vs zapier", category: "Automatisierung" },
+    { type: "tutorial", topic: "KI-Automatisierung im Recruiting: Schritt-für-Schritt Guide", keyword: "ki automatisierung recruiting", category: "Automatisierung" },
+    { type: "tutorial", topic: "WhatsApp Business Automatisierung mit KI", keyword: "whatsapp business automatisierung ki", category: "Automatisierung" },
+    { type: "ratgeber", topic: "ROI von KI-Automatisierung berechnen: Lohnt es sich?", keyword: "roi ki automatisierung", category: "Automatisierung" },
+    { type: "ratgeber", topic: "Welche Prozesse lassen sich mit KI automatisieren?", keyword: "prozesse ki automatisieren", category: "Automatisierung" },
+    { type: "ratgeber", topic: "KI Automatisierung für B2B Unternehmen: Was wirklich funktioniert", keyword: "ki automatisierung b2b", category: "Automatisierung" },
+    { type: "use-case", topic: "KI-Automatisierung für kleine Unternehmen DACH", keyword: "ki automatisierung kleine unternehmen", category: "Automatisierung" },
+    // === CLUSTER 2: n8n Tutorials & Praxis (MOFU) ===
+    { type: "tutorial", topic: "n8n + ElevenLabs: Voice-Agents bauen", keyword: "n8n elevenlabs voice agent", category: "Automatisierung" },
+    { type: "tutorial", topic: "n8n + Perplexity: KI-Research automatisieren", keyword: "n8n perplexity ki research", category: "Automatisierung" },
+    { type: "tutorial", topic: "n8n SharePoint Integration: Schritt-für-Schritt", keyword: "n8n sharepoint integration", category: "Automatisierung" },
+    { type: "tutorial", topic: "n8n HTTP-Requests und Claude API verbinden", keyword: "n8n claude api integration", category: "Automatisierung" },
+    { type: "ratgeber", topic: "n8n Fehler beheben: Die 10 häufigsten Probleme und Lösungen", keyword: "n8n fehler beheben", category: "Automatisierung" },
+    { type: "tutorial", topic: "n8n Tutorial Deutsch: Der Einsteiger-Guide für Anfänger", keyword: "n8n tutorial deutsch", category: "Automatisierung" },
+    { type: "review", tool: "Perplexity AI", keyword: "perplexity ai test deutsch", category: "Analyse" },
     { type: "review", tool: "ElevenLabs", keyword: "elevenlabs test deutsch", category: "Content" },
-    { type: "review", tool: "Surfer SEO", keyword: "surfer seo test", category: "Marketing" },
-    { type: "review", tool: "Synthesia", keyword: "synthesia ai test", category: "Content" },
-    { type: "review", tool: "Gamma AI", keyword: "gamma ai präsentationen test", category: "Produktivität" },
+    // === CLUSTER 3: KI im Marketing (MOFU) ===
+    { type: "tutorial", topic: "LinkedIn Content mit KI automatisieren (legal)", keyword: "linkedin content ki automatisieren", category: "Marketing" },
+    { type: "tutorial", topic: "TikTok Content-Pipeline mit KI aufbauen", keyword: "tiktok content pipeline ki", category: "Marketing" },
+    { type: "tutorial", topic: "KI-gestützte Leadgenerierung B2B: So geht es", keyword: "ki leadgenerierung b2b", category: "Vertrieb" },
+    { type: "tutorial", topic: "Pinterest Automatisierung mit n8n", keyword: "pinterest automatisierung n8n", category: "Marketing" },
+    { type: "tutorial", topic: "Content-Kalender mit KI erstellen und automatisieren", keyword: "content kalender ki erstellen", category: "Marketing" },
+    { type: "use-case", topic: "AI Content Strategie für B2B Unternehmen", keyword: "ai content strategie b2b", category: "Marketing" },
+    { type: "use-case", topic: "Marketing Automatisierung mit KI: Was wirklich funktioniert", keyword: "marketing automatisierung ki", category: "Marketing" },
+    { type: "review", tool: "Surfer SEO", keyword: "surfer seo test deutsch", category: "Marketing" },
+    { type: "review", tool: "Jasper AI", keyword: "jasper ai test deutsch", category: "Marketing" },
+    // === CLUSTER 4: Recruiting Automation (BOFU) ===
+    { type: "ratgeber", topic: "KI-Candidate Scoring: Wie es in der Praxis funktioniert", keyword: "ki candidate scoring recruiting", category: "Automatisierung" },
+    { type: "tutorial", topic: "WhatsApp Outreach für Recruiting mit KI", keyword: "whatsapp outreach recruiting ki", category: "Vertrieb" },
+    { type: "tutorial", topic: "Mehrsprachige Recruiting-Kampagnen mit KI erstellen", keyword: "mehrsprachige recruiting kampagnen ki", category: "Automatisierung" },
+    { type: "tutorial", topic: "ElevenLabs Voice-Agent für Recruiting-Calls bauen", keyword: "elevenlabs voice agent recruiting", category: "Automatisierung" },
+    { type: "ratgeber", topic: "Zeitarbeit und KI: Chancen und Grenzen im HR-Prozess", keyword: "zeitarbeit ki hr automatisierung", category: "Allgemein" },
+    // === TOOL REVIEWS (BOFU/MOFU) ===
+    { type: "review", tool: "Claude AI", keyword: "claude ai test deutsch", category: "Produktivität" },
+    { type: "review", tool: "Midjourney", keyword: "midjourney test deutsch", category: "Content" },
     { type: "review", tool: "HeyGen", keyword: "heygen ai video test", category: "Content" },
-    { type: "review", tool: "Apollo.io", keyword: "apollo io test", category: "Vertrieb" },
-    { type: "review", tool: "Runway ML", keyword: "runway ml test", category: "Content" },
-    { type: "review", tool: "Murf AI", keyword: "murf ai test", category: "Content" },
-    { type: "review", tool: "Canva AI", keyword: "canva ai test", category: "Marketing" },
-    { type: "review", tool: "Gemini AI", keyword: "google gemini test", category: "Produktivität" },
-    { type: "review", tool: "Mistral AI", keyword: "mistral ai test", category: "Produktivität" },
-    { type: "review", tool: "Kling AI", keyword: "kling ai video test", category: "Content" },
-    
-    // === Cluster 2: Tutorials ===
-    { type: "tutorial", topic: "ChatGPT für E-Mails nutzen", keyword: "chatgpt e-mails schreiben", category: "Produktivität" },
-    { type: "tutorial", topic: "Mit KI Social Media Content erstellen", keyword: "ki social media content erstellen", category: "Marketing" },
-    { type: "tutorial", topic: "Produktbeschreibungen mit KI schreiben", keyword: "produktbeschreibungen ki", category: "Marketing" },
-    { type: "tutorial", topic: "ChatGPT Prompts für den Vertrieb", keyword: "chatgpt prompts vertrieb", category: "Vertrieb" },
-    { type: "tutorial", topic: "Mit KI SEO-Texte schreiben", keyword: "ki seo texte schreiben", category: "Marketing" },
-    { type: "tutorial", topic: "Bewerbungen mit KI schreiben", keyword: "bewerbung ki chatgpt", category: "Produktivität" },
-    { type: "tutorial", topic: "AI für Marktforschung nutzen", keyword: "ki marktforschung", category: "Analyse" },
-    { type: "tutorial", topic: "Automatische Berichte mit KI erstellen", keyword: "ki berichte automatisch", category: "Automatisierung" },
-    
-    // === Cluster 3: Ratgeber / Education ===
-    { type: "ratgeber", topic: "Was ist Prompt Engineering?", keyword: "prompt engineering guide", category: "Produktivität" },
-    { type: "ratgeber", topic: "DSGVO und KI: Was musst du wissen?", keyword: "dsgvo ki", category: "Allgemein" },
-    { type: "ratgeber", topic: "KI Tools kostenlos nutzen", keyword: "ki tools kostenlos", category: "Allgemein" },
-    { type: "ratgeber", topic: "AI Automatisierung für Einsteiger", keyword: "ki automatisierung einsteiger", category: "Automatisierung" },
-    { type: "ratgeber", topic: "Wie erkenne ich guten AI Content?", keyword: "ai content erkennen", category: "Content" },
-    
-    // === Cluster 4: Vergleiche ===
-    { type: "vergleich", topic: "ChatGPT vs. Claude: Was ist besser?", keyword: "chatgpt vs claude", category: "Produktivität" },
-    { type: "vergleich", topic: "Jasper vs. Copy.ai: Welches AI-Schreibtool gewinnt?", keyword: "jasper vs copy.ai", category: "Marketing" },
-    { type: "vergleich", topic: "n8n vs. Zapier: Automatisierung im Vergleich", keyword: "n8n vs zapier", category: "Automatisierung" },
-    { type: "vergleich", topic: "Midjourney vs. DALL-E vs. Adobe Firefly", keyword: "midjourney vs dall-e adobe firefly", category: "Content" },
-    
-    // === Cluster 4: Trends ===
-    { type: "trend", topic: "AI Trends 2026: Was kommt als nächstes?", keyword: "ai trends 2026", category: "Allgemein" },
-    { type: "trend", topic: "Die besten AI Tools 2026 im Überblick", keyword: "beste ai tools 2026", category: "Allgemein" },
-    { type: "trend", topic: "KI und die Zukunft der Arbeit", keyword: "ki zukunft arbeit", category: "Allgemein" },
+    { type: "review", tool: "Apollo.io", keyword: "apollo io test b2b", category: "Vertrieb" },
+    { type: "review", tool: "Synthesia", keyword: "synthesia ki video test", category: "Content" },
+    { type: "review", tool: "Gemini AI", keyword: "google gemini test deutsch", category: "Produktivität" },
+    // === VERGLEICHE (MOFU) ===
+    { type: "vergleich", topic: "KI Automatisierung Spezialist vs. Freelancer: Was ist besser?", keyword: "ki automatisierung spezialist freelancer", category: "Allgemein" },
+    { type: "vergleich", topic: "ChatGPT vs. Claude vs. Gemini: Welches KI-Modell 2026?", keyword: "chatgpt vs claude vs gemini", category: "Produktivität" },
+    { type: "vergleich", topic: "n8n vs. Zapier: Welches Automatisierungs-Tool lohnt sich?", keyword: "n8n vs zapier vergleich", category: "Automatisierung" },
+    // === RATGEBER (TOFU) ===
+    { type: "ratgeber", topic: "DSGVO und KI-Automatisierung: Was musst du wissen?", keyword: "dsgvo ki automatisierung", category: "Allgemein" },
+    { type: "ratgeber", topic: "EU AI Act 2026: Was ändert sich für Unternehmen?", keyword: "eu ai act unternehmen", category: "Allgemein" },
+    { type: "ratgeber", topic: "Prompt Engineering für B2B: Bessere KI-Ergebnisse erzielen", keyword: "prompt engineering b2b", category: "Produktivität" },
+    { type: "trend", topic: "KI-Automatisierung Trends 2026: Was kommt als nächstes?", keyword: "ki automatisierung trends 2026", category: "Allgemein" },
   ];
 
   // Filter out already covered topics
@@ -167,51 +160,60 @@ Struktur:
 - FAQ (H2) – 5 Fragen`;
   }
 
-  const prompt = `Du bist ein professioneller SEO-Texter und KI-Experte mit echter Erfahrung. Schreibe einen vollständigen, SEO-optimierten Artikel auf Deutsch.
+  const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen, SEO-optimierten Artikel auf Deutsch.
+
+DIE WEBSITE: jakubkaczmarek.de – positioniert als KI-Automatisierungs-Spezialist für den deutschen B2B-Markt.
+ZIELGRUPPE: B2B-Entscheider, Freelancer, Unternehmer im DACH-Raum, die KI-Automatisierung umsetzen wollen.
 
 THEMA: "${mainTopic}"
 ARTIKEL-TYP: ${selected.type.toUpperCase()}
 
 ${typeInstructions}
 
-🚫 ABSOLUT VERBOTENE WÖRTER UND AUSDRÜCKE – diese darfst du NIEMALS verwenden:
+🚫 ABSOLUT VERBOTENE WÖRTER – NIEMALS verwenden:
 - Game Changer, unlock, unleash, delve, realm, landscape
-- revolutionize / revolutionieren, cutting-edge, robust, elevate, foster
+- revolutionize / revolutionieren / revolutioniert, cutting-edge, robust, elevate, foster
 - navigate (complexities), embark on journey, spearhead
-- utilize (schreibe stattdessen: nutzen/verwenden), commence (schreibe: starten), endeavor, paramount
-- synergy, thought leader, value-add, holistic, transformative
+- utilize (→ nutzen), commence (→ starten), endeavor, paramount
+- synergy / Synergie, thought leader, value-add, holistic, transformative / transformieren
 - "in today's world", "in today's fast-paced", "look no further"
 - "let's dive in", "at the end of the day", "nestled in"
-- Gedankenstriche (—) → nutze stattdessen Komma, Punkt oder Klammern
-- Rhetorische Ein-Wort-Fragen wie: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
-- Übermäßige Adjektive: unglaublich, bahnbrechend, wegweisend, visionär
+- Gedankenstriche (—) → nutze Komma, Punkt oder Klammern
+- Rhetorische Ein-Wort-Fragen: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
+- Übertriebene Adjektive: unglaublich, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos
+- Digitale Transformation, Next-Level, Spielregeln, im Sturm
 
-✅ SCHREIBE WIE EIN MENSCH:
+✅ SCHREIBE WIE EIN MENSCH UND EXPERTE:
 - Direkt, konkret, ohne Blabla
-- Schreibe kurze Sätze statt langer verschachtelter Konstrukte
-- Verwende aktive Sprache: "du sparst Zeit" statt "es ermöglicht dir, Zeit zu sparen"
-- Nenne konkrete Zahlen und Fakten
+- Kurze Sätze (max. 20 Wörter)
+- Aktive Sprache: "du sparst 3 Stunden" statt "es ermöglicht dir, Zeit zu sparen"
+- Konkrete Zahlen, echte Beispiele, klare Empfehlungen
+- Ehrliche Einschätzung inkl. Nachteile
+- Autor-Perspektive einbauen: "In meiner Praxis...", "Mein Tipp:", "Ich empfehle..."
 
-🎯 WICHTIGE SEO-REGELN:
-- Keyword "${selected.keyword || mainTopic}" in: Titel (mit Jahreszahl 2026), erster Absatz, H1, Meta Title, Meta Description, Slug
-- Longtail-Keyword Fokus: Ziele auf spezifische Nische, nicht allgemeine Begriffe
-- Mindestens eine Vergleichstabelle einbauen
-- Artikel muss 1800-2500 Wörter lang sein
-- Kurze Absätze (max 3-4 Sätze), visuelle Struktur
+🎯 SEO-REGELN (aus dem SEO-Guide jakubkaczmarek.de):
+- Keyword "${selected.keyword || mainTopic}" MUSS: im Titel an Position 1, im H1 (exakt), in den ersten 100 Wörtern, im Meta Title (≤60Z), in der Meta Description (≤160Z), im Slug
+- H1 muss das Keyword exakt oder sehr nah enthalten
+- LSI-Keywords und verwandte Begriffe natürlich einstreuen
+- Mindestens eine Vergleichstabelle oder strukturierte Übersicht
+- FAQ-Sektion am Ende (People Also Ask Logik)
+- Interne Verlinkung: Erwähne und verlinke auf jakubkaczmarek.de/ki-automatisierung oder relevante Blog-Beiträge
+- Artikel: 1800–2500 Wörter, kurze Absätze (max. 3–4 Sätze)
+- Jahreszahl 2026 im Titel einbauen
 
-📊 E-E-A-T (sehr wichtig!):
-- Eigene Meinung und Bewertung einbringen ("In unserem Test...", "Wir empfehlen...")
-- Konkrete Zahlen nennen (z.B. "spart bis zu 3 Stunden pro Woche")
+📊 E-E-A-T (Pflicht):
+- Eigene Einschätzung und Erfahrung einbringen
+- Konkrete Zahlen (z.B. "spart bis zu 4 Stunden pro Woche")
 - Vor- UND Nachteile ehrlich ansprechen
-- Praktische Beispiele aus dem Alltag
+- Praktische Beispiele aus dem B2B-Alltag
 - KEIN generischer AI-Fließtext
 
 Gib mir das Ergebnis als JSON:
 {
-  "title": "...(mit Keyword + 2026)...",
+  "title": "...(Keyword an Position 1 + 2026)...",
   "slug": "...(lowercase, hyphens, kein Sonderzeichen)...",
-  "excerpt": "...(2-3 Sätze, Keyword enthalten, max 200 Zeichen)...",
-  "content": "...(vollständiger Markdown-Artikel, 1800-2500 Wörter)...",
+  "excerpt": "...(2–3 Sätze, Keyword enthalten, max 200 Zeichen)...",
+  "content": "...(vollständiger Markdown-Artikel, 1800–2500 Wörter)...",
   "cover_image": "https://images.unsplash.com/photo-XXXXX?w=1200&q=80",
   "category": "eines von: ${categoryOptions.join(', ')}",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
@@ -219,8 +221,8 @@ Gib mir das Ergebnis als JSON:
   "ai_tool_url": "https://...",
   "pricing": "eines von: ${pricingOptions.join(', ')}",
   "rating": 4.2,
-  "meta_title": "...(max 60 Zeichen, Keyword enthalten)...",
-  "meta_description": "...(max 160 Zeichen, Keyword + CTA enthalten)..."
+  "meta_title": "...(max 60 Zeichen, Keyword vorne)...",
+  "meta_description": "...(max 160 Zeichen, Keyword + konkreter Nutzen + CTA)..."
 }`;
 
   const result = await base44.asServiceRole.integrations.Core.InvokeLLM({
