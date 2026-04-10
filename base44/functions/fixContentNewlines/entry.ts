@@ -23,21 +23,28 @@ Deno.serve(async (req) => {
       .replace(/\\r/g, '')
       .replace(/\r\n/g, '\n');
 
-    // Step 2: Ensure markdown headings are on their own lines
+    // Step 2: Fix mid-word line breaks (e.g. "Revi\ne\nw" → "Review")
+    // A line of only 1-3 word chars after a word-ending line is a broken word fragment
+    for (let i = 0; i < 8; i++) {
+      fixedContent = fixedContent.replace(
+        /([a-zA-Z\u00C0-\u017E])\n([a-zA-Z\u00C0-\u017E?!,]{1,3})\n/g,
+        '$1$2\n'
+      );
+    }
+
+    // Remove standalone empty heading lines (just "#" on its own line)
+    fixedContent = fixedContent.replace(/\n#\s*\n/g, '\n');
+
+    // Step 3: Ensure markdown headings have a blank line before them
     fixedContent = fixedContent
-      .replace(/([^\n])(#{1,4} )/g, '$1\n\n$2')
-      .replace(/(#{1,4} [^\n]+)([^\n])/g, '$1\n$2')
-      .replace(/([^\n])(- )/g, (match, p1, p2) => {
-        if (p1 === ' ' || p1 === '\t') return match;
-        return p1 + '\n' + p2;
-      });
+      .replace(/([^\n])(\n?)(#{1,4} )/g, '$1\n\n$3');
 
     // Step 3: Fix merged markdown table rows
-    // Split rows that are on the same line: | a | b || c | d | → | a | b |\n| c | d |
+    // Pattern: | col1 | col2 | | col3 | col4 | → split on " | |" boundary
+    // Also handle || joining two rows
     fixedContent = fixedContent
-      .replace(/\|([^\n|]*)\|\|([^\n|])/g, '|$1|\n|$2') // split on ||
-      .replace(/(\|[^\n]+\|)(\|[\s:|-]+\|)/g, '$1\n$2') // split header from separator row
-      .replace(/(\|[\s:|-]+\|)(\|[^\n]+\|)/g, '$1\n$2'); // split separator from data rows
+      .replace(/(\|[^\n]+\|)\s*\|(\s*[^:\-\|][^\n]*\|)/g, '$1\n|$2') // split data rows
+      .replace(/(\|[^\n]+\|)\s*(\|[:\-]+[^\n]*\|)/g, '$1\n$2');     // split separator row
 
     // Step 4: Clean up excessive newlines
     fixedContent = fixedContent
