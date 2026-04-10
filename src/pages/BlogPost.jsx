@@ -353,7 +353,7 @@ export default function BlogPost() {
               td: ({children}) => <td className="text-gray-300 px-5 py-3.5 border-b border-gray-800">{children}</td>,
               tr: ({children}) => <tr className="hover:bg-gray-800/40 transition-colors">{children}</tr>,
             }}
-          >{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
+          >{(post.content || '_Noch kein Inhalt vorhanden._').replace(/\\n/g, '\n')}</ReactMarkdown>
         </motion.div>
 
         <RelatedPosts currentPost={post} />
