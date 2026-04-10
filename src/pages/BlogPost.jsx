@@ -295,18 +295,17 @@ export default function BlogPost() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-none"
         >
-          <div className="prose-blog">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             components={{
               h1: ({children}) => (
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-14 mb-5 leading-tight tracking-tight">{children}</h1>
+                <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-14 mb-5 leading-tight">{children}</h1>
               ),
               h2: ({children}) => (
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mt-12 mb-5 pb-3 border-b-2 border-cyan-500/30 flex items-center gap-2">{children}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-white mt-12 mb-5 pb-3 border-b-2 border-cyan-500/30">{children}</h2>
               ),
               h3: ({children}) => (
-                <h3 className="text-lg sm:text-xl font-bold text-cyan-300 mt-8 mb-3">{children}</h3>
+                <h3 className="text-xl font-bold text-cyan-300 mt-8 mb-3">{children}</h3>
               ),
               h4: ({children}) => (
                 <h4 className="text-base font-semibold text-gray-200 mt-6 mb-2">{children}</h4>
@@ -318,46 +317,44 @@ export default function BlogPost() {
                 <strong className="text-white font-bold">{children}</strong>
               ),
               em: ({children}) => (
-                <em className="text-cyan-300 not-italic font-medium">{children}</em>
+                <em className="text-cyan-300 italic">{children}</em>
               ),
               a: ({href, children}) => (
                 <a href={href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-medium underline underline-offset-2 hover:text-cyan-300 transition-colors">{children}</a>
               ),
               ul: ({children}) => (
-                <ul className="mb-6 mt-3 space-y-2 pl-0">{children}</ul>
+                <ul className="mb-6 mt-3 space-y-2 ml-5 list-none">{children}</ul>
               ),
               ol: ({children}) => (
-                <ol className="mb-6 mt-3 space-y-2 pl-0 list-decimal list-inside">{children}</ol>
+                <ol className="mb-6 mt-3 space-y-3 ml-5 list-decimal">{children}</ol>
               ),
-              li: ({children}) => (
-                <li className="text-gray-300 text-base sm:text-lg leading-relaxed flex items-start gap-2.5">
-                  <span className="text-cyan-400 font-bold text-sm mt-1.5 flex-shrink-0">✓</span>
+              li: ({children, ordered, index}) => (
+                <li className="text-gray-300 text-base sm:text-lg leading-relaxed flex items-start gap-3">
+                  <span className="text-cyan-400 font-bold flex-shrink-0 mt-1">•</span>
                   <span>{children}</span>
                 </li>
               ),
               hr: () => <hr className="border-gray-700 my-10" />,
               blockquote: ({children}) => (
-                <blockquote className="relative border-l-4 border-cyan-500 pl-5 py-3 my-6 bg-cyan-500/5 rounded-r-xl">
+                <blockquote className="border-l-4 border-cyan-500 pl-5 py-4 my-6 bg-cyan-500/5 rounded-r-xl">
                   <span className="text-gray-300 italic text-lg leading-relaxed">{children}</span>
                 </blockquote>
               ),
               code: ({inline, children}) => inline
-                ? <code className="text-cyan-300 bg-gray-800 px-2 py-0.5 rounded-md text-sm font-mono">{children}</code>
+                ? <code className="text-cyan-300 bg-gray-800 px-2 py-0.5 rounded text-sm font-mono">{children}</code>
                 : <pre className="bg-gray-900 border border-gray-700 rounded-2xl p-5 overflow-x-auto my-6 text-sm"><code className="text-cyan-300 font-mono">{children}</code></pre>,
               table: ({children}) => (
                 <div className="overflow-x-auto my-8 rounded-xl border border-gray-700">
                   <table className="w-full border-collapse text-sm sm:text-base">{children}</table>
                 </div>
               ),
-              thead: ({children}) => <thead className="bg-gray-800/80">{children}</thead>,
+              thead: ({children}) => <thead className="bg-gray-800">{children}</thead>,
               th: ({children}) => <th className="text-white font-bold px-5 py-4 text-left border-b border-gray-700">{children}</th>,
               td: ({children}) => <td className="text-gray-300 px-5 py-3.5 border-b border-gray-800">{children}</td>,
               tr: ({children}) => <tr className="hover:bg-gray-800/40 transition-colors">{children}</tr>,
             }}
           >{post.content || '_Noch kein Inhalt vorhanden._'}</ReactMarkdown>
-          </div>
         </motion.div>
-
 
         <RelatedPosts currentPost={post} />
 
