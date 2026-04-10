@@ -13,16 +13,20 @@ Deno.serve(async (req) => {
   for (const post of posts) {
     if (!post.content) continue;
 
-    // Replace literal \n (two chars: backslash + n) with real newlines
-    const fixedContent = post.content
-      .replace(/\\n/g, '\n')
-      .replace(/\\t/g, '\t');
+    let fixedContent = post.content;
 
-    if (fixedContent !== post.content) {
-      await base44.asServiceRole.entities.BlogPost.update(post.id, { content: fixedContent });
-      fixed++;
-      console.log(`Fixed: ${post.title}`);
-    }
+    // Handle all variants of escaped newlines
+    fixedContent = fixedContent
+      .replace(/\\n\\n/g, '\n\n')  // \n\n → double newline
+      .replace(/\\n/g, '\n')        // \n → single newline
+      .replace(/\\t/g, '\t')        // \t → tab
+      .replace(/\\r/g, '')           // remove \r
+      .replace(/\r\n/g, '\n');       // normalize CRLF
+
+    // Always update to ensure consistency
+    await base44.asServiceRole.entities.BlogPost.update(post.id, { content: fixedContent });
+    fixed++;
+    console.log(`Updated: ${post.slug}`);
   }
 
   return Response.json({ total: posts.length, fixed, message: `${fixed} Beiträge korrigiert` });
