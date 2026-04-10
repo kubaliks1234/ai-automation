@@ -61,110 +61,76 @@ Deno.serve(async (req) => {
 
     console.log(`[INFO] Starte Artikel-Generierung: "${article.title}"`);
 
-    const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen Blogartikel auf Deutsch nach dem exakten Blueprint unten.
+    const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen Blogartikel auf Deutsch.
 
 DIE WEBSITE: jakubkaczmarek.de – KI-Automatisierungs-Spezialist für den deutschen B2B-Markt.
 ZIELGRUPPE: B2B-Entscheider, Unternehmer, Freelancer im DACH-Raum.
 
 **Titel:** "${article.title}"
 **Primär-Keyword:** "${article.keyword}"
-**Neben-Keywords/Tags:** ${article.tags.join(', ')}
+**Neben-Keywords:** ${article.tags.join(', ')}
 
 ═══════════════════════════════════════════
-📐 BLUEPRINT – EXAKTE STRUKTUR (PFLICHT):
+🚨 WICHTIGSTE REGEL: KEIN MARKDOWN
 ═══════════════════════════════════════════
-
-1. SLUG (URL):
-   - Nur Kleinbuchstaben, Bindestriche, kein Datum, kein Sonderzeichen
-   - Nur das Keyword: z.B. "ki-automatisierung-b2b"
-
-2. META TITLE (≤60 Zeichen, PFLICHT):
-   - Keyword an Position 1
-   - Formel: [Keyword]: [Benefit oder Zahl]
-   - Beispiel: "KI Automatisierung B2B: ROI-Guide für 2026"
-
-3. META DESCRIPTION (150–160 Zeichen, PFLICHT):
-   - Keyword enthalten
-   - Formel: [Keyword] erklärt: [Was der Leser bekommt]. [Nutzen]. Jetzt lesen.
-
-4. H1 (exakt eine, 50–80 Zeichen):
-   - Keyword exakt oder sehr nah enthalten
-   - Neugier oder klares Versprechen erzeugen
-
-5. INTRO (150–200 Wörter, PFLICHT):
-   - Satz 1–2: Keyword + Problem benennen (Leser nickt)
-   - Satz 3–4: Warum das Problem schmerzhaft ist
-   - Satz 5–6: Was dieser Artikel löst (Versprechen)
-   - Satz 7–8: Credibility (warum der Leser mir glaubt)
-   - KEIN "In diesem Artikel werde ich..."
-   - KEIN "Willkommen auf meinem Blog"
-   - KEINE generischen Aussagen wie "KI ist wichtig"
-
-6. HAUPTTEIL – H2/H3 STRUKTUR:
-   - Mind. 5 H2-Sektionen
-   - H3 nur wenn ein H2 mehr als 2 Unterpunkte hat
-   - KEIN H4 oder H5 verwenden
-   - Jeder H2 mind. 150 Wörter Inhalt
-   - H2-Überschriften standalone lesbar
-   - Neben-Keywords in H2-Überschriften einbauen
-   - Nach jedem H2: Mix aus Fließtext + Liste oder Tabelle
-   - Max. 3–4 Sätze pro Absatz
-   - Mind. eine Vergleichstabelle oder strukturierte Übersicht
-
-7. INTERNE LINKS (2–4, PFLICHT):
-   - Verlinke auf: [KI-Automatisierung Lösungen](/ki-automatisierung) oder ähnliche Seiten
-   - Anchor-Text beschreibend, NICHT "hier klicken"
-
-8. EXTERNE LINKS (1–2, PFLICHT):
-   - Nur Autoritätsquellen (offizielle Docs, Studien)
-   - KEIN Link auf Konkurrenten
-
-9. FAQ-SEKTION (PFLICHT – People Also Ask):
-   - H2: "Häufige Fragen zu [Keyword]"
-   - 4–6 Fragen als H3
-   - Jede Antwort: 2–4 Sätze
-
-10. FAZIT + CTA (PFLICHT):
-    - H2: "Fazit"
-    - 2–3 Sätze Zusammenfassung
-    - Nächster logischer Schritt für den Leser
-    - CTA mit Link auf https://jakubkaczmarek.de/#cta
+Schreibe NIEMALS Markdown in body_html.
+Kein **fett**, kein # Überschrift, kein | Tabelle |, kein - Liste.
+ALLE Inhalte als fertiges HTML ausgeben.
 
 ═══════════════════════════════════════════
-🚫 ABSOLUT VERBOTENE WÖRTER:
+📐 BODY_HTML STRUKTUR (PFLICHT):
 ═══════════════════════════════════════════
-- Game Changer, unlock, unleash, delve, realm, landscape
-- revolutionieren, cutting-edge, robust, elevate, foster
-- synergy/Synergie, thought leader, transformative
-- "in today's world", "let's dive in", "at the end of the day"
-- Gedankenstriche (—) → nutze Komma, Punkt oder Klammern
-- Rhetorische Ein-Wort-Fragen: "Ergebnis?", "Der Haken?"
-- unglaublich, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos
-- Digitale Transformation, Next-Level, Spielregeln
 
-✅ SCHREIBE WIE EIN EXPERTE:
-- Direkt, konkret, ohne Blabla
-- Kurze Sätze (max. 20 Wörter)
-- Aktive Sprache: "du sparst 3 Stunden" statt "es ermöglicht dir Zeit zu sparen"
-- Konkrete Zahlen, echte Beispiele, klare Empfehlungen
-- Ehrliche Einschätzung inkl. Nachteile
-- Autor-Perspektive: "In meiner Praxis...", "Ich empfehle..."
-- Immer "du", nie "man" oder "der User"
+1. INTRO: <p class="lead">[150–200 Wörter. Keyword in Satz 1–2. Problem benennen. Versprechen machen. Credibility. <strong>Schlüsselbegriffe</strong> markieren.]</p>
 
-📊 E-E-A-T (PFLICHT):
-- Eigene Einschätzung und Erfahrung einbringen
-- Konkrete Zahlen (z.B. "spart bis zu 4 Stunden pro Woche")
-- Vor- UND Nachteile ehrlich ansprechen
-- Praktische Beispiele aus dem B2B-Alltag
+2. ABSCHNITTE (mind. 5 H2-Sektionen):
+   <h2>[Abschnittstitel mit sekundärem Keyword]</h2>
+   <p>[3–4 Sätze. Immer "du" statt "man".]</p>
+   Ggf. H3: <h3>[Unterabschnitt]</h3>
 
-ARTIKEL-LÄNGE: 1800–2500 Wörter
+3. TOOL-CARD (für jedes vorgestellte Tool):
+   <div class="tool-card"><div class="tool-card-header"><span class="tool-name">[Name]</span><span class="tool-badge">[Label]</span></div>
+   <p>[Praxisbeschreibung]</p>
+   <div class="pro-con-grid"><div class="pro-box"><div class="box-label">Stärken</div><ul class="box-list"><li>[1]</li><li>[2]</li></ul></div>
+   <div class="con-box"><div class="box-label">Schwächen</div><ul class="box-list"><li>[1]</li><li>[2]</li></ul></div></div></div>
+
+4. VERGLEICHSTABELLE (mind. 1 PFLICHT):
+   <div class="table-wrap"><table><thead><tr><th>Feature</th><th>[Spalte]</th>...</tr></thead>
+   <tbody><tr><td>[Label]</td><td><span class="badge-good">[Gut]</span></td><td><span class="badge-mid">[Mittel]</span></td><td><span class="badge-bad">[Schlecht]</span></td></tr>...</tbody></table></div>
+
+5. CALLOUT (mind. 1 PFLICHT):
+   <div class="callout"><div class="callout-label">💡 Praxis-Tipp</div><p>[Konkreter Tipp.]</p></div>
+
+6. INTERNER LINK (1–3 PFLICHT):
+   <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Titel] →</a></div>
+
+7. LISTEN: <ul><li><strong>[Begriff]</strong> — [Erklärung]</li></ul> oder <ol><li><strong>[Schritt]</strong> — [Erklärung]</li></ol>
+
+8. FAQ (PFLICHT):
+   <hr /><h2>Häufige Fragen zu [Keyword]</h2>
+   <div class="faq-list">
+   <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">[Frage]<span class="faq-icon">+</span></button><div class="faq-answer"><p>[Antwort]</p></div></div>
+   [4–6 Fragen total]
+   </div>
+
+9. FAZIT + CTA (PFLICHT):
+   <hr /><div class="fazit-box"><h2>Fazit</h2><p>[2–3 Sätze Zusammenfassung + nächster Schritt.]</p>
+   <a href="/#cta" class="btn">Kostenloses Gespräch buchen</a>
+   <a href="/Blog" class="btn-ghost">Mehr Artikel</a></div>
+
+═══════════════════════════════════════════
+🚫 VERBOTEN: Markdown, Game Changer, bahnbrechend, wegweisend, disruptiv, nahtlos, Gedankenstriche (—), "in today's world", "let's dive in"
+✅ STIL: "du" statt "man", konkrete Zahlen, aktive Sprache, max. 3–4 Sätze/Absatz, 1800–2500 Wörter
 
 Gib das Ergebnis als JSON zurück:
 {
   "title": "...(Keyword an Position 1)...",
+  "h1": "...(sichtbare H1, 50–80 Zeichen)...",
   "slug": "...(lowercase, Bindestriche, kein Datum)...",
-  "excerpt": "...(Teaser, 150–160 Zeichen, mit Keyword)...",
-  "content": "...(vollständiger Markdown-Artikel nach Blueprint)...",
+  "excerpt": "...(150–160 Zeichen, Keyword + Nutzen + CTA)...",
+  "body_html": "...(vollständiger HTML-Artikel, KEIN Markdown)...",
+  "schema_json": "{\\"@context\\": \\"https://schema.org\\", \\"@type\\": \\"Article\\", \\"headline\\": \\"...\\", \\"description\\": \\"...\\", \\"author\\": {\\"@type\\": \\"Person\\", \\"name\\": \\"Jakub Kaczmarek\\"}, \\"datePublished\\": \\"${today}\\"}",
+  "reading_time": 7,
   "cover_image": "https://images.unsplash.com/photo-XXXXX?w=1200&q=80",
   "category": "eines von: Marketing, Vertrieb, Produktivität, Content, Analyse, Automatisierung, Allgemein",
   "tags": ${JSON.stringify(article.tags)},
@@ -182,9 +148,12 @@ Gib das Ergebnis als JSON zurück:
         type: "object",
         properties: {
           title: { type: "string" },
+          h1: { type: "string" },
           slug: { type: "string" },
           excerpt: { type: "string" },
-          content: { type: "string" },
+          body_html: { type: "string" },
+          schema_json: { type: "string" },
+          reading_time: { type: "number" },
           cover_image: { type: "string" },
           category: { type: "string" },
           tags: { type: "array", items: { type: "string" } },
@@ -193,7 +162,7 @@ Gib das Ergebnis als JSON zurück:
           meta_title: { type: "string" },
           meta_description: { type: "string" }
         },
-        required: ["title", "slug", "content", "excerpt", "category"]
+        required: ["title", "slug", "body_html", "excerpt", "category"]
       }
     });
 

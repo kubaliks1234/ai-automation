@@ -1,0 +1,116 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Titel des Blog-Artikels (legacy)"
+    },
+    "h1": {
+      "type": "string",
+      "description": "Sichtbare H1-\u00dcberschrift im Artikel (darf l\u00e4nger sein als meta_title)"
+    },
+    "slug": {
+      "type": "string",
+      "description": "URL-freundlicher Slug (z.B. ki-bildgeneratoren-vergleich-2026)"
+    },
+    "excerpt": {
+      "type": "string",
+      "description": "Kurze Zusammenfassung (f\u00fcr SEO Meta Description)"
+    },
+    "content": {
+      "type": "string",
+      "description": "Legacy Markdown-Inhalt (wird durch body_html ersetzt)"
+    },
+    "body_html": {
+      "type": "string",
+      "description": "Vollst\u00e4ndiger Artikelinhalt als HTML (Pflicht f\u00fcr neue Artikel)"
+    },
+    "schema_json": {
+      "type": "string",
+      "description": "JSON-LD Schema Markup als String (Article + optional FAQPage)"
+    },
+    "reading_time": {
+      "type": "number",
+      "description": "Lesezeit in Minuten"
+    },
+    "cover_image": {
+      "type": "string",
+      "description": "URL des Titelbildes"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Marketing",
+        "Vertrieb",
+        "Produktivit\u00e4t",
+        "Content",
+        "Analyse",
+        "Automatisierung",
+        "Allgemein"
+      ],
+      "description": "Kategorie des Artikels"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags / Anwendungsm\u00f6glichkeiten"
+    },
+    "ai_tool_name": {
+      "type": "string",
+      "description": "Name des vorgestellten KI-Tools"
+    },
+    "ai_tool_url": {
+      "type": "string",
+      "description": "Link zur offiziellen Website des Tools"
+    },
+    "affiliate_url": {
+      "type": "string",
+      "description": "Affiliate-Link zum Tool (optional)"
+    },
+    "ai_tool_logo": {
+      "type": "string",
+      "description": "URL des Tool-Logos"
+    },
+    "pricing": {
+      "type": "string",
+      "enum": [
+        "Kostenlos",
+        "Freemium",
+        "Kostenpflichtig"
+      ],
+      "description": "Preismodell des Tools"
+    },
+    "rating": {
+      "type": "number",
+      "description": "Bewertung des Tools (1-5)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "published"
+      ],
+      "default": "draft"
+    },
+    "meta_title": {
+      "type": "string",
+      "description": "SEO Meta Title (max 60 Zeichen)"
+    },
+    "meta_description": {
+      "type": "string",
+      "description": "SEO Meta Description (max 160 Zeichen)"
+    },
+    "published_at": {
+      "type": "string",
+      "format": "date",
+      "description": "Ver\u00f6ffentlichungsdatum"
+    }
+  },
+  "required": [
+    "slug",
+    "category"
+  ]
+}

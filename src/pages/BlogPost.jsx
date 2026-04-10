@@ -14,6 +14,271 @@ import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+const blogHtmlStyles = `
+  .blog-html-content .lead {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #cbd5e1;
+    margin-bottom: 2rem;
+  }
+  .blog-html-content h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(6,182,212,0.3);
+  }
+  .blog-html-content h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #67e8f9;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .blog-html-content p {
+    color: #cbd5e1;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+    font-size: 1.05rem;
+  }
+  .blog-html-content strong {
+    color: #fff;
+    font-weight: 700;
+  }
+  .blog-html-content a {
+    color: #22d3ee;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .blog-html-content ul, .blog-html-content ol {
+    margin: 1rem 0 1.5rem 1.25rem;
+    color: #cbd5e1;
+  }
+  .blog-html-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+  .blog-html-content hr {
+    border: none;
+    border-top: 1px solid #1e293b;
+    margin: 2.5rem 0;
+  }
+  /* Tool Card */
+  .blog-html-content .tool-card {
+    background: rgba(15,23,42,0.8);
+    border: 1px solid #1e293b;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .blog-html-content .tool-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .blog-html-content .tool-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .blog-html-content .tool-badge {
+    background: rgba(6,182,212,0.15);
+    color: #22d3ee;
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 9999px;
+    padding: 0.2rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .blog-html-content .pro-con-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 640px) {
+    .blog-html-content .pro-con-grid { grid-template-columns: 1fr; }
+  }
+  .blog-html-content .pro-box, .blog-html-content .con-box {
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+  .blog-html-content .pro-box { background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.2); }
+  .blog-html-content .con-box { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.2); }
+  .blog-html-content .box-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+  .blog-html-content .pro-box .box-label { color: #34d399; }
+  .blog-html-content .con-box .box-label { color: #f87171; }
+  .blog-html-content .box-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .blog-html-content .box-list li {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .blog-html-content .pro-box .box-list li::before { content: "✓"; position: absolute; left: 0; color: #34d399; }
+  .blog-html-content .con-box .box-list li::before { content: "✗"; position: absolute; left: 0; color: #f87171; }
+  /* Callout */
+  .blog-html-content .callout {
+    background: rgba(6,182,212,0.07);
+    border-left: 3px solid #22d3ee;
+    border-radius: 0 0.75rem 0.75rem 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .blog-html-content .callout-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #22d3ee;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .blog-html-content .callout p { color: #94a3b8; margin: 0; font-size: 0.95rem; }
+  /* Table */
+  .blog-html-content .table-wrap {
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border-radius: 0.75rem;
+    border: 1px solid #1e293b;
+  }
+  .blog-html-content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .blog-html-content thead { background: #0f172a; }
+  .blog-html-content th {
+    color: #fff;
+    font-weight: 700;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #1e293b;
+  }
+  .blog-html-content td {
+    color: #94a3b8;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #0f172a;
+  }
+  .blog-html-content tr:hover td { background: rgba(255,255,255,0.02); }
+  .blog-html-content .badge-good { background: rgba(16,185,129,0.15); color: #34d399; border-radius: 0.35rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; font-weight: 600; }
+  .blog-html-content .badge-mid { background: rgba(234,179,8,0.15); color: #fbbf24; border-radius: 0.35rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; font-weight: 600; }
+  .blog-html-content .badge-bad { background: rgba(239,68,68,0.12); color: #f87171; border-radius: 0.35rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; font-weight: 600; }
+  /* Read Also */
+  .blog-html-content .read-also {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(15,23,42,0.6);
+    border: 1px solid #1e293b;
+    border-radius: 0.75rem;
+    padding: 0.85rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+  .blog-html-content .read-also-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #22d3ee;
+    white-space: nowrap;
+  }
+  .blog-html-content .read-also a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; }
+  .blog-html-content .read-also a:hover { color: #22d3ee; }
+  /* FAQ */
+  .blog-html-content .faq-list { margin: 1rem 0 1.5rem 0; }
+  .blog-html-content .faq-item {
+    border: 1px solid #1e293b;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+  }
+  .blog-html-content .faq-question {
+    width: 100%;
+    background: rgba(15,23,42,0.6);
+    border: none;
+    color: #e2e8f0;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .blog-html-content .faq-question:hover { background: rgba(15,23,42,0.9); }
+  .blog-html-content .faq-icon { font-size: 1.25rem; color: #22d3ee; flex-shrink: 0; transition: transform 0.2s; }
+  .blog-html-content .faq-answer {
+    display: none;
+    padding: 1rem 1.25rem;
+    background: rgba(2,8,23,0.5);
+    border-top: 1px solid #1e293b;
+  }
+  .blog-html-content .faq-answer.open { display: block; }
+  .blog-html-content .faq-answer p { color: #94a3b8; margin: 0; }
+  /* Fazit Box */
+  .blog-html-content .fazit-box {
+    background: linear-gradient(135deg, rgba(6,182,212,0.08), rgba(59,130,246,0.08));
+    border: 1px solid rgba(6,182,212,0.2);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+  .blog-html-content .fazit-box h2 {
+    border: none;
+    margin-top: 0;
+    font-size: 1.5rem;
+  }
+  .blog-html-content .fazit-box p { color: #94a3b8; margin-bottom: 1.5rem; }
+  .blog-html-content .btn {
+    display: inline-block;
+    background: linear-gradient(to right, #06b6d4, #3b82f6);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    margin: 0.25rem;
+    font-size: 0.95rem;
+  }
+  .blog-html-content .btn-ghost {
+    display: inline-block;
+    border: 1px solid #334155;
+    color: #94a3b8;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    margin: 0.25rem;
+    font-size: 0.95rem;
+  }
+  .blog-html-content .btn-ghost:hover { color: #fff; border-color: #22d3ee; }
+`;
+
+function toggleFaq(btn) {
+  const answer = btn.nextElementSibling;
+  const icon = btn.querySelector('.faq-icon');
+  const isOpen = answer.classList.contains('open');
+  answer.classList.toggle('open', !isOpen);
+  if (icon) icon.textContent = isOpen ? '+' : '−';
+}
+
+if (typeof window !== 'undefined') {
+  window.toggleFaq = toggleFaq;
+}
+
 const categoryColors = {
   Marketing: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
   Vertrieb: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
@@ -231,7 +496,7 @@ export default function BlogPost() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-            {post.title}
+            {post.h1 || post.title}
           </h1>
 
           <p className="text-xl text-gray-400 mb-8 leading-relaxed">
@@ -295,65 +560,36 @@ export default function BlogPost() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-none"
         >
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              h1: ({children}) => (
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-14 mb-5 leading-tight">{children}</h1>
-              ),
-              h2: ({children}) => (
-                <h2 className="text-2xl sm:text-3xl font-bold text-white mt-12 mb-5 pb-3 border-b-2 border-cyan-500/30">{children}</h2>
-              ),
-              h3: ({children}) => (
-                <h3 className="text-xl font-bold text-cyan-300 mt-8 mb-3">{children}</h3>
-              ),
-              h4: ({children}) => (
-                <h4 className="text-base font-semibold text-gray-200 mt-6 mb-2">{children}</h4>
-              ),
-              p: ({children}) => (
-                <p className="text-gray-300 text-base sm:text-lg leading-[1.85] mb-5">{children}</p>
-              ),
-              strong: ({children}) => (
-                <strong className="text-white font-bold">{children}</strong>
-              ),
-              em: ({children}) => (
-                <em className="text-cyan-300 italic">{children}</em>
-              ),
-              a: ({href, children}) => (
-                <a href={href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-medium underline underline-offset-2 hover:text-cyan-300 transition-colors">{children}</a>
-              ),
-              ul: ({children}) => (
-                <ul className="mb-6 mt-3 space-y-2 ml-5 list-none">{children}</ul>
-              ),
-              ol: ({children}) => (
-                <ol className="mb-6 mt-3 space-y-3 ml-5 list-decimal">{children}</ol>
-              ),
-              li: ({children, ordered, index}) => (
-                <li className="text-gray-300 text-base sm:text-lg leading-relaxed flex items-start gap-3">
-                  <span className="text-cyan-400 font-bold flex-shrink-0 mt-1">•</span>
-                  <span>{children}</span>
-                </li>
-              ),
-              hr: () => <hr className="border-gray-700 my-10" />,
-              blockquote: ({children}) => (
-                <blockquote className="border-l-4 border-cyan-500 pl-5 py-4 my-6 bg-cyan-500/5 rounded-r-xl">
-                  <span className="text-gray-300 italic text-lg leading-relaxed">{children}</span>
-                </blockquote>
-              ),
-              code: ({inline, children}) => inline
-                ? <code className="text-cyan-300 bg-gray-800 px-2 py-0.5 rounded text-sm font-mono">{children}</code>
-                : <pre className="bg-gray-900 border border-gray-700 rounded-2xl p-5 overflow-x-auto my-6 text-sm"><code className="text-cyan-300 font-mono">{children}</code></pre>,
-              table: ({children}) => (
-                <div className="overflow-x-auto my-8 rounded-xl border border-gray-700">
-                  <table className="w-full border-collapse text-sm sm:text-base">{children}</table>
-                </div>
-              ),
-              thead: ({children}) => <thead className="bg-gray-800">{children}</thead>,
-              th: ({children}) => <th className="text-white font-bold px-5 py-4 text-left border-b border-gray-700">{children}</th>,
-              td: ({children}) => <td className="text-gray-300 px-5 py-3.5 border-b border-gray-800">{children}</td>,
-              tr: ({children}) => <tr className="hover:bg-gray-800/40 transition-colors">{children}</tr>,
-            }}
-          >{(post.content || '_Noch kein Inhalt vorhanden._').replace(/\\n/g, '\n')}</ReactMarkdown>
+          <style dangerouslySetInnerHTML={{ __html: blogHtmlStyles }} />
+          {post.body_html ? (
+            <div
+              className="blog-html-content"
+              dangerouslySetInnerHTML={{ __html: post.body_html }}
+            />
+          ) : (
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h1: ({children}) => <h1 className="text-3xl sm:text-4xl font-extrabold text-white mt-14 mb-5 leading-tight">{children}</h1>,
+                h2: ({children}) => <h2 className="text-2xl sm:text-3xl font-bold text-white mt-12 mb-5 pb-3 border-b-2 border-cyan-500/30">{children}</h2>,
+                h3: ({children}) => <h3 className="text-xl font-bold text-cyan-300 mt-8 mb-3">{children}</h3>,
+                p: ({children}) => <p className="text-gray-300 text-base sm:text-lg leading-[1.85] mb-5">{children}</p>,
+                strong: ({children}) => <strong className="text-white font-bold">{children}</strong>,
+                a: ({href, children}) => <a href={href} target="_blank" rel="noopener noreferrer" className="text-cyan-400 font-medium underline underline-offset-2 hover:text-cyan-300 transition-colors">{children}</a>,
+                ul: ({children}) => <ul className="mb-6 mt-3 space-y-2 ml-5 list-none">{children}</ul>,
+                ol: ({children}) => <ol className="mb-6 mt-3 space-y-3 ml-5 list-decimal">{children}</ol>,
+                li: ({children}) => <li className="text-gray-300 text-base sm:text-lg leading-relaxed flex items-start gap-3"><span className="text-cyan-400 font-bold flex-shrink-0 mt-1">•</span><span>{children}</span></li>,
+                hr: () => <hr className="border-gray-700 my-10" />,
+                blockquote: ({children}) => <blockquote className="border-l-4 border-cyan-500 pl-5 py-4 my-6 bg-cyan-500/5 rounded-r-xl"><span className="text-gray-300 italic text-lg leading-relaxed">{children}</span></blockquote>,
+                code: ({inline, children}) => inline ? <code className="text-cyan-300 bg-gray-800 px-2 py-0.5 rounded text-sm font-mono">{children}</code> : <pre className="bg-gray-900 border border-gray-700 rounded-2xl p-5 overflow-x-auto my-6 text-sm"><code className="text-cyan-300 font-mono">{children}</code></pre>,
+                table: ({children}) => <div className="overflow-x-auto my-8 rounded-xl border border-gray-700"><table className="w-full border-collapse text-sm sm:text-base">{children}</table></div>,
+                thead: ({children}) => <thead className="bg-gray-800">{children}</thead>,
+                th: ({children}) => <th className="text-white font-bold px-5 py-4 text-left border-b border-gray-700">{children}</th>,
+                td: ({children}) => <td className="text-gray-300 px-5 py-3.5 border-b border-gray-800">{children}</td>,
+                tr: ({children}) => <tr className="hover:bg-gray-800/40 transition-colors">{children}</tr>,
+              }}
+            >{(post.content || '_Noch kein Inhalt vorhanden._').replace(/\\n/g, '\n')}</ReactMarkdown>
+          )}
         </motion.div>
 
         <RelatedPosts currentPost={post} />

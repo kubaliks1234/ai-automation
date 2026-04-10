@@ -160,7 +160,7 @@ Struktur:
 - FAQ (H2) – 5 Fragen`;
   }
 
-  const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen Blogartikel auf Deutsch nach dem exakten Blueprint unten.
+  const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen Blogartikel auf Deutsch.
 
 DIE WEBSITE: jakubkaczmarek.de – KI-Automatisierungs-Spezialist für den deutschen B2B-Markt.
 ZIELGRUPPE: B2B-Entscheider, Freelancer, Unternehmer im DACH-Raum.
@@ -172,109 +172,96 @@ PRIMÄR-KEYWORD: "${selected.keyword || mainTopic}"
 ${typeInstructions}
 
 ═══════════════════════════════════════════
-📐 BLUEPRINT – EXAKTE STRUKTUR (PFLICHT):
+🚨 WICHTIGSTE REGEL: KEIN MARKDOWN
 ═══════════════════════════════════════════
-
-1. SLUG (URL):
-   - Nur Kleinbuchstaben, Bindestriche, kein Datum, kein Sonderzeichen
-   - Nur das Keyword: z.B. "n8n-elevenlabs-integration"
-
-2. META TITLE (≤60 Zeichen, PFLICHT):
-   - Keyword an Position 1
-   - Formel: [Keyword]: [Benefit oder Zahl]
-   - Beispiel: "n8n ElevenLabs Integration: Voice-Agent in 30 Min."
-
-3. META DESCRIPTION (150–160 Zeichen, PFLICHT):
-   - Keyword enthalten (Google fett es in der Suche)
-   - Formel: [Keyword] erklärt: [Was der Leser bekommt]. [Nutzen]. Jetzt lesen.
-
-4. H1 (exakt eine, 50–80 Zeichen):
-   - Keyword exakt oder sehr nah enthalten
-   - Neugier oder klares Versprechen erzeugen
-   - Darf länger/menschlicher sein als der Meta Title
-
-5. INTRO (150–200 Wörter, PFLICHT):
-   - Satz 1–2: Keyword + Problem benennen (Leser nickt)
-   - Satz 3–4: Warum das Problem schmerzhaft ist
-   - Satz 5–6: Was dieser Artikel löst (Versprechen)
-   - Satz 7–8: Credibility (warum der Leser mir glaubt)
-   - KEIN "In diesem Artikel werde ich..."
-   - KEIN "Willkommen auf meinem Blog"
-   - KEINE generischen Aussagen wie "KI ist wichtig"
-
-6. HAUPTTEIL – H2/H3 STRUKTUR:
-   - Jeder H2 = ein klar abgegrenztes Hauptkapitel
-   - H3 nur wenn ein H2 mehr als 2 Unterpunkte hat
-   - KEIN H4 oder H5 verwenden
-   - Jeder H2 mind. 150 Wörter Inhalt
-   - H2-Überschriften als Standalone lesbar
-   - Sekundäre Keywords in H2-Überschriften einbauen
-   - Nach jedem H2: Mischung aus Fließtext + Liste oder Tabelle
-   - Max. 3–4 Sätze pro Absatz
-
-7. INTERNE LINKS (2–4, PFLICHT):
-   - Verlinke auf: [KI-Automatisierung Lösungen](/ki-automatisierung) oder verwandte Blog-Artikel
-   - Anchor-Text beschreibend, NICHT "hier klicken"
-   - Beispiel: "Wie ich n8n-Workflows aufbaue, erkläre ich im [KI Automatisierung Guide](/ki-automatisierung)."
-
-8. EXTERNE LINKS (1–2, PFLICHT):
-   - Nur Autoritätsquellen: offizielle Docs, Studien
-   - rel="noopener noreferrer"
-   - KEIN Link auf Konkurrenten
-
-9. FAQ-SEKTION (PFLICHT – People Also Ask):
-   - H2: "Häufige Fragen zu [Keyword]"
-   - 3–6 Fragen als H3
-   - Jede Antwort: 2–4 Sätze
-   - Fragen im Stil von Google's "People Also Ask"
-
-10. FAZIT + CTA (PFLICHT):
-    - H2: "Fazit"
-    - 2–3 Sätze Zusammenfassung: Was hat der Leser gelernt?
-    - Nächster logischer Schritt
-    - CTA: "Buche ein kostenloses Gespräch" oder "Kein Artikel mehr verpassen"
-    - Link auf: https://jakubkaczmarek.de/#cta
+Schreibe NIEMALS Markdown in body_html.
+Kein **fett**, kein # Überschrift, kein | Tabelle |, kein - Liste.
+ALLE Inhalte als fertiges HTML ausgeben.
 
 ═══════════════════════════════════════════
-🚫 ABSOLUT VERBOTENE WÖRTER – NIEMALS verwenden:
+📐 BODY_HTML STRUKTUR (PFLICHT):
 ═══════════════════════════════════════════
-- Game Changer, unlock, unleash, delve, realm, landscape
-- revolutionieren, cutting-edge, robust, elevate, foster
-- navigate complexities, embark on journey, spearhead
-- utilize (→ nutzen), synergy/Synergie, thought leader, transformative
-- "in today's world", "let's dive in", "at the end of the day"
-- Gedankenstriche (—) → nutze Komma, Punkt oder Klammern stattdessen
-- Rhetorische Ein-Wort-Fragen: "Ergebnis?", "Der Haken?", "Mein Tipp?"
-- unglaublich, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos
-- Digitale Transformation, Next-Level, Spielregeln
 
-✅ SCHREIBE WIE EIN EXPERTE:
-- Direkt, konkret, ohne Blabla
-- Kurze Sätze (max. 20 Wörter)
-- Aktive Sprache: "du sparst 3 Stunden" statt "es ermöglicht dir Zeit zu sparen"
-- Konkrete Zahlen, echte Beispiele, klare Empfehlungen
-- Ehrliche Einschätzung inkl. Nachteile
-- Autor-Perspektive: "In meiner Praxis...", "Ich empfehle..."
+1. INTRO: <p class="lead">[150–200 Wörter. Keyword in Satz 1–2. Problem benennen. Versprechen machen. Warum sollte der Leser dir glauben? Schlüsselbegriffe mit <strong> markieren.]</p>
+
+2. ABSCHNITTE (4–7 H2-Sektionen):
+   <h2>[Abschnittstitel mit sekundärem Keyword]</h2>
+   <p>[3–4 Sätze Fließtext. Immer "du" statt "man".]</p>
+   Ggf. H3 wenn Abschnitt 2+ Unterpunkte hat: <h3>[Unterabschnitt]</h3>
+
+3. TOOL-CARD (für jedes vorgestellte Tool PFLICHT):
+   <div class="tool-card">
+     <div class="tool-card-header">
+       <span class="tool-name">[Tool-Name]</span>
+       <span class="tool-badge">[Kurz-Label]</span>
+     </div>
+     <p>[2–3 Sätze Praxisbeschreibung.]</p>
+     <div class="pro-con-grid">
+       <div class="pro-box"><div class="box-label">Stärken</div><ul class="box-list"><li>[Stärke 1]</li><li>[Stärke 2]</li><li>[Stärke 3]</li></ul></div>
+       <div class="con-box"><div class="box-label">Schwächen</div><ul class="box-list"><li>[Schwäche 1]</li><li>[Schwäche 2]</li><li>[Schwäche 3]</li></ul></div>
+     </div>
+   </div>
+
+4. VERGLEICHSTABELLE (mind. 1 PFLICHT):
+   <div class="table-wrap"><table><thead><tr><th>Feature</th><th>[Spalte]</th>...</tr></thead>
+   <tbody><tr><td>[Label]</td><td><span class="badge-good">[Gut]</span></td><td><span class="badge-mid">[Mittel]</span></td><td><span class="badge-bad">[Schlecht]</span></td></tr>...</tbody></table></div>
+
+5. CALLOUT (mind. 1 PFLICHT):
+   <div class="callout"><div class="callout-label">💡 Praxis-Tipp</div><p>[Konkreter Tipp. 2–4 Sätze.]</p></div>
+   Varianten: "⚠️ Achtung" | "✅ Empfehlung" | "📌 Merke"
+
+6. INTERNER LINK (1–3 PFLICHT):
+   <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Artikeltitel] →</a></div>
+   Verlinke auf verwandte jakubkaczmarek.de Artikel (z.B. /blog/ki-automatisierung-b2b)
+
+7. LISTEN:
+   Ungeordnet: <ul><li><strong>[Begriff]</strong> — [Erklärung]</li>...</ul>
+   Nummeriert: <ol><li><strong>[Schritt]</strong> — [Erklärung]</li>...</ol>
+
+8. FAQ (PFLICHT vor Fazit):
+   <hr />
+   <h2>Häufige Fragen zu [Keyword]</h2>
+   <div class="faq-list">
+     <div class="faq-item">
+       <button class="faq-question" onclick="toggleFaq(this)">[Frage aus People Also Ask]<span class="faq-icon">+</span></button>
+       <div class="faq-answer"><p>[Antwort. 2–4 Sätze.]</p></div>
+     </div>
+     [4–6 Fragen total]
+   </div>
+
+9. FAZIT + CTA (PFLICHT am Ende):
+   <hr />
+   <div class="fazit-box">
+     <h2>Fazit</h2>
+     <p>[Zusammenfassung 2–3 Sätze. Was hat der Leser gelernt? Nächster Schritt.]</p>
+     <a href="/#cta" class="btn">Kostenloses Gespräch buchen</a>
+     <a href="/Blog" class="btn-ghost">Mehr Artikel</a>
+   </div>
+
+═══════════════════════════════════════════
+🚫 VERBOTENE BEGRIFFE:
+═══════════════════════════════════════════
+Game Changer, unlock, unleash, delve, revolutionieren, cutting-edge, synergy, transformative, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos, Gedankenstriche (—), rhetorische Ein-Wort-Fragen ("Ergebnis?"), Digitale Transformation, Next-Level, "in today's world", "let's dive in"
+
+✅ SCHREIBSTIL:
 - Immer "du", nie "man" oder "der User"
+- Konkrete Zahlen statt vager Aussagen
+- Aktive Sprache: "du sparst 3 Stunden"
+- Ehrliche Einschätzung inkl. Nachteile
+- Autor-Perspektive: "In meiner Praxis..."
+- Max. 3–4 Sätze pro Absatz
 
-📊 E-E-A-T (PFLICHT):
-- Eigene Einschätzung und Erfahrung einbringen
-- Konkrete Zahlen (z.B. "spart bis zu 4 Stunden pro Woche")
-- Vor- UND Nachteile ehrlich ansprechen
-- Praktische Beispiele aus dem B2B-Alltag
-- KEIN generischer AI-Fließtext
-
-ARTIKEL-LÄNGE je nach Typ:
-- Review/Vergleich: 2000–3000 Wörter
-- Tutorial/Ratgeber: 1500–2500 Wörter
-- Use-Case/Trend: 1500–2000 Wörter
+ARTIKEL-LÄNGE: Review/Vergleich 2000–3000W | Tutorial/Ratgeber 1500–2500W
 
 Gib mir das Ergebnis als JSON:
 {
   "title": "...(Keyword an Position 1)...",
-  "slug": "...(lowercase, hyphens, kein Sonderzeichen, kein Datum)...",
-  "excerpt": "...(2–3 Sätze, Keyword enthalten, max 200 Zeichen)...",
-  "content": "...(vollständiger Markdown-Artikel nach Blueprint)...",
+  "h1": "...(sichtbare H1, 50–80 Zeichen, Keyword enthalten)...",
+  "slug": "...(lowercase, Bindestriche, kein Datum)...",
+  "excerpt": "...(150–160 Zeichen, Keyword enthalten, Nutzen + CTA)...",
+  "body_html": "...(vollständiger HTML-Artikel nach obiger Struktur, KEIN Markdown)...",
+  "schema_json": "{\\"@context\\": \\"https://schema.org\\", \\"@type\\": \\"Article\\", \\"headline\\": \\"...\\", \\"description\\": \\"...\\", \\"author\\": {\\"@type\\": \\"Person\\", \\"name\\": \\"Jakub Kaczmarek\\"}, \\"datePublished\\": \\"${today}\\"}",
+  "reading_time": 7,
   "cover_image": "https://images.unsplash.com/photo-XXXXX?w=1200&q=80",
   "category": "eines von: ${categoryOptions.join(', ')}",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
@@ -294,9 +281,12 @@ Gib mir das Ergebnis als JSON:
       type: "object",
       properties: {
         title: { type: "string" },
+        h1: { type: "string" },
         slug: { type: "string" },
         excerpt: { type: "string" },
-        content: { type: "string" },
+        body_html: { type: "string" },
+        schema_json: { type: "string" },
+        reading_time: { type: "number" },
         cover_image: { type: "string" },
         category: { type: "string" },
         tags: { type: "array", items: { type: "string" } },
@@ -307,7 +297,7 @@ Gib mir das Ergebnis als JSON:
         meta_title: { type: "string" },
         meta_description: { type: "string" }
       },
-      required: ["title", "slug", "content", "excerpt", "category"]
+      required: ["title", "slug", "body_html", "excerpt", "category"]
     }
   });
 
