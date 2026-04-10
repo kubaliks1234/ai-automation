@@ -15,13 +15,27 @@ Deno.serve(async (req) => {
 
     let fixedContent = post.content;
 
-    // Handle all variants of escaped newlines
+    // Step 1: Replace literal escaped newlines
     fixedContent = fixedContent
-      .replace(/\\n\\n/g, '\n\n')  // \n\n → double newline
-      .replace(/\\n/g, '\n')        // \n → single newline
-      .replace(/\\t/g, '\t')        // \t → tab
-      .replace(/\\r/g, '')           // remove \r
-      .replace(/\r\n/g, '\n');       // normalize CRLF
+      .replace(/\\n\\n/g, '\n\n')
+      .replace(/\\n/g, '\n')
+      .replace(/\\t/g, '\t')
+      .replace(/\\r/g, '')
+      .replace(/\r\n/g, '\n');
+
+    // Step 2: Ensure markdown headings are on their own lines
+    fixedContent = fixedContent
+      .replace(/([^\n])(#{1,4} )/g, '$1\n\n$2')  // add newline before heading
+      .replace(/(#{1,4} [^\n]+)([^\n])/g, '$1\n$2') // add newline after heading
+      .replace(/([^\n])(- )/g, (match, p1, p2, offset, str) => {
+        // Only add newline if this looks like a list item start
+        if (p1 === ' ' || p1 === '\t') return match;
+        return p1 + '\n' + p2;
+      });
+
+    // Step 3: Clean up excessive newlines
+    fixedContent = fixedContent
+      .replace(/\n{4,}/g, '\n\n\n');
 
     // Always update to ensure consistency
     await base44.asServiceRole.entities.BlogPost.update(post.id, { content: fixedContent });
