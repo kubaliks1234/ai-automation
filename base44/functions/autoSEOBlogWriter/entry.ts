@@ -160,60 +160,121 @@ Struktur:
 - FAQ (H2) – 5 Fragen`;
   }
 
-  const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen, SEO-optimierten Artikel auf Deutsch.
+  const prompt = `Du bist ein professioneller SEO-Texter und KI-Automatisierungs-Experte für den DACH-Markt. Schreibe einen vollständigen Blogartikel auf Deutsch nach dem exakten Blueprint unten.
 
-DIE WEBSITE: jakubkaczmarek.de – positioniert als KI-Automatisierungs-Spezialist für den deutschen B2B-Markt.
-ZIELGRUPPE: B2B-Entscheider, Freelancer, Unternehmer im DACH-Raum, die KI-Automatisierung umsetzen wollen.
+DIE WEBSITE: jakubkaczmarek.de – KI-Automatisierungs-Spezialist für den deutschen B2B-Markt.
+ZIELGRUPPE: B2B-Entscheider, Freelancer, Unternehmer im DACH-Raum.
 
 THEMA: "${mainTopic}"
 ARTIKEL-TYP: ${selected.type.toUpperCase()}
+PRIMÄR-KEYWORD: "${selected.keyword || mainTopic}"
 
 ${typeInstructions}
 
-🚫 ABSOLUT VERBOTENE WÖRTER – NIEMALS verwenden:
-- Game Changer, unlock, unleash, delve, realm, landscape
-- revolutionize / revolutionieren / revolutioniert, cutting-edge, robust, elevate, foster
-- navigate (complexities), embark on journey, spearhead
-- utilize (→ nutzen), commence (→ starten), endeavor, paramount
-- synergy / Synergie, thought leader, value-add, holistic, transformative / transformieren
-- "in today's world", "in today's fast-paced", "look no further"
-- "let's dive in", "at the end of the day", "nestled in"
-- Gedankenstriche (—) → nutze Komma, Punkt oder Klammern
-- Rhetorische Ein-Wort-Fragen: "Ergebnis?", "Der Haken?", "Mein Tipp?", "Die Lösung?"
-- Übertriebene Adjektive: unglaublich, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos
-- Digitale Transformation, Next-Level, Spielregeln, im Sturm
+═══════════════════════════════════════════
+📐 BLUEPRINT – EXAKTE STRUKTUR (PFLICHT):
+═══════════════════════════════════════════
 
-✅ SCHREIBE WIE EIN MENSCH UND EXPERTE:
+1. SLUG (URL):
+   - Nur Kleinbuchstaben, Bindestriche, kein Datum, kein Sonderzeichen
+   - Nur das Keyword: z.B. "n8n-elevenlabs-integration"
+
+2. META TITLE (≤60 Zeichen, PFLICHT):
+   - Keyword an Position 1
+   - Formel: [Keyword]: [Benefit oder Zahl]
+   - Beispiel: "n8n ElevenLabs Integration: Voice-Agent in 30 Min."
+
+3. META DESCRIPTION (150–160 Zeichen, PFLICHT):
+   - Keyword enthalten (Google fett es in der Suche)
+   - Formel: [Keyword] erklärt: [Was der Leser bekommt]. [Nutzen]. Jetzt lesen.
+
+4. H1 (exakt eine, 50–80 Zeichen):
+   - Keyword exakt oder sehr nah enthalten
+   - Neugier oder klares Versprechen erzeugen
+   - Darf länger/menschlicher sein als der Meta Title
+
+5. INTRO (150–200 Wörter, PFLICHT):
+   - Satz 1–2: Keyword + Problem benennen (Leser nickt)
+   - Satz 3–4: Warum das Problem schmerzhaft ist
+   - Satz 5–6: Was dieser Artikel löst (Versprechen)
+   - Satz 7–8: Credibility (warum der Leser mir glaubt)
+   - KEIN "In diesem Artikel werde ich..."
+   - KEIN "Willkommen auf meinem Blog"
+   - KEINE generischen Aussagen wie "KI ist wichtig"
+
+6. HAUPTTEIL – H2/H3 STRUKTUR:
+   - Jeder H2 = ein klar abgegrenztes Hauptkapitel
+   - H3 nur wenn ein H2 mehr als 2 Unterpunkte hat
+   - KEIN H4 oder H5 verwenden
+   - Jeder H2 mind. 150 Wörter Inhalt
+   - H2-Überschriften als Standalone lesbar
+   - Sekundäre Keywords in H2-Überschriften einbauen
+   - Nach jedem H2: Mischung aus Fließtext + Liste oder Tabelle
+   - Max. 3–4 Sätze pro Absatz
+
+7. INTERNE LINKS (2–4, PFLICHT):
+   - Verlinke auf: [KI-Automatisierung Lösungen](/ki-automatisierung) oder verwandte Blog-Artikel
+   - Anchor-Text beschreibend, NICHT "hier klicken"
+   - Beispiel: "Wie ich n8n-Workflows aufbaue, erkläre ich im [KI Automatisierung Guide](/ki-automatisierung)."
+
+8. EXTERNE LINKS (1–2, PFLICHT):
+   - Nur Autoritätsquellen: offizielle Docs, Studien
+   - rel="noopener noreferrer"
+   - KEIN Link auf Konkurrenten
+
+9. FAQ-SEKTION (PFLICHT – People Also Ask):
+   - H2: "Häufige Fragen zu [Keyword]"
+   - 3–6 Fragen als H3
+   - Jede Antwort: 2–4 Sätze
+   - Fragen im Stil von Google's "People Also Ask"
+
+10. FAZIT + CTA (PFLICHT):
+    - H2: "Fazit"
+    - 2–3 Sätze Zusammenfassung: Was hat der Leser gelernt?
+    - Nächster logischer Schritt
+    - CTA: "Buche ein kostenloses Gespräch" oder "Kein Artikel mehr verpassen"
+    - Link auf: https://jakubkaczmarek.de/#cta
+
+═══════════════════════════════════════════
+🚫 ABSOLUT VERBOTENE WÖRTER – NIEMALS verwenden:
+═══════════════════════════════════════════
+- Game Changer, unlock, unleash, delve, realm, landscape
+- revolutionieren, cutting-edge, robust, elevate, foster
+- navigate complexities, embark on journey, spearhead
+- utilize (→ nutzen), synergy/Synergie, thought leader, transformative
+- "in today's world", "let's dive in", "at the end of the day"
+- Gedankenstriche (—) → nutze Komma, Punkt oder Klammern stattdessen
+- Rhetorische Ein-Wort-Fragen: "Ergebnis?", "Der Haken?", "Mein Tipp?"
+- unglaublich, bahnbrechend, wegweisend, visionär, disruptiv, nahtlos
+- Digitale Transformation, Next-Level, Spielregeln
+
+✅ SCHREIBE WIE EIN EXPERTE:
 - Direkt, konkret, ohne Blabla
 - Kurze Sätze (max. 20 Wörter)
-- Aktive Sprache: "du sparst 3 Stunden" statt "es ermöglicht dir, Zeit zu sparen"
+- Aktive Sprache: "du sparst 3 Stunden" statt "es ermöglicht dir Zeit zu sparen"
 - Konkrete Zahlen, echte Beispiele, klare Empfehlungen
 - Ehrliche Einschätzung inkl. Nachteile
-- Autor-Perspektive einbauen: "In meiner Praxis...", "Mein Tipp:", "Ich empfehle..."
+- Autor-Perspektive: "In meiner Praxis...", "Ich empfehle..."
+- Immer "du", nie "man" oder "der User"
 
-🎯 SEO-REGELN (aus dem SEO-Guide jakubkaczmarek.de):
-- Keyword "${selected.keyword || mainTopic}" MUSS: im Titel an Position 1, im H1 (exakt), in den ersten 100 Wörtern, im Meta Title (≤60Z), in der Meta Description (≤160Z), im Slug
-- H1 muss das Keyword exakt oder sehr nah enthalten
-- LSI-Keywords und verwandte Begriffe natürlich einstreuen
-- Mindestens eine Vergleichstabelle oder strukturierte Übersicht
-- FAQ-Sektion am Ende (People Also Ask Logik)
-- Interne Verlinkung: Erwähne und verlinke auf jakubkaczmarek.de/ki-automatisierung oder relevante Blog-Beiträge
-- Artikel: 1800–2500 Wörter, kurze Absätze (max. 3–4 Sätze)
-- Jahreszahl 2026 im Titel einbauen
-
-📊 E-E-A-T (Pflicht):
+📊 E-E-A-T (PFLICHT):
 - Eigene Einschätzung und Erfahrung einbringen
 - Konkrete Zahlen (z.B. "spart bis zu 4 Stunden pro Woche")
 - Vor- UND Nachteile ehrlich ansprechen
 - Praktische Beispiele aus dem B2B-Alltag
 - KEIN generischer AI-Fließtext
 
+ARTIKEL-LÄNGE je nach Typ:
+- Review/Vergleich: 2000–3000 Wörter
+- Tutorial/Ratgeber: 1500–2500 Wörter
+- Use-Case/Trend: 1500–2000 Wörter
+
 Gib mir das Ergebnis als JSON:
 {
-  "title": "...(Keyword an Position 1 + 2026)...",
-  "slug": "...(lowercase, hyphens, kein Sonderzeichen)...",
+  "title": "...(Keyword an Position 1)...",
+  "slug": "...(lowercase, hyphens, kein Sonderzeichen, kein Datum)...",
   "excerpt": "...(2–3 Sätze, Keyword enthalten, max 200 Zeichen)...",
-  "content": "...(vollständiger Markdown-Artikel, 1800–2500 Wörter)...",
+  "content": "...(vollständiger Markdown-Artikel nach Blueprint)...",
   "cover_image": "https://images.unsplash.com/photo-XXXXX?w=1200&q=80",
   "category": "eines von: ${categoryOptions.join(', ')}",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
@@ -222,7 +283,7 @@ Gib mir das Ergebnis als JSON:
   "pricing": "eines von: ${pricingOptions.join(', ')}",
   "rating": 4.2,
   "meta_title": "...(max 60 Zeichen, Keyword vorne)...",
-  "meta_description": "...(max 160 Zeichen, Keyword + konkreter Nutzen + CTA)..."
+  "meta_description": "...(150–160 Zeichen, Keyword + Nutzen + CTA)..."
 }`;
 
   const result = await base44.asServiceRole.integrations.Core.InvokeLLM({
