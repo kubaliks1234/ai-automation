@@ -154,22 +154,32 @@ const blogHtmlStyles = `
     margin: 1.5rem 0;
     border-radius: 0.75rem;
     border: 1px solid #1e293b;
+    background: #0d1117;
   }
   .blog-html-content table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
   .blog-html-content thead { background: #0f172a; }
   .blog-html-content th {
     color: #fff;
     font-weight: 700;
-    padding: 0.85rem 1rem;
+    padding: 0.9rem 1.1rem;
     text-align: left;
-    border-bottom: 1px solid #1e293b;
+    border-bottom: 2px solid #1e293b;
+    border-right: 1px solid #1e293b;
+    white-space: nowrap;
   }
+  .blog-html-content th:last-child { border-right: none; }
   .blog-html-content td {
-    color: #94a3b8;
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #0f172a;
+    color: #cbd5e1;
+    padding: 0.8rem 1.1rem;
+    border-bottom: 1px solid #1e293b;
+    border-right: 1px solid #1e293b;
+    vertical-align: middle;
   }
-  .blog-html-content tr:hover td { background: rgba(255,255,255,0.02); }
+  .blog-html-content td:last-child { border-right: none; }
+  .blog-html-content td:first-child { font-weight: 700; color: #fff; }
+  .blog-html-content tr:last-child td { border-bottom: none; }
+  .blog-html-content tbody tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  .blog-html-content tr:hover td { background: rgba(6,182,212,0.04); }
   .blog-html-content .badge-good { background: rgba(16,185,129,0.15); color: #34d399; border-radius: 0.35rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; font-weight: 600; }
   .blog-html-content .badge-mid { background: rgba(234,179,8,0.15); color: #fbbf24; border-radius: 0.35rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; font-weight: 600; }
   .blog-html-content .badge-bad { background: rgba(239,68,68,0.12); color: #f87171; border-radius: 0.35rem; padding: 0.15rem 0.5rem; font-size: 0.8rem; font-weight: 600; }
