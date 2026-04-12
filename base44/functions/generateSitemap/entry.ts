@@ -4,7 +4,6 @@ const STATIC_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/Blog', priority: '0.9', changefreq: 'daily' },
   { path: '/KiAgentur', priority: '0.8', changefreq: 'monthly' },
-  { path: '/Analyse', priority: '0.6', changefreq: 'monthly' },
   { path: '/Datenschutz', priority: '0.3', changefreq: 'yearly' },
   { path: '/Impressum', priority: '0.3', changefreq: 'yearly' },
 ];
