@@ -389,7 +389,7 @@ export default function BlogPost() {
 
   const articleSchema = post ? {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     "headline": post.meta_title || post.title,
     "description": post.meta_description || post.excerpt,
     "image": post.cover_image || '',
@@ -444,11 +444,12 @@ export default function BlogPost() {
     <div className="min-h-screen bg-[#0a0a0f]">
       {post && (
         <SEOMeta
-          title={post.meta_title || post.title}
+          title={`${post.meta_title || post.title} | Jakub Kaczmarek – KI Automatisierung`}
           description={post.meta_description || post.excerpt}
           keywords={post.tags?.join(', ')}
           canonical={`https://jakubkaczmarek.de/blog/${post.slug}`}
           ogImage={post.cover_image}
+          ogType="article"
           structuredData={articleSchema}
         />
       )}
@@ -516,7 +517,7 @@ export default function BlogPost() {
           {/* Cover image */}
           {post.cover_image && (
             <div className="relative rounded-3xl overflow-hidden mb-10 aspect-video">
-              <img src={post.cover_image} alt={post.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
+              <img src={post.cover_image} alt={`${post.h1 || post.title} – Jakub Kaczmarek KI Automatisierung`} loading="eager" fetchpriority="high" decoding="async" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/50 to-transparent" />
             </div>
           )}

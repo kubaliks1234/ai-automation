@@ -39,7 +39,7 @@ Deno.serve(async (req) => {
     <loc>${escapeXml(baseUrl + '/blog/' + post.slug)}</loc>
     <lastmod>${post.published_at || today}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>`).join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

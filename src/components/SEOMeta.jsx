@@ -8,6 +8,7 @@ export default function SEOMeta({
   keywords,
   canonical,
   ogImage = DEFAULT_IMAGE,
+  ogType = 'website',
   noIndex = false,
   structuredData = null,
 }) {
@@ -44,7 +45,7 @@ export default function SEOMeta({
     if (canonical) setLink('canonical', canonical);
 
     // Open Graph
-    setMeta('og:type', 'website', true);
+    setMeta('og:type', ogType, true);
     setMeta('og:title', title, true);
     setMeta('og:description', description, true);
     setMeta('og:image', ogImage, true);
