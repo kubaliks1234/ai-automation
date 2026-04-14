@@ -140,9 +140,31 @@ Gib das Ergebnis als JSON zurück:
   "meta_description": "...(150–160 Zeichen, Keyword + Nutzen + CTA)..."
 }`;
 
-    const result = await base44.asServiceRole.integrations.Core.InvokeLLM({
-      prompt,
-      add_context_from_internet: false,
+    // Step 1: Metadaten schnell generieren (kein body_html → kein Timeout)
+    const metaPrompt = `Du bist SEO-Texter für jakubkaczmarek.de (KI-Automatisierung, DACH, B2B).
+Erstelle NUR die Metadaten für diesen Artikel als JSON. KEIN body_html.
+
+Titel: "${article.title}"
+Keyword: "${article.keyword}"
+Tags: ${article.tags.join(', ')}
+Datum: ${today}
+
+JSON-Ausgabe:
+{
+  "title": "...(Keyword vorne)...",
+  "h1": "...(50–80 Zeichen)...",
+  "slug": "...(lowercase, Bindestriche)...",
+  "excerpt": "...(150–160 Zeichen, Keyword + Nutzen)...",
+  "meta_title": "...(max 60 Zeichen)...",
+  "meta_description": "...(150–160 Zeichen)...",
+  "category": "Automatisierung",
+  "cover_image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&q=80",
+  "reading_time": 7,
+  "rating": 4.5
+}`;
+
+    const meta = await base44.asServiceRole.integrations.Core.InvokeLLM({
+      prompt: metaPrompt,
       model: "gemini_3_flash",
       response_json_schema: {
         type: "object",
@@ -151,25 +173,51 @@ Gib das Ergebnis als JSON zurück:
           h1: { type: "string" },
           slug: { type: "string" },
           excerpt: { type: "string" },
-          body_html: { type: "string" },
-          schema_json: { type: "string" },
-          reading_time: { type: "number" },
-          cover_image: { type: "string" },
-          category: { type: "string" },
-          tags: { type: "array", items: { type: "string" } },
-          pricing: { type: "string" },
-          rating: { type: "number" },
           meta_title: { type: "string" },
-          meta_description: { type: "string" }
+          meta_description: { type: "string" },
+          category: { type: "string" },
+          cover_image: { type: "string" },
+          reading_time: { type: "number" },
+          rating: { type: "number" }
         },
-        required: ["title", "slug", "body_html", "excerpt", "category"]
+        required: ["title", "slug", "excerpt", "category"]
       }
     });
 
-    console.log(`[INFO] LLM-Antwort erhalten für: "${result.title}"`);
+    console.log(`[INFO] Meta generiert: "${meta.title}"`);
+
+    // Step 2: body_html separat generieren
+    const bodyPrompt = `Du bist SEO-Texter. Schreibe den vollständigen HTML-Artikel auf Deutsch.
+KEIN Markdown. Nur fertiges HTML.
+
+Artikel: "${meta.title}"
+Keyword: "${article.keyword}"
+
+STRUKTUR (PFLICHT):
+1. <p class="lead">[Intro, Keyword in Satz 1, Problem + Versprechen, <strong>Schlüsselbegriffe</strong>]</p>
+2. Mind. 5x <h2>[Abschnitt]</h2> mit je 2–3 <p> Absätzen
+3. Mind. 1 <div class="tool-card"> mit Pro/Con-Grid
+4. Mind. 1 <div class="table-wrap"><table>...</table></div>
+5. Mind. 1 <div class="callout"><div class="callout-label">💡 Tipp</div><p>...</p></div>
+6. FAQ: <div class="faq-list"> mit 4–5 <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">[Frage]<span class="faq-icon">+</span></button><div class="faq-answer"><p>...</p></div></div>
+7. Fazit: <div class="fazit-box"><h2>Fazit</h2><p>...</p><a href="/#cta" class="btn">Kostenloses Gespräch buchen</a></div>
+
+VERBOTEN: Markdown, "Game Changer", "bahnbrechend", "nahtlos", Gedankenstriche (—)
+STIL: "du" statt "man", 1800–2500 Wörter, konkrete Zahlen
+
+Gib NUR den HTML-String zurück, kein JSON-Wrapper.`;
+
+    const bodyResult = await base44.asServiceRole.integrations.Core.InvokeLLM({
+      prompt: bodyPrompt,
+      model: "gemini_3_flash"
+    });
+
+    console.log(`[INFO] Body HTML generiert (${bodyResult?.length || 0} Zeichen)`);
 
     const postData = {
-      ...result,
+      ...meta,
+      tags: article.tags,
+      body_html: typeof bodyResult === 'string' ? bodyResult : JSON.stringify(bodyResult),
       status: "published",
       published_at: today
     };
