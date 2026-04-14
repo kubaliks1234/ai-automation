@@ -47,6 +47,56 @@ Deno.serve(async (req) => {
       { title: "Online Business mit KI automatisieren: Der Starter-Guide 2026", keyword: "online business mit ki automatisieren", tags: ["Online Business", "KI", "Automatisierung", "Starter", "2026"] },
       { title: "Side Hustle mit n8n und KI: Wie ich monatlich X Euro verdiene", keyword: "side hustle n8n ki", tags: ["Side Hustle", "n8n", "KI", "Nebenverdienst", "Automatisierung"] },
       { title: "Passives Einkommen mit KI-Automatisierung aufbauen", keyword: "passives einkommen ki automatisierung", tags: ["Passives Einkommen", "KI", "Automatisierung", "Online Business", "2026"] },
+
+      // === 🔥 GELD-KEYWORDS (Buyer Intent) ===
+      { title: "Beste KI Tools 2026: Die Top AI Software im großen Vergleich", keyword: "beste ki tools 2026", tags: ["KI Tools", "2026", "Vergleich", "AI Software", "Empfehlung"] },
+      { title: "KI Tools Vergleich 2026: Welches Tool lohnt sich wirklich?", keyword: "ki tools vergleich", tags: ["KI Tools", "Vergleich", "2026", "Bewertung", "Kaufberatung"] },
+      { title: "AI Tools for Business: Die besten Lösungen für Unternehmen", keyword: "ai tools for business", tags: ["AI Tools", "Business", "Unternehmen", "B2B", "Produktivität"] },
+      { title: "Beste ChatGPT Alternativen 2026: 8 Tools im ehrlichen Test", keyword: "beste chatgpt alternativen", tags: ["ChatGPT", "Alternativen", "AI Tools", "Vergleich", "2026"] },
+      { title: "AI Tools für Marketing: Diese 7 Tools sparen dir Stunden täglich", keyword: "ai tools für marketing", tags: ["AI Tools", "Marketing", "Automatisierung", "Content", "2026"] },
+      { title: "AI Tools für Geld verdienen: So nutzt du KI für Einnahmen online", keyword: "ai tools für geld verdienen", tags: ["AI Tools", "Geld verdienen", "Online Business", "Affiliate", "2026"] },
+      { title: "AI Tools für Selbstständige: Die besten Helfer für Freelancer 2026", keyword: "ai tools für selbstständige", tags: ["AI Tools", "Selbstständige", "Freelancer", "Produktivität", "DACH"] },
+      { title: "AI Automation Tools kaufen: Worauf du achten musst", keyword: "ai automation tools kaufen", tags: ["AI Automation", "Tools", "Kaufen", "Vergleich", "B2B"] },
+      { title: "Die 7 KI Tools die dir 10 Stunden Arbeit pro Woche sparen", keyword: "ki tools zeit sparen", tags: ["KI Tools", "Zeit sparen", "Produktivität", "Automatisierung", "2026"] },
+      { title: "Ich habe 23 KI Tools getestet – diese 5 sind wirklich gut", keyword: "ki tools erfahrungsberichte test", tags: ["KI Tools", "Test", "Erfahrung", "Empfehlung", "Vergleich"] },
+
+      // === 🧲 PROBLEM-KEYWORDS (Pain Points) ===
+      { title: "Texte schreiben automatisch mit KI: Die besten Tools im Vergleich", keyword: "texte schreiben automatisch ki", tags: ["Texte schreiben", "KI", "Automatisch", "AI Writer", "Content"] },
+      { title: "Bilder erstellen mit KI kostenlos: Die besten Gratis-Tools 2026", keyword: "bilder erstellen ki kostenlos", tags: ["Bilder erstellen", "KI", "Kostenlos", "AI Art", "Midjourney"] },
+      { title: "Videos erstellen mit KI: So geht es schnell und einfach 2026", keyword: "videos erstellen ki", tags: ["Videos erstellen", "KI", "Video AI", "Content", "2026"] },
+      { title: "Zeit sparen im Business mit KI: 10 sofort umsetzbare Strategien", keyword: "zeit sparen im business ki", tags: ["Zeit sparen", "Business", "KI", "Effizienz", "Automatisierung"] },
+      { title: "Automatisierung im Marketing: Schritt-für-Schritt Guide 2026", keyword: "automatisierung im marketing", tags: ["Automatisierung", "Marketing", "Guide", "Tools", "B2B"] },
+      { title: "Content erstellen ohne Aufwand: KI Tools die wirklich funktionieren", keyword: "content erstellen ohne aufwand ki", tags: ["Content", "KI", "Automatisierung", "Creator", "Marketing"] },
+      { title: "Passives Einkommen mit Online Tools aufbauen: Realistische Wege", keyword: "passives einkommen online tools", tags: ["Passives Einkommen", "Online Tools", "Business", "Nebenverdienst", "KI"] },
+
+      // === 💡 HOW-TO KEYWORDS ===
+      { title: "Wie funktioniert KI? Einfach erklärt für Selbstständige & Unternehmer", keyword: "wie funktioniert ki", tags: ["KI", "Erklärung", "Einsteiger", "Unternehmer", "Grundlagen"] },
+      { title: "Wie nutze ich ChatGPT richtig? 12 Profi-Tipps für 2026", keyword: "wie nutze ich chatgpt richtig", tags: ["ChatGPT", "Tipps", "Anleitung", "Prompts", "2026"] },
+      { title: "Wie mit KI Geld verdienen? 9 bewährte Methoden für 2026", keyword: "wie mit ki geld verdienen", tags: ["KI", "Geld verdienen", "Methoden", "Online Business", "2026"] },
+      { title: "Wie automatisiere ich mein Business? Der komplette Einstieg", keyword: "wie automatisiere ich mein business", tags: ["Business", "Automatisierung", "Anleitung", "KI", "Einsteiger"] },
+      { title: "Wie erstelle ich Content mit KI? Schritt-für-Schritt Anleitung", keyword: "wie erstelle ich content mit ki", tags: ["Content", "KI", "Anleitung", "Creator", "Marketing"] },
+      { title: "AI Prompts Beispiele: Die besten Prompts für deinen Business-Alltag", keyword: "ai prompts beispiele", tags: ["AI Prompts", "ChatGPT", "Beispiele", "Business", "Tipps"] },
+
+      // === ⚔️ TOOL VS TOOL ===
+      { title: "ChatGPT vs Jasper: Welches KI-Schreibtool lohnt sich 2026?", keyword: "chatgpt vs jasper", tags: ["ChatGPT", "Jasper", "Vergleich", "AI Writer", "2026"] },
+      { title: "Midjourney vs DALL-E: Der ehrliche Bildgenerator-Vergleich 2026", keyword: "midjourney vs dall-e", tags: ["Midjourney", "DALL-E", "Vergleich", "Bilder KI", "2026"] },
+      { title: "Beste AI Writer Tools 2026: Die Top 6 im direkten Vergleich", keyword: "beste ai writer tools", tags: ["AI Writer", "Tools", "Vergleich", "Content", "2026"] },
+      { title: "Notion AI vs ChatGPT: Welches Tool passt besser zu dir?", keyword: "notion ai vs chatgpt", tags: ["Notion AI", "ChatGPT", "Vergleich", "Produktivität", "2026"] },
+      { title: "Canva AI vs Midjourney: Was ist besser für dein Business?", keyword: "canva ai vs midjourney", tags: ["Canva AI", "Midjourney", "Vergleich", "Design", "2026"] },
+
+      // === 🚀 TREND & HYPE KEYWORDS ===
+      { title: "Neue KI Tools 2026: Diese Releases musst du kennen", keyword: "neue ki tools 2026", tags: ["Neue KI Tools", "2026", "Trends", "Releases", "AI"] },
+      { title: "AI Trends 2026: Was du jetzt wissen musst", keyword: "ai trends 2026", tags: ["AI Trends", "2026", "KI", "Zukunft", "Business"] },
+      { title: "Neue ChatGPT Features 2026: Die wichtigsten Updates erklärt", keyword: "neue chatgpt features 2026", tags: ["ChatGPT", "Features", "Updates", "2026", "OpenAI"] },
+      { title: "Top AI Tools kostenlos: Die besten Gratis-KI-Tools im Überblick", keyword: "top ai tools kostenlos", tags: ["AI Tools", "Kostenlos", "Gratis", "Überblick", "2026"] },
+      { title: "AI Tools Liste 2026: Über 30 Tools für jeden Einsatzbereich", keyword: "ai tools liste 2026", tags: ["AI Tools", "Liste", "Überblick", "2026", "Vergleich"] },
+
+      // === 🎯 ULTRA-NICHE KEYWORDS ===
+      { title: "KI Tools für Immobilienmakler: So sparst du 60% deiner Zeit", keyword: "ki tools für immobilienmakler", tags: ["KI Tools", "Immobilienmakler", "Nische", "Automatisierung", "2026"] },
+      { title: "KI Tools für Coaches: Diese 7 Tools transformieren dein Coaching-Business", keyword: "ki tools für coaches", tags: ["KI Tools", "Coaches", "Coaching", "Business", "Automatisierung"] },
+      { title: "KI Tools für Studenten: Mit KI schneller studieren und besser lernen", keyword: "ki tools für studenten", tags: ["KI Tools", "Studenten", "Lernen", "Universität", "2026"] },
+      { title: "KI Tools für TikTok Content: So erstellst du viralen Content auf Autopilot", keyword: "ki tools für tiktok content", tags: ["KI Tools", "TikTok", "Content", "Social Media", "Viral"] },
+      { title: "KI Tools für Etsy Seller: Mehr Umsatz mit weniger Aufwand", keyword: "ki tools für etsy seller", tags: ["KI Tools", "Etsy", "E-Commerce", "Seller", "Automatisierung"] },
     ];
 
     const remaining = articlePool.filter(a =>
