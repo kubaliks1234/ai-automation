@@ -62,7 +62,7 @@ const AuthenticatedApp = () => {
       ))}
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/SeoOptimierung" element={<SeoOptimierung />} />
-      <Route path="/sitemap-blog.xml" element={<SitemapBlog />} />
+      <Route path="/sitemap-blog" element={<SitemapBlog />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

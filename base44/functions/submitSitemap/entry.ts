@@ -6,7 +6,7 @@ const SITE_URLS = [
   'https://jakubkaczmarek.de/',
   'https://jakubkaczmarek.de'
 ];
-const SITEMAP_URL = 'https://jakubkaczmarek.de/sitemap-blog.xml';
+const SITEMAP_URL = 'https://jakubkaczmarek.de/sitemap-blog';
 
 Deno.serve(async (req) => {
   try {
