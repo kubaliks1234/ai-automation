@@ -7,7 +7,7 @@ const SITE_URLS = [
   'sc-domain:jakubkaczmarek.de',
   'https://jakubkaczmarek.de/',
 ];
-const SITEMAP_URL = 'https://jakubkaczmarek.de/sitemap.xml';
+const SITEMAP_URL = 'https://jakubkaczmarek.de/functions/generateSitemap';
 
 Deno.serve(async (req) => {
   try {
