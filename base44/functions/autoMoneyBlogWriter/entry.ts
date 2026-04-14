@@ -230,8 +230,8 @@ Gib NUR den HTML-String zurück, kein JSON-Wrapper.`;
       success: true,
       keyword: article.keyword,
       post_id: created.id,
-      title: result.title,
-      message: `Artikel "${result.title}" wurde erfolgreich erstellt.`
+      title: postData.title,
+      message: `Artikel "${postData.title}" wurde erfolgreich erstellt.`
     });
 
   } catch (error) {
