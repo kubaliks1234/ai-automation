@@ -1,7 +1,8 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-// Nutzt Google Indexing API, um Blog-Posts direkt zur Indexierung anzumelden.
-// Google crawlt dann die URL erneut und holt frische Meta-Daten.
+// Nutzt Google Search Console URL Inspection API, um Blog-Posts zur erneuten Crawl-Prüfung einzureichen.
+// Endpoint: POST {} → prüft alle publizierten Posts
+// Optional: POST { slug: "mein-slug" } → prüft nur einen Post
 
 Deno.serve(async (req) => {
   try {
@@ -13,38 +14,51 @@ Deno.serve(async (req) => {
 
     const { accessToken } = await base44.asServiceRole.connectors.getConnection('google_search_console');
 
-    // Alle publizierten Posts holen
-    const posts = await base44.asServiceRole.entities.BlogPost.filter(
-      { status: 'published' },
-      '-published_at',
-      200
-    );
+    let body = {};
+    try { body = await req.json(); } catch { /* no body */ }
+    const singleSlug = body.slug;
+    const offset = body.offset || 0;
+    const limit = body.limit || 10;
 
+    // Posts holen
+    let posts;
+    if (singleSlug) {
+      posts = await base44.asServiceRole.entities.BlogPost.filter({ slug: singleSlug, status: 'published' }, '-published_at', 1);
+    } else {
+      const allPosts = await base44.asServiceRole.entities.BlogPost.filter({ status: 'published' }, '-published_at', 200);
+      posts = allPosts.slice(offset, offset + limit);
+    }
+
+    const SITE_URL = 'sc-domain:jakubkaczmarek.de';
     const results = [];
 
     for (const post of posts) {
-      const url = `https://jakubkaczmarek.de/blog/${post.slug}`;
-      const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
+      const inspectUrl = `https://jakubkaczmarek.de/blog/${post.slug}`;
+      
+      const res = await fetch('https://searchconsole.googleapis.com/v1/urlInspection/index:inspect', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          url,
-          type: 'URL_UPDATED',
+          inspectionUrl: inspectUrl,
+          siteUrl: SITE_URL,
         }),
       });
 
       const data = await res.json();
-      results.push({ slug: post.slug, url, status: res.status, response: data });
-      console.log(`[indexing] ${url} → ${res.status}`);
+      const verdict = data.inspectionResult?.indexStatusResult?.verdict || 'UNKNOWN';
+      const lastCrawled = data.inspectionResult?.indexStatusResult?.lastCrawlTime || null;
+      const crawledTitle = data.inspectionResult?.indexStatusResult?.lastCrawlResult || null;
+      results.push({ slug: post.slug, url: inspectUrl, status: res.status, verdict, lastCrawled, crawledTitle });
+      console.log(`[inspect] ${inspectUrl} → verdict: ${verdict}`);
     }
 
-    const ok = results.filter(r => r.status === 200).length;
-    const fail = results.filter(r => r.status !== 200).length;
+    const indexed = results.filter(r => r.verdict === 'PASS').length;
+    const notIndexed = results.filter(r => r.verdict !== 'PASS').length;
 
-    return Response.json({ success: true, ok, fail, results });
+    return Response.json({ success: true, total: results.length, indexed, notIndexed, offset, limit, results });
   } catch (error) {
     console.error('requestGoogleIndexing error:', error.message);
     return Response.json({ error: error.message }, { status: 500 });
