@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.20';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
 const STATIC_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
@@ -52,6 +52,8 @@ ${blogEntries}
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=3600',
+      'Access-Control-Allow-Origin': '*',
+      'X-Robots-Tag': 'noindex',
     }
   });
 });
