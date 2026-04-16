@@ -8,11 +8,16 @@ Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
     let slug;
-    try {
-      const body = await req.json();
-      slug = body.slug;
-    } catch {
-      slug = new URL(req.url).searchParams.get('slug');
+
+    // Support both GET (?slug=...) and POST ({slug: ...})
+    const urlObj = new URL(req.url);
+    slug = urlObj.searchParams.get('slug');
+
+    if (!slug && req.method === 'POST') {
+      try {
+        const body = await req.json();
+        slug = body.slug;
+      } catch { /* ignore */ }
     }
 
     if (!slug) {

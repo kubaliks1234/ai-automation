@@ -36,8 +36,8 @@ Deno.serve(async (req) => {
 
   const blogEntries = posts.map(post => `
   <url>
-    <loc>${escapeXml(baseUrl + '/blog/' + post.slug)}</loc>
-    <lastmod>${post.published_at || today}</lastmod>
+    <loc>${escapeXml('https://jakubkaczmarek.de/blog/' + post.slug)}</loc>
+    <lastmod>${post.updated_date ? post.updated_date.split('T')[0] : (post.published_at || today)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>`).join('');
