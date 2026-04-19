@@ -2,6 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://jakubkaczmarek.de/sitemap.xml
+Sitemap: https://jakubkaczmarek.de/functions/generateSitemap?base_url=https://jakubkaczmarek.de
 
 # Interne/Admin-Seiten nicht indexieren
 Disallow: /SeoAdmin

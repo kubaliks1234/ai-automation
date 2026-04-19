@@ -1,50 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
     <loc>https://jakubkaczmarek.de/</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/Blog</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/KiAgentur</loc>
-    <lastmod>2026-04-16</lastmod>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/Service</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/Analyse</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/Datenschutz</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/Impressum</loc>
-    <lastmod>2026-04-14</lastmod>
+    <lastmod>2026-04-19</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
-    <loc>https://jakubkaczmarek.de/blog/recruiting-automatisierung-erfahrungen</loc>
-    <lastmod>2026-04-14</lastmod>
+    <loc>https://jakubkaczmarek.de/blog/prozesse-ki-automatisieren</loc>
+    <lastmod>2026-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/ki-spezialist-dach-skills-projekte-2026</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/content-kalender-ki-erstellen</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/zeitarbeit-ki-hr-automatisierung</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/n8n-elevenlabs-voice-agent-tutorial</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/blotato-review-2026-ki-social-media-tool</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/ki-automatisierung-b2b-strategien</loc>
+    <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -55,13 +81,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jakubkaczmarek.de/blog/dsgvo-ki-automatisierung-leitfaden</loc>
-    <lastmod>2026-04-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/cloudtalk-review-cloud-telefonanlage-2026</loc>
+    <loc>https://jakubkaczmarek.de/blog/recruiting-automatisierung-erfahrungen</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -74,6 +94,18 @@
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ki-consultant-deutschland</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/cloudtalk-review-cloud-telefonanlage-2026</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/dsgvo-ki-automatisierung-leitfaden</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -103,13 +135,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jakubkaczmarek.de/blog/content-kalender-ki-erstellen</loc>
+    <loc>https://jakubkaczmarek.de/blog/mehrsprachige-recruiting-kampagnen-ki-tutorial</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jakubkaczmarek.de/blog/mehrsprachige-recruiting-kampagnen-ki-tutorial</loc>
+    <loc>https://jakubkaczmarek.de/blog/content-kalender-ki-erstellen</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -122,439 +154,511 @@
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ai-tools-fuer-content-creator-produktivitaet</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/jasper-ai-test</loc>
-    <lastmod>2026-04-09</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/midjourney-vs-dall-e-adobe-firefly-vergleich</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/chatgpt-e-mails-schreiben-anleitung-2026</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/beste-ai-tools-fuer-online-business-2026</loc>
-    <lastmod>2026-04-05</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/chatgpt-prompts-vertrieb-2026</loc>
-    <lastmod>2026-04-03</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ki-immobilienmakler-2026</loc>
-    <lastmod>2026-04-02</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-ki-fuer-anfaenger</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/chatgpt-vs-claude-2026-test</loc>
-    <lastmod>2026-04-01</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/heygen-ai-video-test</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-tiktok-ki-strategie-2026</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/tribe-v2-meta-ki-gehirnaktivitaet</loc>
-    <lastmod>2026-03-28</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ki-seo-texte-schreiben-guide-2026</loc>
-    <lastmod>2026-03-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/google-gemini-test-2026-features-preise</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-social-media-ki-2026</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/google-gemini-test-2026-features-preise</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/surfer-seo-test-erfahrungen</loc>
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/openai-sora-guide</loc>
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/manychat-chatbot-instagram-whatsapp-facebook-test</loc>
-    <lastmod>2026-03-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-digitalen-produkten-ki</loc>
-    <lastmod>2026-03-24</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/descript-review-tutorial-deutsch</loc>
-    <lastmod>2026-03-24</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-digitalen-produkten-ki</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/gamma-ai-test-guide-praesentationen</loc>
-    <lastmod>2026-03-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-youtube-ki-automatisieren-2026</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/adobe-firefly-guide-2025</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-youtube-ki-automatisieren-2026</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/base44-ki-app-builder-ohne-code</loc>
-    <lastmod>2026-03-22</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ai-side-hustle-ideen</loc>
-    <lastmod>2026-03-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/pika-labs-guide-ki-video</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ai-business-engine-review-bastian-barami</loc>
-    <lastmod>2026-03-20</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jakubkaczmarek.de/blog/github-copilot-test-2025-guide</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/beautiful-ai-test-review-praesentationen</loc>
-    <lastmod>2026-03-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/claude-ai-test-guide-deutsch</loc>
-    <lastmod>2026-03-19</lastmod>
+    <loc>https://jakubkaczmarek.de/blog/pika-labs-guide-ki-video</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/murf-ai-test-guide</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/claude-ai-test-guide-deutsch</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/beautiful-ai-test-review-praesentationen</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/github-copilot-test-2025-guide</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/writesonic-test-erfahrung</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/instantly-ai-review-cold-email-tool</loc>
-    <lastmod>2026-03-19</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/wie-man-mit-ai-geld-verdient</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/synthesia-ki-video-generator-test-2026</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/onepage-io-ki-website-erstellen</loc>
-    <lastmod>2026-03-18</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/microsoft-copilot-cowork-test-2026</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/runway-ml-test-guide-gen-4</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/submagic-ki-untertitel-social-media</loc>
-    <lastmod>2026-03-17</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/runway-ml-test-guide-gen-4</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/microsoft-copilot-cowork-test-2026</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/semrush-ai-test</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/ai-marketing-tools-2026</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/grok-ki-test-features-preise-2026</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/elevenlabs-ki-stimme-test</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/loom-ai-test-funktionen-preise</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-ki-guide</loc>
-    <lastmod>2026-03-14</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/kling-ai-test-review-2026</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/klick-tipp-email-marketing-test</loc>
-    <lastmod>2026-03-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/pictory-ai-test-video-tool</loc>
-    <lastmod>2026-03-12</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/geld-verdienen-im-internet-fuer-anfaenger-guide-2026</loc>
-    <lastmod>2026-03-12</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jakubkaczmarek.de/blog/apollo-io-test-erfahrungen</loc>
-    <lastmod>2026-03-11</lastmod>
+    <loc>https://jakubkaczmarek.de/blog/pictory-ai-test-video-tool</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/getresponse-marketing-plattform-test</loc>
-    <lastmod>2026-03-11</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jakubkaczmarek.de/blog/digitales-business-aufbauen-mit-ki</loc>
-    <lastmod>2026-03-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/invideo-ai-test-guide</loc>
-    <lastmod>2026-03-10</lastmod>
+    <loc>https://jakubkaczmarek.de/blog/apollo-io-test-erfahrungen</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/gojiberry-linkedin-automatisierung-leads-ohne-spam</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/digitales-business-aufbauen-mit-ki</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/invideo-ai-test-guide</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/beste-ki-marketing-tools</loc>
-    <lastmod>2026-03-10</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/manychat-chatbot-instagram-whatsapp-facebook-test</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/lemlist-test-erfahrungen-preise</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/side-hustle-ideen-2026</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/rytr-erfahrungen-test</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-content-und-ki</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/ai-tools-fuer-affiliate-marketing-mehr-provision-mit-ki</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/online-business-ideen-anfaenger</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/digitale-produkte-geld-verdienen</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/online-business-starten</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/digitale-einkommen-ideen</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/nebenjobs-von-zuhause</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/digitale-side-hustles</loc>
-    <lastmod>2026-03-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://jakubkaczmarek.de/blog/nebenbei-online-geld-verdienen</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/online-nebenjobs-anfaenger</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/rytr-erfahrungen-test</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/geld-verdienen-mit-content-und-ki</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/ai-tools-fuer-affiliate-marketing-mehr-provision-mit-ki</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/ai-business-engine-review-bastian-barami</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/online-business-ideen-anfaenger</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/digitale-produkte-geld-verdienen</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/online-business-starten</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/digitale-einkommen-ideen</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/nebenjobs-von-zuhause</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/digitale-side-hustles</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/online-business-starten</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/side-hustle-ideen-2026</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/nebenbei-online-geld-verdienen</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/digitale-produkte-geld-verdienen</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/business-ideen-ohne-startkapital</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/base44-ki-app-builder-ohne-code</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/online-business-ideen-anfaenger</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/onepage-io-ki-website-erstellen</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/elevenlabs-ki-stimme-test</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/submagic-ki-untertitel-social-media</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/klick-tipp-email-marketing-test</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://jakubkaczmarek.de/blog/getresponse-marketing-plattform-test</loc>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/perplexity-ai-suchmaschine</loc>
-    <lastmod>2026-03-01</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/make-workflow-automatisierung</loc>
-    <lastmod>2026-02-25</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/clay-linkedin-lead-generation</loc>
-    <lastmod>2026-02-20</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://jakubkaczmarek.de/blog/chatgpt-fuer-unternehmen</loc>
-    <lastmod>2026-03-04</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
