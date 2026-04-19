@@ -54,7 +54,7 @@ export default function Blog() {
       "position": index + 1,
       "name": post.title,
       "description": post.excerpt,
-      "url": `https://jakubkaczmarek.de/BlogPost?slug=${post.slug}`
+      "url": `https://jakubkaczmarek.de/blog/${post.slug}`
     }))
   } : null;
 

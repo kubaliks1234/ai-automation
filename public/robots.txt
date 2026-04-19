@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jakubkaczmarek.de/sitemap.xml
+
+# Interne/Admin-Seiten nicht indexieren
+Disallow: /SeoAdmin
+Disallow: /SeoOptimierung
+Disallow: /sitemap-blog
+Disallow: /Upsell
