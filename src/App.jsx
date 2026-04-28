@@ -5,6 +5,8 @@ import { pagesConfig } from './pages.config'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BlogPost from './pages/BlogPost';
 import SeoOptimierung from './pages/SeoOptimierung';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import SeoAdmin from './pages/SeoAdmin';
 import SitemapBlog from './pages/SitemapBlog';
 import PageNotFound from './lib/PageNotFound';
@@ -64,6 +66,8 @@ const AuthenticatedApp = () => {
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/SeoOptimierung" element={<SeoOptimierung />} />
       <Route path="/SeoAdmin" element={<SeoAdmin />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="/sitemap-blog" element={<SitemapBlog />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>

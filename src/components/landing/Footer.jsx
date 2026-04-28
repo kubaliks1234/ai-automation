@@ -83,6 +83,12 @@ export default function Footer() {
             <p className="text-sm text-gray-600">
               © {new Date().getFullYear()} AI Automation. Alle Rechte vorbehalten.
             </p>
+            <a href="/about" className="text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+              Über uns
+            </a>
+            <a href="/contact" className="text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+              Kontakt
+            </a>
             <a href={createPageUrl('Datenschutz')} className="text-sm text-gray-400 hover:text-cyan-400 transition-colors">
               Datenschutz
             </a>

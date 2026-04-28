@@ -1,0 +1,35 @@
+{
+  "name": "NewsletterSubscriber",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "E-Mail-Adresse des Abonnenten"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name des Abonnenten (optional)"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "unsubscribed"
+      ],
+      "default": "active",
+      "description": "Abo-Status"
+    },
+    "source": {
+      "type": "string",
+      "description": "Woher kam der Subscriber (z.B. blog-artikel, sidebar)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optionale Notiz oder Beschreibung zum Abonnenten (max. 1000 Zeichen)",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "email"
+  ]
+}
