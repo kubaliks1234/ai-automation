@@ -55,6 +55,7 @@ Deno.serve(async (req) => {
     }
 
     const post = results[0];
+    // Canonical MUST use lowercase /blog/ path (not /Blog/)
     const canonical = `https://jakubkaczmarek.de/blog/${post.slug}`;
     const title = `${post.meta_title || post.title} | Jakub Kaczmarek – KI Automatisierung`;
     const description = post.meta_description || post.excerpt || '';
@@ -84,7 +85,7 @@ Deno.serve(async (req) => {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://jakubkaczmarek.de" },
-        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jakubkaczmarek.de/Blog" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jakubkaczmarek.de/blog" },
         { "@type": "ListItem", "position": 3, "name": post.title, "item": canonical }
       ]
     });

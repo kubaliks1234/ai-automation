@@ -416,7 +416,7 @@ export default function BlogPost() {
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://jakubkaczmarek.de" },
-      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jakubkaczmarek.de/Blog" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://jakubkaczmarek.de/blog" },
       { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://jakubkaczmarek.de/blog/${post.slug}` }
     ]
   } : null;

@@ -1,1 +1,5 @@
-/* /index.html 200
+# Redirect uppercase /Blog to lowercase for canonical consistency
+/Blog  /blog  301
+
+# SPA fallback - all routes serve index.html
+/*  /index.html  200
