@@ -9,7 +9,7 @@ Deno.serve(async (req) => {
     const sessionParams = {
       payment_method_types: ['card'],
       line_items: [{
-        price: 'price_1T8duzIeDXSzt8uEmN2Y83or',
+        price: 'price_1TUk8pRmHWSfMHdPuqOuFRlQ',
         quantity: 1,
       }],
       mode: 'payment',
