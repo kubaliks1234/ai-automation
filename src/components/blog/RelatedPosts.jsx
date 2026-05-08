@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import { createPageUrl } from '@/utils';
 import { ArrowRight } from 'lucide-react';
 
 export default function RelatedPosts({ currentPost }) {
@@ -48,7 +47,7 @@ export default function RelatedPosts({ currentPost }) {
         {related.map(post => (
           <a
             key={post.id}
-            href={createPageUrl('BlogPost') + '?slug=' + post.slug}
+            href={`/blog/${post.slug}`}
             className="group block bg-gray-900/50 border border-gray-800 rounded-2xl overflow-hidden hover:border-cyan-500/40 transition-all duration-200 hover:-translate-y-1"
           >
             {post.cover_image && (

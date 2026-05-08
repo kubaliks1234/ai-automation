@@ -9,8 +9,7 @@ import NewsletterSignup from '@/components/blog/NewsletterSignup';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import ProductBox from '@/components/blog/ProductBox';
 import { Button } from '@/components/ui/button';
-import { createPageUrl } from '@/utils';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -302,6 +301,7 @@ const categoryColors = {
 export default function BlogPost() {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   const routeParams = useParams();
   const queryParams = new URLSearchParams(window.location.search);
@@ -354,13 +354,13 @@ export default function BlogPost() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                  onClick={() => window.location.href = createPageUrl('Blog')}
+                  onClick={() => navigate('/blog')}
                   className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl"
                 >
                   Zum Blog
                 </Button>
                 <Button
-                  onClick={() => window.location.href = createPageUrl('Home')}
+                  onClick={() => navigate('/')}
                   variant="outline"
                   className="border-gray-700 text-gray-300 hover:text-white px-8 py-3 rounded-xl"
                 >
@@ -379,7 +379,7 @@ export default function BlogPost() {
         <Navbar />
         <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6">
           <h1 className="text-3xl font-bold text-white mb-4">Artikel nicht gefunden</h1>
-          <Button onClick={() => window.location.href = createPageUrl('Blog')} className="bg-cyan-500 hover:bg-cyan-400 text-white">
+          <Button onClick={() => navigate('/blog')} className="bg-cyan-500 hover:bg-cyan-400 text-white">
             Zurück zum Blog
           </Button>
         </div>
@@ -466,7 +466,7 @@ export default function BlogPost() {
         <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-gray-600 mb-6">
           <a href="/" className="hover:text-cyan-400 transition-colors">Startseite</a>
           <span>/</span>
-          <a href="/Blog" className="hover:text-cyan-400 transition-colors">Blog</a>
+          <a href="/blog" className="hover:text-cyan-400 transition-colors">Blog</a>
           <span>/</span>
           <span className="text-gray-500 truncate max-w-[200px]">{post?.title}</span>
         </nav>
@@ -475,7 +475,7 @@ export default function BlogPost() {
         <motion.button
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          onClick={() => window.location.href = createPageUrl('Blog')}
+          onClick={() => navigate('/blog')}
           className="flex items-center gap-2 text-gray-500 hover:text-cyan-400 transition-colors mb-10 group"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -633,7 +633,7 @@ export default function BlogPost() {
           <h3 className="text-2xl font-bold text-white mb-3">Bereit für KI Automationen?</h3>
           <p className="text-gray-400 mb-6">Lass uns herausfinden, wie du dieses Tool in deinem Unternehmen einsetzen kannst.</p>
           <Button
-            onClick={() => window.location.href = createPageUrl('Home') + '#cta'}
+            onClick={() => navigate('/#cta')}
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl"
           >
             <CheckCircle className="w-5 h-5 mr-2" />
