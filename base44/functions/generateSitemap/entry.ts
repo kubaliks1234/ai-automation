@@ -1,13 +1,12 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
+const BASE_URL = 'https://jakubkaczmarek.de';
+
 const STATIC_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  { path: '/Blog', priority: '0.9', changefreq: 'daily' },
-  { path: '/KiAgentur', priority: '0.8', changefreq: 'monthly' },
-  { path: '/Service', priority: '0.8', changefreq: 'monthly' },
-  { path: '/Analyse', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Datenschutz', priority: '0.3', changefreq: 'yearly' },
-  { path: '/Impressum', priority: '0.3', changefreq: 'yearly' },
+  { path: '/blog', priority: '0.9', changefreq: 'daily' },
+  { path: '/about', priority: '0.7', changefreq: 'monthly' },
+  { path: '/contact', priority: '0.6', changefreq: 'monthly' },
 ];
 
 Deno.serve(async (req) => {
@@ -30,7 +29,7 @@ Deno.serve(async (req) => {
   
   const staticEntries = STATIC_PAGES.map(page => `
   <url>
-    <loc>${escapeXml(baseUrl + page.path)}</loc>
+    <loc>${escapeXml(BASE_URL + page.path)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
