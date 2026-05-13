@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Star, ExternalLink, Tag, Calendar, CheckCircle } from 'lucide-react';
 import NewsletterSignup from '@/components/blog/NewsletterSignup';
 import RelatedPosts from '@/components/blog/RelatedPosts';
+import InternalLinkBox from '@/components/blog/InternalLinkBox';
 import ProductBox from '@/components/blog/ProductBox';
 import { Button } from '@/components/ui/button';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -572,6 +573,7 @@ export default function BlogPost() {
           className="max-w-none"
         >
           <style dangerouslySetInnerHTML={{ __html: blogHtmlStyles }} />
+          <InternalLinkBox currentPost={post} />
           {post.body_html ? (
             <div
               className="blog-html-content"
@@ -620,9 +622,9 @@ export default function BlogPost() {
             </p>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag, i) => (
-                <span key={i} className="px-4 py-2 bg-gray-800/80 text-gray-300 rounded-xl text-sm border border-gray-700/50 hover:border-cyan-500/30 hover:text-cyan-400 transition-colors cursor-pointer">
+                <a key={i} href={`/blog?tag=${encodeURIComponent(tag)}`} className="px-4 py-2 bg-gray-800/80 text-gray-300 rounded-xl text-sm border border-gray-700/50 hover:border-cyan-500/30 hover:text-cyan-400 transition-colors">
                   {tag}
-                </span>
+                </a>
               ))}
             </div>
           </div>

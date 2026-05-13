@@ -8,6 +8,7 @@ import SeoOptimierung from './pages/SeoOptimierung';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import SeoAdmin from './pages/SeoAdmin';
+import BacklinkManager from './pages/BacklinkManager';
 import SitemapBlog from './pages/SitemapBlog';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
@@ -69,6 +70,7 @@ const AuthenticatedApp = () => {
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/sitemap-blog" element={<SitemapBlog />} />
+      <Route path="/backlink-manager" element={<BacklinkManager />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
