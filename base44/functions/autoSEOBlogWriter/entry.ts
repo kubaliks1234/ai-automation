@@ -21,6 +21,14 @@ Deno.serve(async (req) => {
   const existingTitles = existingPosts.map(p => p.title).filter(Boolean);
   const existingSlugs = existingPosts.map(p => p.slug).filter(Boolean);
 
+  // Interne Links: 10 zufällige veröffentlichte Artikel als Verlinkungspool
+  const linkPool = existingPosts
+    .filter(p => p.slug && (p.title || p.h1))
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 10)
+    .map(p => `- /blog/${p.slug} → "${p.h1 || p.title}"`)
+    .join('\n');
+
   // SEO-Guide Themen-Pool: 4 Topic Cluster (jakubkaczmarek.de)
   // Strategie: BOFU → MOFU → TOFU | Positionierung: KI-Automatisierung Spezialist DACH
   const contentPool = [
@@ -210,9 +218,10 @@ ALLE Inhalte als fertiges HTML ausgeben.
    <div class="callout"><div class="callout-label">💡 Praxis-Tipp</div><p>[Konkreter Tipp. 2–4 Sätze.]</p></div>
    Varianten: "⚠️ Achtung" | "✅ Empfehlung" | "📌 Merke"
 
-6. INTERNER LINK (1–3 PFLICHT):
-   <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Artikeltitel] →</a></div>
-   Verlinke auf verwandte jakubkaczmarek.de Artikel (z.B. /blog/ki-automatisierung-b2b)
+6. INTERNE LINKS (2–3 PFLICHT) – Verwende NUR diese echten Artikel:
+${linkPool}
+   Format: <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Artikeltitel] →</a></div>
+   Wähle thematisch passende aus der obigen Liste. Verteile sie sinnvoll im Artikel.
 
 7. LISTEN:
    Ungeordnet: <ul><li><strong>[Begriff]</strong> — [Erklärung]</li>...</ul>

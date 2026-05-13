@@ -19,6 +19,14 @@ Deno.serve(async (req) => {
     const existingPosts = await base44.asServiceRole.entities.BlogPost.list('-published_at', 200);
     const existingTitles = existingPosts.map(p => p.title?.toLowerCase()).filter(Boolean);
 
+    // Interne Links: 10 zufällige Artikel als Verlinkungspool
+    const linkPool = existingPosts
+      .filter(p => p.slug && (p.title || p.h1))
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 10)
+      .map(p => `- /blog/${p.slug} → "${p.h1 || p.title}"`)
+      .join('\n');
+
     // SEO-Guide Strategie: BOFU→MOFU Cluster für jakubkaczmarek.de
     const articlePool = [
       // === BOFU: Kaufabsicht (KI-Automatisierung Freelancer/Agentur) ===
@@ -170,8 +178,11 @@ STRUKTUR (PFLICHT):
 3. Mind. 1 <div class="tool-card"> mit Pro/Con-Grid
 4. Mind. 1 <div class="table-wrap"><table>...</table></div>
 5. Mind. 1 <div class="callout"><div class="callout-label">💡 Tipp</div><p>...</p></div>
-6. FAQ: <div class="faq-list"> mit 4–5 <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">[Frage]<span class="faq-icon">+</span></button><div class="faq-answer"><p>...</p></div></div>
-7. Fazit: <div class="fazit-box"><h2>Fazit</h2><p>...</p><a href="/#cta" class="btn">Kostenloses Gespräch buchen</a></div>
+ 6. INTERNE LINKS (2–3 PFLICHT) – Nur aus dieser Liste wählen:
+${linkPool}
+    Format: <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Artikeltitel] →</a></div>
+ 7. FAQ: <div class="faq-list"> mit 4–5 <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">[Frage]<span class="faq-icon">+</span></button><div class="faq-answer"><p>...</p></div></div>
+ 8. Fazit: <div class="fazit-box"><h2>Fazit</h2><p>...</p><a href="/#cta" class="btn">Kostenloses Gespräch buchen</a></div>
 
 VERBOTEN: Markdown, "Game Changer", "bahnbrechend", "nahtlos", Gedankenstriche (—)
 STIL: "du" statt "man", 1800–2500 Wörter, konkrete Zahlen

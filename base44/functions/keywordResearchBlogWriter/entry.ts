@@ -25,6 +25,14 @@ Deno.serve(async (req) => {
     const existingSlugs = existingPosts.map(p => p.slug).filter(Boolean);
     const existingKeywords = existingPosts.map(p => p.meta_title || p.title || '').filter(Boolean);
 
+    // Interne Links: 10 zufällige Artikel als Verlinkungspool
+    const linkPool = existingPosts
+      .filter(p => p.slug && (p.title || p.h1))
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 10)
+      .map(p => `- /blog/${p.slug} → "${p.h1 || p.title}"`)
+      .join('\n');
+
     // --- STEP 2: Keyword Research via LLM + Internet ---
     console.log('[keywordResearchBlogWriter] Starte Keyword-Recherche...');
 
@@ -163,8 +171,9 @@ ALLE Inhalte als fertiges HTML ausgeben.
 5. CALLOUT (mind. 1):
    <div class="callout"><div class="callout-label">💡 Praxis-Tipp</div><p>[Konkreter Tipp. 2–4 Sätze.]</p></div>
 
-6. INTERNER LINK (1–3):
-   <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Artikeltitel] →</a></div>
+6. INTERNE LINKS (2–3 PFLICHT) – Nur echte Slugs aus dieser Liste verwenden:
+${linkPool}
+   Format: <div class="read-also"><span class="read-also-label">Weiterlesen</span><a href="/blog/[slug]">[Artikeltitel] →</a></div>
 
 7. FAQ (PFLICHT vor Fazit):
    <hr /><h2>Häufige Fragen zu ${selected.keyword}</h2>
