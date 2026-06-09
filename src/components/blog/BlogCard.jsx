@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Star, Tag, ExternalLink } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
-import { createPageUrl } from '@/utils';
+import { ArrowRight, Star, Tag } from 'lucide-react';
 
 const categoryColors = {
   Marketing: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
@@ -31,9 +29,9 @@ export default function BlogCard({ post, index }) {
       {/* Hover glow */}
       <div className="absolute -inset-px bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-      <div
-        className="relative h-full flex flex-col bg-gray-900/60 border border-gray-800 rounded-3xl overflow-hidden hover:border-gray-700 transition-all duration-300 cursor-pointer"
-        onClick={() => { window.location.href = createPageUrl('BlogPost') + '?slug=' + post.slug; }}
+      <a
+        href={`/blog/${post.slug}`}
+        className="relative h-full flex flex-col bg-gray-900/60 border border-gray-800 rounded-3xl overflow-hidden hover:border-gray-700 transition-all duration-300"
       >
         {/* Cover Image */}
         <div className="relative h-52 bg-gradient-to-br from-gray-800 to-gray-900 overflow-hidden flex-shrink-0">
@@ -86,7 +84,7 @@ export default function BlogCard({ post, index }) {
           )}
 
           <h2 className="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors line-clamp-2">
-            {post.title}
+            {post.h1 || post.title}
           </h2>
 
           <p className="text-sm text-gray-500 line-clamp-2 mb-4 flex-grow">
@@ -118,7 +116,7 @@ export default function BlogCard({ post, index }) {
             </span>
           </div>
         </div>
-      </div>
+      </a>
     </motion.article>
   );
 }

@@ -6,15 +6,18 @@ import Footer from '@/components/landing/Footer';
 import BlogHero from '@/components/blog/BlogHero';
 import BlogFilters from '@/components/blog/BlogFilters';
 import BlogCard from '@/components/blog/BlogCard';
-import { Loader2, SearchX } from 'lucide-react';
+import { Loader2, SearchX, Grid3X3 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState('Alle');
   const [activePricing, setActivePricing] = useState('Alle');
+
+  // Pre-fill category from URL param (e.g. /blog?category=Marketing)
+  const urlParams = new URLSearchParams(window.location.search);
+  const [activeCategory, setActiveCategory] = useState(urlParams.get('category') || 'Alle');
 
   useEffect(() => {
     loadPosts();
@@ -43,6 +46,8 @@ export default function Blog() {
     });
   }, [posts, search, activeCategory, activePricing]);
 
+  const categories = ['Marketing', 'Vertrieb', 'Produktivität', 'Content', 'Analyse', 'Automatisierung', 'Allgemein'];
+
   const blogListSchema = posts.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -64,7 +69,7 @@ export default function Blog() {
         title="KI Tools Blog 2026 | Beste AI Tools für Unternehmen getestet | Jakub Kaczmarek"
         description="Entdecke die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung. Ehrlich getestet und bewertet für Unternehmen. Über 50 AI Tools im Vergleich – kostenlos & kostenpflichtig."
         keywords="KI Tools, AI Tools, Künstliche Intelligenz, AI Blog, KI Software Vergleich, Automatisierung Tools, beste KI Tools 2026, KI Agentur Deutschland, KI Tool Vergleich, kostenlose KI Tools, AI Software, ChatGPT Alternative, Automatisierung Software"
-        canonical="https://jakubkaczmarek.de/Blog"
+        canonical="https://jakubkaczmarek.de/blog"
         structuredData={blogListSchema}
       />
       <Navbar />
@@ -110,6 +115,27 @@ export default function Blog() {
           )}
         </div>
       </main>
+
+      {/* SEO: Crawlbare Kategorie-Links für Google */}
+      <nav aria-label="Blog-Kategorien" className="max-w-7xl mx-auto px-6 pb-16">
+        <div className="border-t border-gray-800 pt-12">
+          <div className="flex items-center gap-2 mb-6">
+            <Grid3X3 className="w-4 h-4 text-cyan-400" />
+            <span className="text-sm font-bold text-cyan-400 uppercase tracking-widest">Alle Kategorien</span>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {categories.map(cat => (
+              <a
+                key={cat}
+                href={`/blog?category=${encodeURIComponent(cat)}`}
+                className="px-4 py-2 bg-gray-900/60 border border-gray-800 text-gray-400 rounded-xl text-sm hover:border-cyan-500/40 hover:text-cyan-400 transition-colors"
+              >
+                {cat}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
 
       <Footer />
     </div>
