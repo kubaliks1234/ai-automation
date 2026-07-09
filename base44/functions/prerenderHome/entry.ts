@@ -95,7 +95,7 @@ Deno.serve(async (req) => {
   <header>
     <nav>
       <a href="https://jakubkaczmarek.de/">Startseite</a> |
-      <a href="https://jakubkaczmarek.de/Blog">Blog</a> |
+      <a href="https://jakubkaczmarek.de/blog">Blog</a> |
       <a href="https://jakubkaczmarek.de/about">Über mich</a> |
       <a href="https://jakubkaczmarek.de/contact">Kontakt</a>
     </nav>
@@ -135,7 +135,7 @@ Deno.serve(async (req) => {
       <ul>
         ${postLinks}
       </ul>
-      <p><a href="https://jakubkaczmarek.de/Blog">Alle Artikel im KI-Blog ansehen →</a></p>
+      <p><a href="https://jakubkaczmarek.de/blog">Alle Artikel im KI-Blog ansehen →</a></p>
     </section>
   </main>
 
@@ -151,7 +151,9 @@ Deno.serve(async (req) => {
       var bots = ['googlebot','bingbot','slurp','duckduckbot','baiduspider','yandexbot','sogou','exabot','facebot','ia_archiver','bot','crawler','spider'];
       var isBot = bots.some(function(b) { return ua.indexOf(b) > -1; });
       if (!isBot) {
-        window.location.replace('https://jakubkaczmarek.de/');
+        var url = new URL(window.location.href);
+        url.searchParams.set('app', '1');
+        window.location.replace(url.toString());
       }
     })();
   </script>

@@ -48,7 +48,7 @@ Deno.serve(async (req) => {
 
     if (!results.length) {
       console.log(`[prerenderBlogPost] No post found for slug: "${slug}"`);
-      return new Response(`<!DOCTYPE html><html><head><title>Nicht gefunden</title></head><body><h1>Artikel nicht gefunden</h1><a href="/Blog">Zum Blog</a></body></html>`, {
+      return new Response(`<!DOCTYPE html><html><head><title>Nicht gefunden</title></head><body><h1>Artikel nicht gefunden</h1><a href="/blog">Zum Blog</a></body></html>`, {
         status: 404,
         headers: { 'Content-Type': 'text/html; charset=utf-8' }
       });
@@ -117,12 +117,30 @@ Deno.serve(async (req) => {
 
   <script type="application/ld+json">${articleSchema}</script>
   <script type="application/ld+json">${breadcrumbSchema}</script>
+  <script>
+    (function() {
+      var ua = navigator.userAgent.toLowerCase();
+      var isBot = ua.indexOf('googlebot') > -1 || ua.indexOf('bingbot') > -1 ||
+                  ua.indexOf('bot') > -1 || ua.indexOf('crawler') > -1 ||
+                  ua.indexOf('spider') > -1 || ua.indexOf('slurp') > -1 ||
+                  ua.indexOf('duckduckbot') > -1 || ua.indexOf('baiduspider') > -1 ||
+                  ua.indexOf('yandexbot') > -1 || ua.indexOf('facebookexternalhit') > -1 ||
+                  ua.indexOf('twitterbot') > -1 || ua.indexOf('linkedinbot') > -1 ||
+                  ua.indexOf('whatsapp') > -1 || ua.indexOf('telegrambot') > -1 ||
+                  ua.indexOf('applebot') > -1 || ua.indexOf('bytespider') > -1;
+      if (!isBot) {
+        var url = new URL(window.location.href);
+        url.searchParams.set('app', '1');
+        window.location.replace(url.toString());
+      }
+    })();
+  </script>
 </head>
 <body>
   <article>
     <nav>
       <a href="/">Startseite</a> /
-      <a href="/Blog">Blog</a> /
+      <a href="/blog">Blog</a> /
       <span>${post.title}</span>
     </nav>
 
@@ -139,14 +157,6 @@ Deno.serve(async (req) => {
     </footer>
   </article>
 
-  <!-- Redirect to full SPA version -->
-  <script>
-    if (!navigator.userAgent.toLowerCase().includes('googlebot') &&
-        !navigator.userAgent.toLowerCase().includes('bingbot') &&
-        !navigator.userAgent.toLowerCase().includes('bot')) {
-      window.location.replace('${canonical}');
-    }
-  </script>
 </body>
 </html>`;
 

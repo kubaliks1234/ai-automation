@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SEOMeta from '@/components/SEOMeta';
 import Navbar from '@/components/landing/Navbar';
 import HeroSection from '@/components/landing/HeroSection';
@@ -63,7 +63,7 @@ const homeStructuredData = {
       "inLanguage": "de-DE",
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://jakubkaczmarek.de/Blog?search={search_term_string}",
+        "target": "https://jakubkaczmarek.de/blog?search={search_term_string}",
         "query-input": "required name=search_term_string"
       }
     }
@@ -71,6 +71,16 @@ const homeStructuredData = {
 };
 
 export default function Home() {
+  // Clean up ?app=1 param from URL (set by prerender redirect for human visitors)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('app')) {
+      params.delete('app');
+      const cleanUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+      window.history.replaceState({}, '', cleanUrl);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <SEOMeta

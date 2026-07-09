@@ -1,5 +1,20 @@
 {
   "rewrites": [
+    {
+      "source": "/",
+      "missing": [{ "type": "query", "key": "app" }],
+      "destination": "/functions/prerenderHome"
+    },
+    {
+      "source": "/blog",
+      "missing": [{ "type": "query", "key": "app" }],
+      "destination": "/functions/prerenderBlogIndex"
+    },
+    {
+      "source": "/blog/:slug",
+      "missing": [{ "type": "query", "key": "app" }],
+      "destination": "/functions/prerenderBlogPost?slug=:slug"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

@@ -23,6 +23,16 @@ export default function Blog() {
     loadPosts();
   }, []);
 
+  // Clean up ?app=1 param from URL (set by prerender redirect for human visitors)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('app')) {
+      params.delete('app');
+      const cleanUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+      window.history.replaceState({}, '', cleanUrl);
+    }
+  }, []);
+
   const loadPosts = async () => {
     setLoading(true);
     const data = await base44.entities.BlogPost.filter({ status: 'published' }, '-published_at');
