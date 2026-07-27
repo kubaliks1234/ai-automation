@@ -13,6 +13,14 @@ export default function SEOMeta({
   structuredData = null,
 }) {
   useEffect(() => {
+    // Clean up ?app=1 param from URL (set by prerender redirect for human visitors)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('app')) {
+      params.delete('app');
+      const cleanUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '');
+      window.history.replaceState({}, '', cleanUrl);
+    }
+
     document.title = title;
     document.documentElement.lang = 'de';
 

@@ -21,7 +21,7 @@ function CityOverview() {
         title="KI Agentur Deutschland – KI Automatisierung für Unternehmen | Jakub Kaczmarek"
         description="KI Agentur für Unternehmen in ganz Deutschland. Berlin, Hamburg, München, Köln, Frankfurt und mehr. Maßgeschneiderte KI-Automatisierung & AI Lösungen."
         keywords="KI Agentur Deutschland, AI Agentur, KI Beratung, KI Automatisierung, KI Lösungen, künstliche Intelligenz Unternehmen, KI Agentur Berlin, KI Agentur München, KI Agentur Hamburg, KI Agentur Frankfurt, Automatisierung Agentur, AI Beratung Deutschland"
-        canonical="https://jakubkaczmarek.de/ki-agentur"
+        canonical="https://jakubkaczmarek.de/KiAgentur"
         structuredData={{
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
@@ -175,7 +175,7 @@ export default function KiAgentur() {
         title={city.metaTitle}
         description={city.metaDesc}
         keywords={city.keywords}
-        canonical={`https://jakubkaczmarek.de/ki-agentur-${city.slug}`}
+        canonical={`https://jakubkaczmarek.de/KiAgentur?city=${city.slug}`}
         structuredData={structuredData}
       />
       <Navbar />

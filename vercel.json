@@ -15,6 +15,11 @@
       "missing": [{ "type": "query", "key": "app" }],
       "destination": "/functions/prerenderBlogPost?slug=:slug"
     },
+    {
+      "source": "/(.*)",
+      "missing": [{ "type": "query", "key": "app" }],
+      "destination": "/functions/prerenderPage?path=$1"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }

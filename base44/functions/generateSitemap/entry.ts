@@ -7,6 +7,20 @@ const STATIC_PAGES = [
   { path: '/blog', priority: '0.9', changefreq: 'daily' },
   { path: '/about', priority: '0.7', changefreq: 'monthly' },
   { path: '/contact', priority: '0.6', changefreq: 'monthly' },
+  { path: '/Analyse', priority: '0.8', changefreq: 'monthly' },
+  { path: '/KiAgentur', priority: '0.8', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=berlin', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=hamburg', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=muenchen', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=koeln', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=frankfurt', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=stuttgart', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=duesseldorf', priority: '0.7', changefreq: 'monthly' },
+  { path: '/KiAgentur?city=leipzig', priority: '0.7', changefreq: 'monthly' },
+  { path: '/Service?service=ai-marketing', priority: '0.7', changefreq: 'monthly' },
+  { path: '/Service?service=lead-generation', priority: '0.7', changefreq: 'monthly' },
+  { path: '/Service?service=sales-automation', priority: '0.7', changefreq: 'monthly' },
+  { path: '/Service?service=workflow-automation', priority: '0.7', changefreq: 'monthly' },
 ];
 
 Deno.serve(async (req) => {
