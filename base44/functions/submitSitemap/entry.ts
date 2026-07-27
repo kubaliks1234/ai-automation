@@ -1,4 +1,4 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.23';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
 // Try domain property first, then URL prefix property
 const SITE_URLS = [
@@ -42,6 +42,14 @@ Deno.serve(async (req) => {
 
   } catch (error) {
     console.error('submitSitemap error:', error.message);
-    return Response.json({ success: false, error: error.message }, { status: 500 });
+    const msg = error.message || '';
+    if (msg.includes('No active connection') || msg.includes('connect the connector')) {
+      return Response.json({
+        success: false,
+        error: 'Google Search Console Verbindung abgelaufen. Bitte Verbindung in den App-Einstellungen erneuern.',
+        needsReconnect: true
+      }, { status: 500 });
+    }
+    return Response.json({ success: false, error: msg }, { status: 500 });
   }
 });

@@ -1,13 +1,21 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.40';
 
 // Bulk-submits all published blog posts to Google Indexing API
 // Google allows up to 200 requests/day per project
+// Called by scheduled automation (no user context) and optionally by SeoAdmin page
 Deno.serve(async (req) => {
   try {
     const base44 = createClientFromRequest(req);
-    const user = await base44.auth.me();
-    if (user?.role !== 'admin') {
-      return Response.json({ error: 'Forbidden' }, { status: 403 });
+
+    // Admin check - only when called from HTTP (frontend), skip in scheduled context
+    try {
+      const user = await base44.auth.me();
+      if (user && user.role !== 'admin') {
+        return Response.json({ error: 'Forbidden' }, { status: 403 });
+      }
+    } catch {
+      // Scheduled automation context - no user, proceed
+      console.log('[bulkIndexAllPosts] Running in scheduled context (no user)');
     }
 
     const { accessToken } = await base44.asServiceRole.connectors.getConnection('google_search_console');
