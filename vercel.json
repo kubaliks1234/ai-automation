@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "/functions/generateSitemap"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/functions/robotsTxt"
+    },
+    {
       "source": "/",
       "missing": [{ "type": "query", "key": "app" }],
       "destination": "/functions/prerenderHome"
