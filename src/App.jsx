@@ -11,6 +11,7 @@ import SeoAdmin from './pages/SeoAdmin';
 import BacklinkManager from './pages/BacklinkManager';
 import SitemapBlog from './pages/SitemapBlog';
 import PageNotFound from './lib/PageNotFound';
+import OAuthConsent from './pages/OAuthConsent';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
@@ -83,7 +84,10 @@ function App() {
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
         <Router>
-          <AuthenticatedApp />
+          <Routes>
+            <Route path="/oauth/consent" element={<OAuthConsent />} />
+            <Route path="*" element={<AuthenticatedApp />} />
+          </Routes>
         </Router>
         <Toaster />
       </QueryClientProvider>
