@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { createPageUrl } from '@/utils';
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Beispiele', href: '#automations' },
-  { label: 'Prozess', href: '#process' },
+  { label: 'So funktioniert\'s', href: '#mechanismus' },
+  { label: 'Ergebnisse', href: '#ergebnisse' },
   { label: 'Über mich', href: '#about' },
   { label: 'Blog', href: '/blog', isPage: true },
 ];
@@ -28,14 +27,9 @@ export default function Navbar() {
     setMobileMenuOpen(false);
     const isHomePage = window.location.pathname === '/' || window.location.pathname.includes('Home');
     if (isHomePage) {
-      if (href === '#cta') {
-        document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        const element = document.querySelector(href);
-        element?.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(href.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
     } else {
-      window.location.href = createPageUrl('Home') + (href === '#cta' ? '#cta' : href);
+      window.location.href = createPageUrl('Home') + href;
     }
   };
 
@@ -93,7 +87,7 @@ export default function Navbar() {
                 onClick={() => scrollToSection('#cta')}
                 className="hidden sm:flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl text-sm px-4"
               >
-                Kostenlose Analyse
+                Kostenloser Anfragen-Check
               </Button>
 
               {/* Mobile Menu Button */}
@@ -143,7 +137,7 @@ export default function Navbar() {
                 onClick={() => { setMobileMenuOpen(false); scrollToSection('#cta'); }}
                 className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-xl mt-4 py-3 text-base"
               >
-                Kostenlose Analyse
+                Kostenloser Anfragen-Check
               </Button>
             </div>
           </motion.div>

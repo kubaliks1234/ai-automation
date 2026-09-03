@@ -1,17 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, Clock, Rocket, Users } from 'lucide-react';
+import { Target, Filter, Zap } from 'lucide-react';
 
-const benefits = [
-  { icon: Clock, text: 'Weniger manuelle Arbeit', color: 'cyan' },
-  { icon: Zap, text: 'Schnellere Prozesse', color: 'blue' },
-  { icon: Users, text: 'Mehr Leads und Kunden', color: 'purple' },
+const steps = [
+  {
+    number: '01',
+    icon: Target,
+    title: 'Anzeigen in Ihrem Umkreis',
+    description: 'Ihre Anzeigen laufen auf Facebook, Instagram und Google – nur im Umkreis, den Sie bedienen, und ausgerichtet auf die Aufträge, die Sie wirklich wollen. Keine Kleinaufträge, wenn Sie Sanierungen suchen.',
+  },
+  {
+    number: '02',
+    icon: Filter,
+    title: 'Eine Seite, die vorsortiert',
+    description: 'Interessenten landen auf einer Seite, die vier Fragen stellt: Was, wie groß, wo, bis wann. Wer keine ernsthafte Absicht hat, füllt das nicht aus. Das ist Absicht.',
+  },
+  {
+    number: '03',
+    icon: Zap,
+    title: 'Antwort in unter 60 Sekunden',
+    description: 'Jede Anfrage bekommt sofort eine WhatsApp mit Terminvorschlag – auch nachts, auch sonntags. Sie bekommen die Zusammenfassung aufs Handy und rufen nur noch die an, bei denen es sich lohnt.',
+  },
 ];
 
 export default function SolutionSection() {
   return (
-    <section className="relative py-24 sm:py-32 bg-gradient-to-b from-[#0a0a0f] via-[#0f172a] to-[#0a0a0f] overflow-hidden">
-      {/* Decorative elements */}
+    <section id="mechanismus" className="relative py-24 sm:py-32 bg-gradient-to-b from-[#0a0a0f] via-[#0f172a] to-[#0a0a0f] overflow-hidden">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px]" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px]" />
 
@@ -23,63 +37,60 @@ export default function SolutionSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-6">
-            <Rocket className="w-4 h-4" />
-            <span>Die Lösung</span>
-          </div>
-          
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Ich baue KI Systeme,
-            <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mt-2">
-              die Arbeit übernehmen
+            Das{' '}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Regional-Anfrage-System
             </span>
           </h2>
-          
-          <p className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Mit modernen AI Automationen lassen sich komplette Geschäftsprozesse automatisieren.
+          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+            Drei Bausteine. Läuft nach dem Onboarding ohne Ihr Zutun.
           </p>
         </motion.div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
-          {benefits.map((benefit, index) => (
+        <div className="grid md:grid-cols-3 gap-8">
+          {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group relative w-full sm:w-auto"
+              className="group relative"
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${
-                benefit.color === 'cyan' ? 'from-cyan-500/20' :
-                benefit.color === 'blue' ? 'from-blue-500/20' :
-                'from-purple-500/20'
-              } to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              <div className="relative flex items-center gap-4 p-6 bg-gray-900/60 border border-gray-800 rounded-2xl hover:border-cyan-500/30 transition-all duration-300 backdrop-blur-sm">
-                <div className={`flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl ${
-                  benefit.color === 'cyan' ? 'bg-cyan-500/10 text-cyan-400' :
-                  benefit.color === 'blue' ? 'bg-blue-500/10 text-blue-400' :
-                  'bg-purple-500/10 text-purple-400'
-                }`}>
-                  <benefit.icon className="w-7 h-7" />
+              <div className="relative h-full p-8 bg-gray-900/80 border border-gray-800 rounded-3xl hover:border-cyan-500/30 transition-all duration-300 flex flex-col">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
+                    <step.icon className="w-7 h-7" />
+                  </div>
+                  <span className="text-4xl font-bold text-gray-800 group-hover:text-gray-700 transition-colors">
+                    {step.number}
+                  </span>
                 </div>
-                <p className="text-lg font-medium text-white">
-                  {benefit.text}
+                <h3 className="text-xl font-bold text-white mb-4">
+                  {step.title}
+                </h3>
+                <p className="text-gray-400 leading-relaxed flex-grow">
+                  {step.description}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Visual connector */}
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="hidden sm:block h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent mt-16 max-w-2xl mx-auto"
-        />
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center mt-12 max-w-3xl mx-auto"
+        >
+          <p className="text-base text-gray-400 leading-relaxed">
+            Schritt 3 ist der Grund, warum das funktioniert. Studien und Praxis sagen
+            dasselbe: Wer innerhalb von Minuten reagiert, gewinnt den Auftrag. Wer nach
+            vier Stunden zurückruft, redet mit jemandem, der schon woanders unterschrieben hat.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

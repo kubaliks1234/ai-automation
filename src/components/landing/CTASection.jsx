@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, CheckCircle, Calendar } from 'lucide-react';
+import { ArrowRight, Calendar, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function CTASection() {
@@ -26,31 +26,23 @@ export default function CTASection() {
           <div className="absolute -inset-px bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-3xl blur-sm opacity-50" />
 
           <div className="relative p-10 sm:p-16 bg-gradient-to-br from-gray-900/95 to-[#0a0a0f]/95 rounded-3xl border border-gray-800 backdrop-blur-sm text-center">
-
-            {/* Scarcity */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-sm mb-8"
-            >
-              <Sparkles className="w-4 h-4" />
-              <span>Noch 2 Projektplätze frei im April 2026</span>
-            </motion.div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Lass dein Business
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent"> für dich arbeiten.</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              Ein Betrieb pro Gewerk.{' '}
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                Pro Landkreis.
+              </span>
             </h2>
 
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-4">
-              Buch dir ein kostenloses 30-Minuten-Gespräch.
-            </p>
-            <p className="text-base text-gray-500 max-w-xl mx-auto mb-10">
-              Wir schauen gemeinsam welche Prozesse bei dir automatisierbar sind – und ob eine Zusammenarbeit Sinn ergibt.
-              Kein Pitch. Kein Verkaufsdruck.
-            </p>
+            <div className="space-y-4 text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+              <p>
+                Für Trockenbau- und Sanierungsbetriebe in Donau-Ries ist der Platz aktuell frei.
+              </p>
+              <p>
+                Der Anfragen-Check dauert 20 Minuten, kostet nichts und Sie sehen dabei
+                schwarz auf weiß, was Ihre Konkurrenz gerade macht. Wenn Sie danach nicht
+                weitermachen wollen, haben Sie trotzdem etwas mitgenommen.
+              </p>
+            </div>
 
             <Button
               size="lg"
@@ -58,37 +50,18 @@ export default function CTASection() {
               onClick={handleCTA}
             >
               <Calendar className="mr-2 w-5 h-5" />
-              Kostenloses Gespräch buchen
+              Termin für den Anfragen-Check wählen
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
 
-            {/* What happens next */}
-            <div className="mt-10 pt-10 border-t border-gray-800">
-              <p className="text-sm text-gray-500 mb-6 uppercase tracking-wider">Was danach passiert</p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                {[
-                  { step: '1', text: 'Du buchst einen Termin – dauert 30 Sekunden' },
-                  { step: '2', text: 'Wir analysieren deine Prozesse gemeinsam' },
-                  { step: '3', text: 'Du bekommst einen konkreten Plan – unverbindlich' },
-                ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-3 text-left max-w-[200px] mx-auto sm:mx-0">
-                    <div className="flex-shrink-0 w-7 h-7 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xs font-bold">
-                      {item.step}
-                    </div>
-                    <p className="text-sm text-gray-400">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Trust */}
-            <div className="flex flex-wrap items-center justify-center gap-6 mt-8">
-              {['Kostenlos & unverbindlich', 'Innerhalb 24h Antwort', 'Setup in 2–4 Wochen'].map((item) => (
-                <div key={item} className="flex items-center gap-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 text-cyan-500" />
-                  <span>{item}</span>
-                </div>
-              ))}
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a
+                href="tel:+4917643942729"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">Oder anrufen: +49 176 43942729</span>
+              </a>
             </div>
           </div>
         </motion.div>

@@ -9,6 +9,7 @@ import AutomationsSection from '@/components/landing/AutomationsSection';
 import ProcessSection from '@/components/landing/ProcessSection';
 import AboutSection from '@/components/landing/AboutSection';
 import LeadMagnet from '@/components/landing/LeadMagnet';
+import FAQSection from '@/components/landing/FAQSection';
 import CTASection from '@/components/landing/CTASection';
 import Footer from '@/components/landing/Footer';
 
@@ -19,7 +20,7 @@ const homeStructuredData = {
       "@type": "Person",
       "@id": "https://jakubkaczmarek.de/#person",
       "name": "Jakub Kaczmarek",
-      "jobTitle": "KI-Automatisierungsexperte",
+      "jobTitle": "Anfragen-Systeme für Handwerksbetriebe",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Sebastian-Frank-Str. 11",
@@ -28,12 +29,12 @@ const homeStructuredData = {
         "addressCountry": "DE"
       },
       "url": "https://jakubkaczmarek.de",
-      "knowsAbout": ["KI Automatisierung", "AI Automation", "Lead Generation", "Marketing Automatisierung", "Sales Automation"]
+      "knowsAbout": ["Google Ads", "Meta Ads", "Lead Generation für Handwerk", "Marketing Automatisierung", "Landingpage-Optimierung"]
     },
     {
       "@type": "LocalBusiness",
-      "name": "Jakub Kaczmarek – AI Automation",
-      "description": "KI-Automatisierung und digitale Systeme für Unternehmen. Spare Zeit, generiere mehr Leads und steigere deinen Umsatz.",
+      "name": "Jakub Kaczmarek",
+      "description": "Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Anzeigen, Landingpage und automatische Antwort in unter 60 Sekunden.",
       "url": "https://jakubkaczmarek.de",
       "image": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png",
       "email": "jakub.kaczmarek669@gmail.com",
@@ -45,8 +46,8 @@ const homeStructuredData = {
         "postalCode": "86609",
         "addressCountry": "DE"
       },
-      "areaServed": "DE",
-      "serviceType": ["KI Automatisierung", "AI Marketing", "Lead Generation", "Sales Automation", "Workflow Automatisierung"],
+      "areaServed": "Donau-Ries",
+      "serviceType": ["Anfragen für Handwerksbetriebe", "Google Ads für Handwerker", "Meta Ads für Handwerk", "Landingpage für Handwerk"],
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+4917643942729",
@@ -59,7 +60,7 @@ const homeStructuredData = {
       "@type": "WebSite",
       "@id": "https://jakubkaczmarek.de/#website",
       "url": "https://jakubkaczmarek.de",
-      "name": "Jakub Kaczmarek – AI Automation",
+      "name": "Jakub Kaczmarek",
       "inLanguage": "de-DE",
       "potentialAction": {
         "@type": "SearchAction",
@@ -71,7 +72,6 @@ const homeStructuredData = {
 };
 
 export default function Home() {
-  // Clean up ?app=1 param from URL (set by prerender redirect for human visitors)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('app')) {
@@ -84,9 +84,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <SEOMeta
-        title="KI Automatisierung für Unternehmen | Jakub Kaczmarek – AI Experte"
-        description="Jakub Kaczmarek – KI-Automatisierung und digitale Systeme für Unternehmen. Spare Zeit, generiere mehr Leads und steigere deinen Umsatz mit maßgeschneiderten AI-Workflows."
-        keywords="KI Automatisierung, AI Automation, Workflow Automatisierung, Lead Generation, Sales Automation, Marketing Automatisierung, KI Agentur Deutschland, KI Beratung, Donauwörth, Bayern, KI Experte, künstliche Intelligenz Unternehmen, AI Lösungen, Prozessautomatisierung"
+        title="Mehr Anfragen für Handwerksbetriebe in Donau-Ries | Jakub Kaczmarek"
+        description="Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Jede Anfrage in unter 60 Sekunden beantwortet. Kostenloser Anfragen-Check in 20 Minuten."
+        keywords="Anfragen Handwerk, Kundengewinnung Handwerk, Marketing Handwerksbetrieb, Google Ads Handwerker, Meta Ads Handwerk, Leads Trockenbau, Aufträge Sanierung, Donau-Ries, Donauwörth"
         canonical="https://jakubkaczmarek.de/"
         structuredData={homeStructuredData}
       />
@@ -95,17 +95,12 @@ export default function Home() {
         <HeroSection />
         <ProblemSection />
         <SolutionSection />
-        <section id="services">
-          <ServicesSection />
-        </section>
+        <ServicesSection />
         <AutomationsSection />
-        <section id="process">
-          <ProcessSection />
-        </section>
-        <section id="about">
-          <AboutSection />
-        </section>
         <LeadMagnet />
+        <ProcessSection />
+        <AboutSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

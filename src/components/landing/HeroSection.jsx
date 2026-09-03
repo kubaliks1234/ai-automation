@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, CheckCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import NetworkAnimation from './NetworkAnimation';
 
 export default function HeroSection() {
   const scrollToSection = (id) => {
@@ -13,116 +12,75 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0a0a0f]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a0f] via-[#0f172a] to-[#0a0a0f]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/10 rounded-full blur-[120px]" />
-      <NetworkAnimation />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+        {/* Eyebrow */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center lg:text-left"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-8"
         >
-          {/* Scarcity badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-8"
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>Noch 2 Projektplätze frei – April 2026</span>
-          </motion.div>
-
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6">
-            Dein Vertrieb läuft.
-            <span className="block mt-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-              Auch wenn du schläfst.
-            </span>
-          </h1>
-
-          <p className="text-lg sm:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-            Ich baue KI-Systeme die Leads qualifizieren, Content posten und Kunden onboarden –
-            damit du dich auf das konzentrierst, wofür du wirklich gut bist.
-          </p>
-
-          {/* Social proof bullets */}
-          <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-10">
-            {[
-              'Leads 24/7 automatisch qualifiziert',
-              'Content ohne manuellen Aufwand',
-              'Setup in 2–4 Wochen',
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-2 text-sm text-gray-400">
-                <CheckCircle className="w-4 h-4 text-cyan-500 flex-shrink-0" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <Button
-              size="lg"
-              className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
-              onClick={() => scrollToSection('cta')}
-            >
-              Kostenloses Strategiegespräch
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-gray-700 text-gray-300 hover:bg-gray-800/50 hover:text-white px-8 py-6 text-lg rounded-xl transition-all duration-300"
-              onClick={() => scrollToSection('automations')}
-            >
-              Beispiele ansehen
-            </Button>
-          </div>
-
-          <p className="text-sm text-gray-600 mt-5">Kein Pitch. Kein Verkaufsdruck. Nur ein ehrliches Gespräch ob KI dir hilft.</p>
+          <span>Für Handwerks- und Ausbaubetriebe in Donau-Ries</span>
         </motion.div>
 
-        {/* Right Visual */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="hidden lg:flex justify-center items-center"
+        {/* H1 */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto"
         >
-          <div className="relative w-[500px] h-[500px]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-64 h-64 bg-cyan-500/20 rounded-full blur-[60px] animate-pulse" />
-            </div>
-            {[0, 1, 2, 3, 4, 5].map((i) => (
-              <motion.div key={i} className="absolute" style={{ top: '50%', left: '50%' }}
-                animate={{ rotate: 360 }} transition={{ duration: 20 + i * 5, repeat: Infinity, ease: 'linear' }}>
-                <div className="w-3 h-3 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50"
-                  style={{ transform: `translateX(${80 + i * 30}px) translateY(-50%)` }} />
-              </motion.div>
-            ))}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center backdrop-blur-sm">
-                <svg className="w-16 h-16 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" />
-                </svg>
-              </div>
-            </div>
-            {[
-              { text: 'Marketing', delay: 0, x: -180, y: -100 },
-              { text: 'Leads', delay: 0.5, x: 180, y: -80 },
-              { text: 'Vertrieb', delay: 1, x: -150, y: 120 },
-              { text: 'Workflow', delay: 1.5, x: 170, y: 100 },
-            ].map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + item.delay * 0.2, duration: 0.5 }}
-                className="absolute top-1/2 left-1/2"
-                style={{ transform: `translate(calc(-50% + ${item.x}px), calc(-50% + ${item.y}px))` }}>
-                <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity, delay: item.delay }}
-                  className="px-4 py-2 bg-gray-900/80 border border-gray-700 rounded-lg text-sm text-gray-300 backdrop-blur-sm">
-                  {item.text}
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
+          Planbar Anfragen aus Ihrer Region –{' '}
+          <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            ohne dass Sie sich um Marketing kümmern.
+          </span>
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          Ihre Anzeigen laufen. Ihre Landingpage filtert vor. Jede Anfrage bekommt in
+          unter 60 Sekunden eine Antwort. Sie sehen morgens nur noch, wer wirklich will.
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="flex flex-col items-center gap-4"
+        >
+          <Button
+            size="lg"
+            className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+            onClick={() => scrollToSection('cta')}
+          >
+            Kostenlosen Anfragen-Check sichern
+            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
+          <p className="text-sm text-gray-500 max-w-md">
+            20 Minuten. Kostenlos. Ich zeige Ihnen live, welche Anzeigen Ihre Konkurrenz
+            in Donauwörth gerade schaltet.
+          </p>
+        </motion.div>
+
+        {/* Trust line */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-sm text-gray-500"
+        >
+          <span>Erste Anfragen in 14 Tagen</span>
+          <span className="text-gray-700">·</span>
+          <span>Nur ein Betrieb pro Gewerk und Landkreis</span>
+          <span className="text-gray-700">·</span>
+          <span>Keine Mindestlaufzeit</span>
         </motion.div>
       </div>
 
