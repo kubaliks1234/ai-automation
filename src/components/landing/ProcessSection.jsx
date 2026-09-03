@@ -72,54 +72,7 @@ export default function ProcessSection() {
           ))}
         </div>
 
-        {/* Investition */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-cyan-500/10 to-blue-500/5 border border-cyan-500/20 rounded-3xl p-8 sm:p-12"
-        >
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">Investition</h3>
-          <div className="space-y-4 mb-8">
-            <div className="flex justify-between items-start gap-4 pb-4 border-b border-gray-800">
-              <div>
-                <p className="text-white font-medium">Aufbau</p>
-                <p className="text-sm text-gray-500">einmalig</p>
-              </div>
-              <div className="text-right">
-                <p className="text-2xl font-bold text-cyan-400">500 €</p>
-                <p className="text-sm text-gray-500 line-through">regulär 2.000 €</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-start gap-4 pb-4 border-b border-gray-800">
-              <div>
-                <p className="text-white font-medium">Betreuung</p>
-                <p className="text-sm text-gray-500">pro Monat, erste sechs Monate</p>
-              </div>
-              <div className="text-right">
-                <p className="text-2xl font-bold text-cyan-400">490 €</p>
-                <p className="text-sm text-gray-500 line-through">regulär 990 €</p>
-              </div>
-            </div>
-            <div className="flex justify-between items-start gap-4">
-              <div>
-                <p className="text-white font-medium">Werbebudget</p>
-                <p className="text-sm text-gray-500">direkt an Facebook & Google</p>
-              </div>
-              <div className="text-right">
-                <p className="text-lg font-medium text-gray-300">800–1.500 €</p>
-                <p className="text-sm text-gray-500">Empfehlung pro Monat</p>
-              </div>
-            </div>
-          </div>
-          <div className="pt-6 border-t border-gray-800">
-            <p className="text-gray-400 leading-relaxed">
-              <span className="text-white font-medium">Im Gegenzug:</span> Ich darf Ihre Zahlen als Referenz nutzen und bekomme nach
-              60 Tagen ein ehrliches Testimonial – auch wenn es kritisch ausfällt.
-            </p>
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );
