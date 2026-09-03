@@ -5,43 +5,42 @@ const DEFAULT_IMAGE = 'https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/objec
 
 // Statische Seiten-Metadaten
 const STATIC_PAGES = {
-  'about': {
-    title: 'Über uns – KI-Automatisierung mit Jakub Kaczmarek',
-    description: 'Erfahre mehr über Jakub Kaczmarek und seine Mission, Unternehmen mit KI-Automatisierung effizienter zu machen.',
-    canonical: `${BASE_URL}/about`,
+  // Neue Seiten (indexierbar)
+  'handwerker-marketing-donau-ries': {
+    title: 'Handwerker-Marketing Donau-Ries | Jakub Kaczmarek',
+    description: 'Planbar qualifizierte Anfragen für Handwerksbetriebe im Landkreis Donau-Ries. Anzeigen, Landingpage und automatische Antwort in unter 60 Sekunden.',
+    keywords: 'handwerker marketing donau-ries, kundengewinnung handwerk donauwörth, werbung handwerksbetrieb donau-ries',
+    canonical: `${BASE_URL}/handwerker-marketing-donau-ries`,
     noindex: false,
-    h1: 'Über uns',
-    body: '<p>Diese Plattform ist dein zentraler Anlaufpunkt rund um KI-Tools, Automatisierung und digitale Produktivität. Hier findest du praxisnahe Artikel, ehrliche Bewertungen und konkrete Anleitungen, mit denen du KI gewinnbringend in deinen Alltag oder dein Unternehmen integrieren kannst.</p><p>Hinter dieser Plattform steht <strong>Jakub Kaczmarek</strong>, KI-Stratege und Automatisierungsexperte aus Deutschland. Jakub begleitet Unternehmen dabei, Workflows zu automatisieren, Content-Prozesse zu skalieren und KI-Tools sinnvoll einzusetzen.</p>',
-    schema: { "@context": "https://schema.org", "@type": "AboutPage", "name": "Über Jakub Kaczmarek", "url": `${BASE_URL}/about` }
+    h1: 'Handwerker-Marketing im Landkreis Donau-Ries',
+    body: '<p>Die meisten Betriebe im Landkreis Donau-Ries leben von Empfehlung. Das funktioniert – bis zwei große Aufträge wegfallen und plötzlich Lücken im Kalender stehen.</p><h2>Die Ausgangslage im Landkreis</h2><p>Donau-Ries ist ein Landkreis mit rund 132.000 Einwohnern. Donauwörth ist das Oberzentrum, Nördlingen das zweite Zentrum. Wer bei Google nach Trockenbau Donauwörth oder Sanierung Nördlingen sucht, findet drei bis fünf Betriebe.</p><h2>Das Regional-Anfrage-System</h2><p>Drei Bausteine: Anzeigen in Ihrem Umkreis, eine Landingpage die vorsortiert, und automatische Antwort in unter 60 Sekunden.</p><p><a href="' + BASE_URL + '/anfragen-check">Anfragen-Check buchen</a></p>',
+    schema: { "@context": "https://schema.org", "@type": "ProfessionalService", "name": "Handwerker-Marketing Donau-Ries", "url": `${BASE_URL}/handwerker-marketing-donau-ries`, "areaServed": { "@type": "AdministrativeArea", "name": "Landkreis Donau-Ries" } }
   },
-  'contact': {
-    title: 'Kontakt – Jakub Kaczmarek',
-    description: 'Nimm Kontakt auf mit Jakub Kaczmarek – per E-Mail, LinkedIn oder über einen Beratungstermin.',
-    canonical: `${BASE_URL}/contact`,
+  'anfragen-check': {
+    title: 'Anfragen-Check in 20 Minuten | Jakub Kaczmarek',
+    description: 'Kostenloser Anfragen-Check für Handwerksbetriebe in Donau-Ries. In 20 Minuten sehen Sie schwarz auf weiß, welche Anzeigen Ihre Konkurrenz schaltet.',
+    keywords: 'anfragen check handwerk, marketing analyse handwerksbetrieb',
+    canonical: `${BASE_URL}/anfragen-check`,
     noindex: false,
-    h1: 'Kontakt',
-    body: '<p>Du hast eine Frage, möchtest eine Zusammenarbeit besprechen oder einfach Hallo sagen? Ich freue mich über deine Nachricht.</p><p><strong>E-Mail:</strong> hello@jakubkaczmarek.de</p><p><strong>LinkedIn:</strong> linkedin.com/in/jakubkaczmarek</p><p><strong>Kostenloses Erstgespräch:</strong> Buche direkt einen Termin für eine kostenlose KI-Analyse.</p>',
-    schema: { "@context": "https://schema.org", "@type": "ContactPage", "name": "Kontakt – Jakub Kaczmarek", "url": `${BASE_URL}/contact` }
+    h1: 'Anfragen-Check',
+    body: '<p>Wir schauen uns gemeinsam Ihren Google-Auftritt an, und ich zeige Ihnen live, welche Anzeigen Ihre Konkurrenz gerade schaltet. Kostet nichts, verpflichtet zu nichts.</p><p><a href="https://calendly.com/jakub-kaczmarek/anfragen-check">Termin buchen</a> | <a href="tel:+4917643942729">+49 176 43942729</a></p>',
+    schema: { "@context": "https://schema.org", "@type": "Service", "name": "Anfragen-Check", "provider": { "@type": "Person", "name": "Jakub Kaczmarek" }, "areaServed": "Donau-Ries" }
   },
-  'Analyse': {
-    title: 'Kostenlose KI-Analyse buchen | Jakub Kaczmarek',
-    description: 'Buche jetzt deine kostenlose 30-minütige KI-Analyse. Ich zeige dir, welche Automationen in deinem Unternehmen sofort Wirkung zeigen.',
-    keywords: 'Kostenlose KI Analyse, AI Beratung, Automatisierung Unternehmen, KI Erstgespräch',
-    canonical: `${BASE_URL}/analyse`,
+  'ueber-mich': {
+    title: 'Über mich – Jakub Kaczmarek | Kundengewinnung für Handwerk',
+    description: 'Jakub Kaczmarek, Donauwörth. Seit über sieben Jahren im Marketing und in der Personalvermittlung. Jetzt: Anfragen-Systeme für Handwerksbetriebe in Donau-Ries.',
+    keywords: 'jakub kaczmarek, marketing handwerk donauwörth',
+    canonical: `${BASE_URL}/ueber-mich`,
     noindex: false,
-    h1: 'Kostenlose KI-Analyse buchen',
-    body: '<p>Ich analysiere kostenlos, welche Automationen in deinem Unternehmen am meisten Sinn machen.</p><ul><li>30 Minuten</li><li>Google Meet</li><li>Kostenlos</li></ul>',
-    schema: { "@context": "https://schema.org", "@type": "Service", "name": "Kostenlose KI-Analyse", "provider": { "@type": "Person", "name": "Jakub Kaczmarek" }, "areaServed": "DE" }
+    h1: 'Über mich',
+    body: '<p>Ich bin Jakub Kaczmarek. Seit über sieben Jahren arbeite ich im Marketing und in der Personalvermittlung. Das Gleiche baue ich jetzt für Handwerksbetriebe in Donau-Ries.</p><p>Ich bin keine Agentur. Sie reden mit mir, ich baue es, ich betreue es. Deshalb nehme ich pro Gewerk und Landkreis nur einen Betrieb.</p><p>Telefon: <a href="tel:+4917643942729">+49 176 43942729</a> | E-Mail: <a href="mailto:jakub.kaczmarek669@gmail.com">jakub.kaczmarek669@gmail.com</a></p>',
+    schema: { "@context": "https://schema.org", "@type": "Person", "name": "Jakub Kaczmarek", "jobTitle": "Spezialist für Kundengewinnung im Handwerk", "url": `${BASE_URL}/ueber-mich`, "address": { "@type": "PostalAddress", "addressLocality": "Donauwörth", "postalCode": "86609", "addressCountry": "DE" } }
   },
-  'Upsell': {
-    title: 'AI Automation Starter Kurs – KI-Automationen lernen | Jakub Kaczmarek',
-    description: 'Baue echte KI-Automationen für Marketing, Content und Leadgenerierung. Schritt-für-Schritt Videoanleitungen, fertige Templates und Tool-Stack.',
-    canonical: `${BASE_URL}/upsell`,
-    noindex: false,
-    h1: 'Baue echte KI-Automationen – nicht nur Prompts',
-    body: '<p>Du hast gerade gelernt, wie du mit KI Geld verdienen kannst. Jetzt zeige ich dir, wie du echte Automationen baust, die Marketing, Content und Leadgenerierung automatisieren.</p><ul><li>Keine Programmierkenntnisse nötig</li><li>Schritt-für-Schritt Videoanleitungen</li><li>Automationen die sofort einsetzbar sind</li></ul><p>Module: KI Automationen verstehen, Content Automation, Lead Generation Systeme, AI Workflow Automationen, AI Business Systeme.</p>',
-    schema: { "@context": "https://schema.org", "@type": "Product", "name": "AI Automation Starter Kurs", "offers": { "@type": "Offer", "price": "47", "priceCurrency": "EUR" } }
-  },
+  // Alte Seiten → noindex (durch neue ersetzt)
+  'about': { title: 'Über mich', description: '', canonical: `${BASE_URL}/ueber-mich`, noindex: true, h1: 'Über mich', body: '<p>Diese Seite ist umgezogen: <a href="' + BASE_URL + '/ueber-mich">/ueber-mich</a></p>' },
+  'contact': { title: 'Kontakt', description: '', canonical: `${BASE_URL}/anfragen-check`, noindex: true, h1: 'Kontakt', body: '<p>Diese Seite ist umgezogen: <a href="' + BASE_URL + '/anfragen-check">/anfragen-check</a></p>' },
+  'Analyse': { title: 'Analyse', description: '', canonical: `${BASE_URL}/anfragen-check`, noindex: true, h1: 'Analyse', body: '' },
+  'Upsell': { title: 'Upsell', description: '', canonical: '', noindex: true, h1: 'Upsell', body: '' },
   // Admin / Legal → noindex
   'SeoOptimierung': { title: 'SEO-Optimierung (Admin)', description: '', canonical: '', noindex: true, h1: 'SEO-Optimierung', body: '' },
   'SeoAdmin': { title: 'SEO Admin', description: '', canonical: '', noindex: true, h1: 'SEO Admin', body: '' },
@@ -123,11 +122,11 @@ function buildHtml({ title, description, keywords, canonical, noindex, h1, body,
 <body>
   <header>
     <nav>
-      <a href="${BASE_URL}/">Startseite</a> |
+      <a href="${BASE_URL}/#mechanismus">So funktioniert's</a> |
+      <a href="${BASE_URL}/#ergebnisse">Ergebnisse</a> |
+      <a href="${BASE_URL}/#about">Über mich</a> |
       <a href="${BASE_URL}/blog">Blog</a> |
-      <a href="${BASE_URL}/about">Über mich</a> |
-      <a href="${BASE_URL}/contact">Kontakt</a> |
-      <a href="${BASE_URL}/Analyse">Kostenlose KI-Analyse</a>
+      <a href="${BASE_URL}/anfragen-check">Anfragen-Check</a>
     </nav>
   </header>
   <main>

@@ -12,6 +12,9 @@ import BacklinkManager from './pages/BacklinkManager';
 import SitemapBlog from './pages/SitemapBlog';
 import PageNotFound from './lib/PageNotFound';
 import OAuthConsent from './pages/OAuthConsent';
+import HandwerkerMarketingDonauRies from './pages/HandwerkerMarketingDonauRies';
+import AnfragenCheck from './pages/AnfragenCheck';
+import UeberMich from './pages/UeberMich';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 
@@ -72,6 +75,9 @@ const AuthenticatedApp = () => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/sitemap-blog" element={<SitemapBlog />} />
       <Route path="/backlink-manager" element={<BacklinkManager />} />
+      <Route path="/handwerker-marketing-donau-ries" element={<HandwerkerMarketingDonauRies />} />
+      <Route path="/anfragen-check" element={<AnfragenCheck />} />
+      <Route path="/ueber-mich" element={<UeberMich />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

@@ -22,34 +22,46 @@ Deno.serve(async (req) => {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "LocalBusiness",
+          "@type": "ProfessionalService",
           "@id": "https://jakubkaczmarek.de/#business",
-          "name": "Jakub Kaczmarek",
-          "description": "Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Anzeigen, Landingpage und automatische Antwort in unter 60 Sekunden.",
+          "name": "Jakub Kaczmarek – Anfragen für Handwerksbetriebe",
+          "description": "Planbar qualifizierte Anfragen für Handwerks- und Ausbaubetriebe in der Region Donau-Ries, Augsburg und München.",
           "url": "https://jakubkaczmarek.de",
-          "telephone": "+4917643942729",
           "email": "jakub.kaczmarek669@gmail.com",
+          "telephone": "+4917643942729",
+          "image": "https://media.base44.com/images/public/69a7f4930f0e951070ab8bb0/b2fa5f40c_md.jpeg",
+          "founder": { "@id": "https://jakubkaczmarek.de/#person" },
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "Sebastian-Frank-Str. 11",
-            "addressLocality": "Donauwörth",
             "postalCode": "86609",
+            "addressLocality": "Donauwörth",
+            "addressRegion": "Bayern",
             "addressCountry": "DE"
           },
-          "areaServed": "Donau-Ries",
-          "priceRange": "$$",
-          "image": "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png",
-          "sameAs": ["https://github.com/kubaliks1234"],
-          "founder": { "@type": "Person", "name": "Jakub Kaczmarek" },
-          "serviceType": ["Anfragen für Handwerksbetriebe", "Google Ads für Handwerker", "Meta Ads für Handwerk", "Landingpage für Handwerk", "Automatische Anfragenantwort"]
+          "geo": { "@type": "GeoCoordinates", "latitude": 48.7186, "longitude": 10.7772 },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Landkreis Donau-Ries" },
+            { "@type": "City", "name": "Donauwörth" },
+            { "@type": "City", "name": "Nördlingen" },
+            { "@type": "City", "name": "Augsburg" },
+            { "@type": "City", "name": "München" }
+          ],
+          "knowsAbout": [
+            "Kundengewinnung Handwerk", "Meta Ads Handwerksbetriebe",
+            "Google Ads Handwerk", "Lead-Automatisierung", "Speed to Lead"
+          ],
+          "priceRange": "€€"
         },
         {
           "@type": "Person",
           "@id": "https://jakubkaczmarek.de/#person",
           "name": "Jakub Kaczmarek",
-          "jobTitle": "Anfragen-Systeme für Handwerksbetriebe",
-          "url": "https://jakubkaczmarek.de",
-          "knowsAbout": ["Google Ads", "Meta Ads", "Lead Generation für Handwerk", "Marketing Automatisierung", "Landingpage-Optimierung"]
+          "jobTitle": "Spezialist für Kundengewinnung im Handwerk",
+          "worksFor": { "@id": "https://jakubkaczmarek.de/#business" },
+          "knowsLanguage": ["de", "pl", "en"],
+          "url": "https://jakubkaczmarek.de/ueber-mich",
+          "sameAs": ["https://github.com/kubaliks1234"]
         },
         {
           "@type": "WebSite",
