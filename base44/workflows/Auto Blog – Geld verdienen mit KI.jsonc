@@ -1,0 +1,44 @@
+{
+  "name": "Auto Blog \u2013 Geld verdienen mit KI",
+  "description": "Schreibt alle 2 Tage einen SEO-Artikel rund um Geld verdienen mit KI, Affiliate Marketing und Online Business, Marketing, KI,",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "scheduled",
+      "events": [],
+      "schedule_mode": "interval",
+      "cron_expression": null,
+      "one_time_date": null,
+      "timezone": "UTC",
+      "interval_value": 2,
+      "interval_unit": "days",
+      "interval_anchor": "2026-03-08T09:06:53.254000",
+      "ends_type": "never",
+      "ends_on_date": null,
+      "ends_after_count": null
+    }
+  },
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "auto_blog_geld_verdienen_mit_ki",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "run_function": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "autoMoneyBlogWriter",
+            "args": {}
+          },
+          "then": "end"
+        }
+      }
+    ]
+  },
+  "x-base44-migrated-from-automation": {
+    "legacy_payload_function": "autoMoneyBlogWriter"
+  }
+}
