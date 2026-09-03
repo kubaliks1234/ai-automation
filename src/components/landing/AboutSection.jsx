@@ -35,7 +35,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl blur-2xl" />
               <div className="relative h-full bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-3xl overflow-hidden flex items-center justify-center">
                 <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png"
+                  src="https://media.base44.com/images/public/69a7f4930f0e951070ab8bb0/b2fa5f40c_md.jpeg"
                   alt="Jakub Kaczmarek"
                   className="w-full h-full object-cover"
                   loading="lazy"
