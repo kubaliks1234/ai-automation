@@ -14,7 +14,7 @@ export default function Analyse() {
                 description="Buche jetzt deine kostenlose 30-minütige KI-Analyse. Ich zeige dir, welche Automationen in deinem Unternehmen sofort Wirkung zeigen."
                 keywords="Kostenlose KI Analyse, AI Beratung, Automatisierung Unternehmen, KI Erstgespräch"
                 canonical="https://jakubkaczmarek.de/analyse"
-                noIndex={false}
+                noIndex={true}
             />
             <Navbar />
             <div className="max-w-2xl mx-auto px-6 pt-36 pb-20">

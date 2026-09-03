@@ -12,6 +12,20 @@ import AuthLayout from "@/components/AuthLayout";
 // Do not change the fetch calls, headers, or the `ctx` handle handling — styling
 // and copy are safe to edit.
 export default function OAuthConsent() {
+  useEffect(() => {
+    let el = document.querySelector('meta[name="robots"]');
+    if (!el) {
+      el = document.createElement('meta');
+      el.setAttribute('name', 'robots');
+      document.head.appendChild(el);
+    }
+    el.setAttribute('content', 'noindex, nofollow');
+    return () => {
+      const r = document.querySelector('meta[name="robots"]');
+      if (r) r.remove();
+    };
+  }, []);
+
   const ctx = new URLSearchParams(window.location.search).get("ctx");
   const [info, setInfo] = useState(null);
   const [checking, setChecking] = useState(true);

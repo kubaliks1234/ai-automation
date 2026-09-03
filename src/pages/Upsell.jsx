@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NoIndex from '@/components/NoIndex';
 import { motion } from 'framer-motion';
 import { CheckCircle, Star, Users, Briefcase, ChevronDown, ChevronUp, Play } from 'lucide-react';
 import { createPageUrl } from '@/utils';
@@ -239,8 +240,8 @@ export default function Upsell() {
             Nein danke, ich verzichte auf dieses Angebot
           </button>
         </div>
-
-      </div>
-    </div>
-  );
-}
+        </div>
+        <NoIndex />
+        </div>
+        );
+        }

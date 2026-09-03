@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NoIndex from '@/components/NoIndex';
 import { base44 } from '@/api/base44Client';
 import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
@@ -203,6 +204,7 @@ Schreibe NUR die E-Mail, kein Kommentar davor oder danach.`,
           )}
         </section>
       </main>
+      <NoIndex />
       <Footer />
     </div>
   );

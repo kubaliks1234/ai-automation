@@ -3,12 +3,26 @@ Deno.serve(async (_req) => {
 
   const robots = `User-agent: *
 Allow: /
-
-# Keine Admin/Draft Seiten indexieren
-Disallow: /admin
+Disallow: /SeoAdmin
+Disallow: /backlink-manager
+Disallow: /SeoOptimierung
+Disallow: /Upsell
+Disallow: /Analyse
+Disallow: /oauth/
 Disallow: /api/
 
-# Sitemap
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: ${baseUrl}/sitemap.xml`;
 
   return new Response(robots, {

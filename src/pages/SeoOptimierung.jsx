@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import NoIndex from '@/components/NoIndex';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -408,6 +409,7 @@ Erstelle optimierte Versionen nach On-Page Checkliste:
           </div>
         )}
       </div>
+      <NoIndex />
     </div>
   );
 }

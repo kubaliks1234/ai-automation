@@ -4,19 +4,23 @@
   "properties": {
     "title": {
       "type": "string",
-      "description": "Titel des Blog-Artikels (legacy)"
+      "description": "SEO Meta Title (max 60 Zeichen)"
     },
     "h1": {
       "type": "string",
-      "description": "Sichtbare H1-\u00dcberschrift im Artikel (darf l\u00e4nger sein als meta_title)"
+      "description": "Sichtbare H1-\u00dcberschrift im Artikel (darf l\u00e4nger sein als title)"
     },
     "slug": {
       "type": "string",
-      "description": "URL-freundlicher Slug (z.B. ki-bildgeneratoren-vergleich-2026)"
+      "description": "URL-freundlicher Slug, kleinbuchstaben, bindestrich-getrennt (z.B. myhammer-lohnt-sich-das)"
     },
     "excerpt": {
       "type": "string",
-      "description": "Kurze Zusammenfassung (f\u00fcr SEO Meta Description)"
+      "description": "Kurze Zusammenfassung (legacy, durch answer_block ersetzt)"
+    },
+    "answer_block": {
+      "type": "string",
+      "description": "2-3 S\u00e4tze direkt unter der H1, die die Frage vollst\u00e4ndig beantworten (f\u00fcr AI-Zitierbarkeit)"
     },
     "content": {
       "type": "string",
@@ -28,7 +32,7 @@
     },
     "schema_json": {
       "type": "string",
-      "description": "JSON-LD Schema Markup als String (Article + optional FAQPage)"
+      "description": "JSON-LD Schema Markup als String (Article)"
     },
     "reading_time": {
       "type": "number",
@@ -37,6 +41,10 @@
     "cover_image": {
       "type": "string",
       "description": "URL des Titelbildes"
+    },
+    "cover_image_alt": {
+      "type": "string",
+      "description": "Beschreibender Alt-Text f\u00fcr Titelbild, mit Keyword wo nat\u00fcrlich"
     },
     "category": {
       "type": "string",
@@ -51,6 +59,65 @@
       ],
       "description": "Kategorie des Artikels"
     },
+    "cluster": {
+      "type": "string",
+      "enum": [
+        "money",
+        "problem",
+        "kosten",
+        "gewerk"
+      ],
+      "description": "SEO-Cluster: money=kaufbereit, problem=Traffic-Treiber, kosten=Kaufabsicht, gewerk=Gewerke-spezifisch"
+    },
+    "primary_keyword": {
+      "type": "string",
+      "description": "Haupt-Keyword des Artikels"
+    },
+    "secondary_keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "3-5 sekund\u00e4re Keywords"
+    },
+    "target_region": {
+      "type": "string",
+      "enum": [
+        "donau-ries",
+        "augsburg",
+        "muenchen",
+        "bundesweit"
+      ],
+      "description": "Zielregion f\u00fcr den Artikel"
+    },
+    "internal_links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "anchor": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Mindestens 3 interne Links: mindestens 1 auf Pillar-Seite, mindestens 1 auf /anfragen-check"
+    },
+    "cta_variant": {
+      "type": "string",
+      "enum": [
+        "anfragen-check",
+        "ratgeber",
+        "newsletter"
+      ],
+      "description": "Welcher CTA am Ende des Artikels gezeigt wird"
+    },
+    "word_count": {
+      "type": "integer",
+      "description": "Anzahl W\u00f6rter im Artikel"
+    },
     "tags": {
       "type": "array",
       "items": {
@@ -60,19 +127,19 @@
     },
     "ai_tool_name": {
       "type": "string",
-      "description": "Name des vorgestellten KI-Tools"
+      "description": "Name des vorgestellten KI-Tools (legacy)"
     },
     "ai_tool_url": {
       "type": "string",
-      "description": "Link zur offiziellen Website des Tools"
+      "description": "Link zur offiziellen Website des Tools (legacy)"
     },
     "affiliate_url": {
       "type": "string",
-      "description": "Affiliate-Link zum Tool (optional)"
+      "description": "Affiliate-Link zum Tool (optional, legacy)"
     },
     "ai_tool_logo": {
       "type": "string",
-      "description": "URL des Tool-Logos"
+      "description": "URL des Tool-Logos (legacy)"
     },
     "pricing": {
       "type": "string",
@@ -81,11 +148,11 @@
         "Freemium",
         "Kostenpflichtig"
       ],
-      "description": "Preismodell des Tools"
+      "description": "Preismodell des Tools (legacy)"
     },
     "rating": {
       "type": "number",
-      "description": "Bewertung des Tools (1-5)"
+      "description": "Bewertung des Tools (1-5) (legacy)"
     },
     "status": {
       "type": "string",
@@ -95,13 +162,18 @@
       ],
       "default": "draft"
     },
+    "reviewed_by_human": {
+      "type": "boolean",
+      "default": false,
+      "description": "MUSS true sein, bevor status auf published gesetzt wird"
+    },
     "meta_title": {
       "type": "string",
-      "description": "SEO Meta Title (max 60 Zeichen)"
+      "description": "SEO Meta Title (max 60 Zeichen, legacy Duplikat von title)"
     },
     "meta_description": {
       "type": "string",
-      "description": "SEO Meta Description (max 160 Zeichen)"
+      "description": "SEO Meta Description (max 155 Zeichen)"
     },
     "published_at": {
       "type": "string",

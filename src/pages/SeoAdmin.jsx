@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import NoIndex from '@/components/NoIndex';
 import { base44 } from '@/api/base44Client';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -244,6 +245,7 @@ export default function SeoAdmin() {
         Stelle sicher, dass deine <code className="bg-amber-100 px-1 rounded">prerenderBlogPost</code> Funktion für Crawler erreichbar ist und korrekte Canonical-Tags setzt.
         Die Sitemap unter <a href="/sitemap-blog" className="underline font-medium">/sitemap-blog</a> sollte regelmäßig bei Search Console eingereicht werden.
       </div>
+      <NoIndex />
     </div>
   );
 }

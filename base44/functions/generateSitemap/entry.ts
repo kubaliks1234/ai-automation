@@ -4,23 +4,10 @@ const BASE_URL = 'https://jakubkaczmarek.de';
 
 const STATIC_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  { path: '/blog', priority: '0.9', changefreq: 'daily' },
-  { path: '/about', priority: '0.7', changefreq: 'monthly' },
-  { path: '/contact', priority: '0.6', changefreq: 'monthly' },
-  { path: '/Analyse', priority: '0.8', changefreq: 'monthly' },
-  { path: '/KiAgentur', priority: '0.8', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=berlin', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=hamburg', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=muenchen', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=koeln', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=frankfurt', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=stuttgart', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=duesseldorf', priority: '0.7', changefreq: 'monthly' },
-  { path: '/KiAgentur?city=leipzig', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=ai-marketing', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=lead-generation', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=sales-automation', priority: '0.7', changefreq: 'monthly' },
-  { path: '/Service?service=workflow-automation', priority: '0.7', changefreq: 'monthly' },
+  { path: '/handwerker-marketing-donau-ries', priority: '0.9', changefreq: 'monthly' },
+  { path: '/anfragen-check', priority: '0.9', changefreq: 'monthly' },
+  { path: '/ueber-mich', priority: '0.7', changefreq: 'monthly' },
+  { path: '/blog', priority: '0.8', changefreq: 'daily' },
 ];
 
 Deno.serve(async (req) => {
@@ -54,7 +41,7 @@ Deno.serve(async (req) => {
     <loc>${escapeXml('https://jakubkaczmarek.de/blog/' + post.slug)}</loc>
     <lastmod>${post.updated_date ? post.updated_date.split('T')[0] : (post.published_at || today)}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>`).join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
