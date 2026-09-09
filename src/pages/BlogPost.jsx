@@ -4,7 +4,7 @@ import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
 import SEOMeta from '@/components/SEOMeta';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star, ExternalLink, Tag, Calendar, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Tag, Calendar, CheckCircle } from 'lucide-react';
 import NewsletterSignup from '@/components/blog/NewsletterSignup';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import InternalLinkBox from '@/components/blog/InternalLinkBox';
@@ -358,10 +358,10 @@ export default function BlogPost() {
               </div>
               <h1 className="text-4xl font-bold text-white mb-4">Zahlung erfolgreich! 🎉</h1>
               <p className="text-gray-400 text-lg mb-4 leading-relaxed">
-                Vielen Dank für deinen Kauf! Du erhältst in Kürze eine E-Mail mit deinen Download-Links.
+                Vielen Dank für Ihren Kauf! Sie erhalten in Kürze eine E-Mail mit Ihren Download-Links.
               </p>
               <p className="text-gray-500 text-sm mb-10">
-                Bitte prüfe auch deinen Spam-Ordner, falls du keine E-Mail erhältst.
+                Bitte prüfen Sie auch Ihren Spam-Ordner, falls Sie keine E-Mail erhalten.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
@@ -522,7 +522,7 @@ export default function BlogPost() {
           </h1>
 
           <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-            {post.excerpt || post.answer_block}
+            {post.answer_block || post.excerpt}
           </p>
 
           {/* Cover image */}
@@ -533,46 +533,6 @@ export default function BlogPost() {
             </div>
           )}
 
-          {/* Tool Info Card */}
-          {post.ai_tool_name && (
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 bg-gray-900/60 border border-gray-800 rounded-2xl mb-10">
-              <div className="flex items-center gap-4">
-                {post.ai_tool_logo ? (
-                  <img src={post.ai_tool_logo} alt={post.ai_tool_name} className="w-14 h-14 rounded-xl object-contain bg-white/5 p-2" />
-                ) : (
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center text-2xl font-bold text-cyan-400">
-                    {post.ai_tool_name[0]}
-                  </div>
-                )}
-                <div>
-                  <p className="text-xs text-gray-500 mb-1">AI Tool</p>
-                  <p className="text-xl font-bold text-white">{post.ai_tool_name}</p>
-                  {post.rating && (
-                    <div className="flex items-center gap-1 mt-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className={`w-4 h-4 ${i < Math.round(post.rating) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-700'}`} />
-                      ))}
-                      <span className="text-sm text-gray-500 ml-1">{post.rating}/5</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-              {(post.affiliate_url || post.ai_tool_url) && (
-                <Button
-                  asChild
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white rounded-xl flex-shrink-0"
-                >
-                  <a href={post.affiliate_url || post.ai_tool_url} target="_blank" rel="noopener noreferrer sponsored">
-                    {post.affiliate_url ? '🔗 Jetzt ausprobieren*' : 'Tool besuchen'}
-                    <ExternalLink className="w-4 h-4 ml-2" />
-                  </a>
-                </Button>
-              )}
-              {post.affiliate_url && (
-                <p className="text-xs text-gray-600 mt-1">*Affiliate-Link</p>
-              )}
-            </div>
-          )}
         </motion.div>
 
         {/* Content */}
@@ -643,6 +603,11 @@ export default function BlogPost() {
                   {tag}
                 </a>
               ))}
+              {post.tags?.length > 0 && (
+                <a href="/blog" className="px-4 py-2 bg-gray-800/30 text-gray-500 rounded-xl text-sm border border-gray-700/30 hover:border-cyan-500/30 hover:text-cyan-400 transition-colors">
+                  Alle Artikel
+                </a>
+              )}
             </div>
           </div>
         )}

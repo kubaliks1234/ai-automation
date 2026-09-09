@@ -42,7 +42,7 @@ export default function RelatedPosts({ currentPost }) {
 
   return (
     <div className="mt-16 pt-10 border-t border-gray-800">
-      <h3 className="text-xl font-bold text-white mb-6">Das könnte dich auch interessieren</h3>
+      <h3 className="text-xl font-bold text-white mb-6">Das könnte Sie auch interessieren</h3>
       <div className="grid sm:grid-cols-3 gap-4">
         {related.map(post => (
           <a

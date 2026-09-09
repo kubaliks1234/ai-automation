@@ -1,12 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
-const categories = ['Alle', 'Marketing', 'Vertrieb', 'Produktivität', 'Content', 'Analyse', 'Automatisierung'];
-const pricingOptions = ['Alle', 'Kostenlos', 'Freemium', 'Kostenpflichtig'];
+const categories = ['Alle', 'Marketing', 'Vertrieb', 'Produktivität', 'Content', 'Analyse', 'Automatisierung', 'Allgemein'];
 
-export default function BlogFilters({ search, setSearch, activeCategory, setActiveCategory, activePricing, setActivePricing }) {
+export default function BlogFilters({ search, setSearch, activeCategory, setActiveCategory }) {
   return (
     <div className="space-y-6">
       {/* Search */}
@@ -14,7 +12,7 @@ export default function BlogFilters({ search, setSearch, activeCategory, setActi
         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
         <Input
           type="text"
-          placeholder="KI-Tool oder Anwendungsfall suchen..."
+          placeholder="Artikel oder Thema suchen..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           className="pl-12 pr-12 py-5 bg-gray-900/60 border-gray-700 text-white placeholder:text-gray-500 rounded-2xl focus:border-cyan-500 focus:ring-cyan-500/20 text-base"
@@ -42,23 +40,6 @@ export default function BlogFilters({ search, setSearch, activeCategory, setActi
             }`}
           >
             {cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Pricing Filter */}
-      <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide justify-start sm:justify-center sm:flex-wrap">
-        {pricingOptions.map((price) => (
-          <button
-            key={price}
-            onClick={() => setActivePricing(price)}
-            className={`flex-shrink-0 px-4 py-2 rounded-lg text-xs font-medium transition-all duration-200 active:scale-95 ${
-              activePricing === price
-                ? 'bg-gray-700 text-white border border-gray-600'
-                : 'bg-gray-900/40 border border-gray-800 text-gray-500 hover:text-gray-300'
-            }`}
-          >
-            {price}
           </button>
         ))}
       </div>

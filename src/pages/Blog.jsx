@@ -13,11 +13,11 @@ export default function Blog() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState('');
-  const [activePricing, setActivePricing] = useState('Alle');
 
-  // Pre-fill category from URL param (e.g. /blog?category=Marketing)
+  // Pre-fill category/tag from URL param (e.g. /blog?category=Marketing or /blog?tag=Google%20Ads)
   const urlParams = new URLSearchParams(window.location.search);
   const [activeCategory, setActiveCategory] = useState(urlParams.get('category') || 'Alle');
+  const [activeTag, setActiveTag] = useState(urlParams.get('tag') || '');
 
   useEffect(() => {
     loadPosts();
@@ -43,32 +43,32 @@ export default function Blog() {
   const filteredPosts = useMemo(() => {
     return posts.filter(post => {
       const matchesCategory = activeCategory === 'Alle' || post.category === activeCategory;
-      const matchesPricing = activePricing === 'Alle' || post.pricing === activePricing;
+      const matchesTag = !activeTag || post.tags?.some(tag => tag.toLowerCase() === activeTag.toLowerCase());
       const searchLower = search.toLowerCase();
       const matchesSearch = !search || 
         post.title?.toLowerCase().includes(searchLower) ||
+        post.answer_block?.toLowerCase().includes(searchLower) ||
         post.excerpt?.toLowerCase().includes(searchLower) ||
-        post.ai_tool_name?.toLowerCase().includes(searchLower) ||
         post.tags?.some(tag => tag.toLowerCase().includes(searchLower)) ||
         post.category?.toLowerCase().includes(searchLower);
 
-      return matchesCategory && matchesPricing && matchesSearch;
+      return matchesCategory && matchesTag && matchesSearch;
     });
-  }, [posts, search, activeCategory, activePricing]);
+  }, [posts, search, activeCategory, activeTag]);
 
   const categories = ['Marketing', 'Vertrieb', 'Produktivität', 'Content', 'Analyse', 'Automatisierung', 'Allgemein'];
 
   const blogListSchema = posts.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "KI Tools Blog",
-    "description": "Die besten KI Tools für Unternehmen – getestet und bewertet",
+    "name": "Handwerker Marketing Blog",
+    "description": "Praxisnahe Artikel rund um Kundengewinnung, Google Ads, Meta Ads und Anfragen-Automatisierung für Handwerksbetriebe",
     "url": "https://jakubkaczmarek.de/Blog",
     "itemListElement": posts.slice(0, 20).map((post, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "name": post.title,
-      "description": post.excerpt,
+      "description": post.answer_block || post.excerpt,
       "url": `https://jakubkaczmarek.de/blog/${post.slug}`
     }))
   } : null;
@@ -94,8 +94,6 @@ export default function Blog() {
             setSearch={setSearch}
             activeCategory={activeCategory}
             setActiveCategory={setActiveCategory}
-            activePricing={activePricing}
-            setActivePricing={setActivePricing}
           />
         </div>
 

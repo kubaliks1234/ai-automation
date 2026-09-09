@@ -23,10 +23,10 @@ export default function NewsletterSignup({ variant = 'inline', source = 'blog' }
       <div className="p-5 bg-gray-900/60 border border-gray-800 rounded-2xl">
         <div className="flex items-center gap-2 mb-3">
           <Mail className="w-4 h-4 text-cyan-400" />
-          <span className="text-sm font-semibold text-white">KI-Newsletter</span>
+          <span className="text-sm font-semibold text-white">Newsletter</span>
         </div>
         <p className="text-xs text-gray-400 mb-4 leading-relaxed">
-          Neue KI-Artikel, Tutorials & Tools direkt ins Postfach.
+          Neue Artikel über Kundengewinnung und Marketing für Handwerksbetriebe direkt ins Postfach.
         </p>
         {result ? (
           <div className="flex items-center gap-2 text-green-400 text-xs">
@@ -39,15 +39,15 @@ export default function NewsletterSignup({ variant = 'inline', source = 'blog' }
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              placeholder="deine@email.de"
+              placeholder="ihre@email.de"
               className="w-full px-3 py-2 text-sm bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500"
               required
-            />
-            <Button
+              />
+              <Button
               type="submit"
               disabled={loading}
               className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white text-sm rounded-xl h-9"
-            >
+              >
               {loading ? 'Wird angemeldet...' : 'Anmelden'}
             </Button>
           </form>
@@ -67,9 +67,9 @@ export default function NewsletterSignup({ variant = 'inline', source = 'blog' }
       <div className="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
         <Mail className="w-6 h-6 text-cyan-400" />
       </div>
-      <h3 className="text-xl font-bold text-white mb-2">Keine KI-News mehr verpassen</h3>
+      <h3 className="text-xl font-bold text-white mb-2">Keine Marketing-Tipps mehr verpassen</h3>
       <p className="text-gray-400 text-sm mb-6 max-w-sm mx-auto">
-        Neue Artikel über KI-Tools, Tutorials und Automatisierungen – direkt in dein Postfach. Kostenlos.
+        Neue Artikel über Kundengewinnung, Google Ads und Anfragen-Automatisierung für Handwerksbetriebe – direkt in Ihr Postfach. Kostenlos.
       </p>
       {result ? (
         <div className="flex items-center justify-center gap-2 text-green-400">
@@ -82,7 +82,7 @@ export default function NewsletterSignup({ variant = 'inline', source = 'blog' }
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            placeholder="deine@email.de"
+            placeholder="ihre@email.de"
             className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500 text-sm"
             required
           />
