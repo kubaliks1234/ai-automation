@@ -58,12 +58,72 @@ Deno.serve(async (req) => {
     // Canonical MUST use lowercase /blog/ path (not /Blog/)
     const canonical = `https://jakubkaczmarek.de/blog/${post.slug}`;
     const title = `${post.meta_title || post.title} | Jakub Kaczmarek – KI Automatisierung`;
-    const description = post.meta_description || post.excerpt || '';
+    const description = post.meta_description || post.excerpt || post.answer_block || '';
     const image = post.cover_image || 'https://jakubkaczmarek.de/og-image.jpg';
     const published = post.published_at || post.created_date || '';
 
     // Strip HTML tags for plain text preview in meta (sauber für description)
     const stripHtml = (html) => (html || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+
+    // Simple Markdown-to-HTML converter for prerendered content
+    const markdownToHtml = (md) => {
+      if (!md) return '';
+      // If already HTML, return as-is
+      if (/<[a-z][\s\S]*>/i.test(md)) return md;
+      const lines = md.split('\n');
+      let html = '';
+      let inList = false;
+      let inOl = false;
+      let inTable = false;
+      let tableHeader = false;
+      for (let i = 0; i < lines.length; i++) {
+        let line = lines[i];
+        // Table separator row
+        if (/^\|[\s\-:|]+\|?\s*$/.test(line)) { continue; }
+        // Table row
+        if (line.trim().startsWith('|')) {
+          const cells = line.split('|').filter((c, idx, arr) => idx > 0 && idx < arr.length - 1).map(c => c.trim());
+          if (!inTable) { html += '<table>'; inTable = true; tableHeader = true; }
+          if (tableHeader) {
+            html += '<thead><tr>' + cells.map(c => `<th>${c}</th>`).join('') + '</tr></thead><tbody>';
+            tableHeader = false;
+          } else {
+            html += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+          }
+          continue;
+        }
+        if (inTable) { html += '</tbody></table>'; inTable = false; }
+        // Headings
+        if (line.startsWith('### ')) { if (inList) { html += '</ul>'; inList = false; } if (inOl) { html += '</ol>'; inOl = false; } html += `<h3>${line.slice(4)}</h3>`; continue; }
+        if (line.startsWith('## ')) { if (inList) { html += '</ul>'; inList = false; } if (inOl) { html += '</ol>'; inOl = false; } html += `<h2>${line.slice(3)}</h2>`; continue; }
+        if (line.startsWith('# ')) { if (inList) { html += '</ul>'; inList = false; } if (inOl) { html += '</ol>'; inOl = false; } html += `<h1>${line.slice(2)}</h1>`; continue; }
+        // Ordered list
+        if (/^\d+\.\s/.test(line)) {
+          if (!inOl) { if (inList) { html += '</ul>'; inList = false; } html += '<ol>'; inOl = true; }
+          html += `<li>${line.replace(/^\d+\.\s/, '')}</li>`; continue;
+        }
+        // Unordered list
+        if (/^[-*]\s/.test(line)) {
+          if (!inList) { if (inOl) { html += '</ol>'; inOl = false; } html += '<ul>'; inList = true; }
+          html += `<li>${line.replace(/^[-*]\s/, '')}</li>`; continue;
+        }
+        if (inList) { html += '</ul>'; inList = false; }
+        if (inOl) { html += '</ol>'; inOl = false; }
+        // Empty line
+        if (line.trim() === '') { continue; }
+        // Paragraph
+        html += `<p>${line}</p>`;
+      }
+      if (inList) html += '</ul>';
+      if (inOl) html += '</ol>';
+      if (inTable) html += '</tbody></table>';
+      // Inline: bold, links
+      html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+      return html;
+    };
+
+    const bodyHtml = markdownToHtml(post.body_html || post.content || '');
     const bodyText = stripHtml(post.body_html || post.content || '');
     const previewText = bodyText.slice(0, 300);
 
@@ -145,12 +205,12 @@ Deno.serve(async (req) => {
     </nav>
 
     <h1>${post.h1 || post.title}</h1>
-    <p><strong>${post.excerpt || ''}</strong></p>
+    <p><strong>${post.excerpt || post.answer_block || ''}</strong></p>
     ${post.cover_image ? `<img src="${post.cover_image}" alt="${(post.h1 || post.title).replace(/"/g, '&quot;')} – Jakub Kaczmarek KI Automatisierung" />` : ''}
     <p>Veröffentlicht am: ${published}</p>
     <p>Kategorie: ${post.category || ''}</p>
 
-    <div>${post.body_html || post.content || previewText}</div>
+    <div>${bodyHtml || previewText}</div>
 
     <footer>
       <p>Autor: Jakub Kaczmarek | <a href="https://jakubkaczmarek.de">jakubkaczmarek.de</a></p>
