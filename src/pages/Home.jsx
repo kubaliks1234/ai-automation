@@ -12,6 +12,7 @@ import LeadMagnet from '@/components/landing/LeadMagnet';
 import FAQSection from '@/components/landing/FAQSection';
 import CTASection from '@/components/landing/CTASection';
 import Footer from '@/components/landing/Footer';
+import MobileCTABar from '@/components/landing/MobileCTABar';
 
 const homeStructuredData = {
   "@context": "https://schema.org",
@@ -64,6 +65,43 @@ const homeStructuredData = {
       "url": "https://jakubkaczmarek.de",
       "name": "Jakub Kaczmarek",
       "inLanguage": "de-DE"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://jakubkaczmarek.de/#faq",
+      "url": "https://jakubkaczmarek.de/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Wir sind ohnehin ausgelastet – bringt mir das etwas?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Die Frage ist nicht ob, sondern womit. Die meisten Betriebe sind mit Kleinkram ausgelastet und hätten lieber zwei große Aufträge. Genau das lässt sich über die Ausrichtung der Anzeigen steuern." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wir haben das schon mit einer Agentur versucht, hat nichts gebracht.",
+          "acceptedAnswer": { "@type": "Answer", "text": "Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was kostet das Werbebudget?",
+          "acceptedAnswer": { "@type": "Answer", "text": "800 bis 1.500 € im Monat sind für Donau-Ries realistisch. Sie zahlen das direkt an Facebook und Google, nicht an mich. Ich verdiene nichts daran, wenn Sie mehr ausgeben." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange bin ich gebunden?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Gar nicht. Monatlich kündbar." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist, wenn es nicht funktioniert?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Keine 10 qualifizierten Anfragen in 60 Tagen: Ich arbeite ohne Retainer weiter, bis sie da sind." }
+        },
+        {
+          "@type": "Question",
+          "name": "Machen Sie auch Mitarbeitergewinnung?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Aktuell konzentriere ich mich auf Kundenanfragen. Mitarbeitergewinnung biete ich Bestandskunden ab 2027 an." }
+        }
+      ]
     }
   ]
 };
@@ -101,6 +139,7 @@ export default function Home() {
         <CTASection />
       </main>
       <Footer />
+      <MobileCTABar />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { createPageUrl } from '@/utils';
 
 const navLinks = [
   { label: 'So funktioniert\'s', href: '#mechanismus' },
-  { label: 'Ergebnisse', href: '#ergebnisse' },
+  { label: 'Aktuelles', href: '#ergebnisse' },
   { label: 'Über mich', href: '#about' },
   { label: 'Blog', href: '/blog', isPage: true },
 ];

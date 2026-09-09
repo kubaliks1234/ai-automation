@@ -77,9 +77,9 @@ export default function HeroSection() {
           className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-sm text-gray-500"
         >
           <span>Erste Anfragen in 14 Tagen</span>
-          <span className="text-gray-700">·</span>
+          <span className="text-gray-600">·</span>
           <span>Nur ein Betrieb pro Gewerk und Landkreis</span>
-          <span className="text-gray-700">·</span>
+          <span className="text-gray-600">·</span>
           <span>Keine Mindestlaufzeit</span>
         </motion.div>
       </div>

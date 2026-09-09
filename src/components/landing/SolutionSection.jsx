@@ -63,7 +63,7 @@ export default function SolutionSection() {
                   <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
                     <step.icon className="w-7 h-7" />
                   </div>
-                  <span className="text-4xl font-bold text-gray-800 group-hover:text-gray-700 transition-colors">
+                  <span className="text-4xl font-bold text-gray-700 group-hover:text-gray-600 transition-colors">
                     {step.number}
                   </span>
                 </div>

@@ -71,8 +71,6 @@ export default function ProcessSection() {
             </motion.div>
           ))}
         </div>
-
-
       </div>
     </section>
   );
