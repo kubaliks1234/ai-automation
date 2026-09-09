@@ -8,7 +8,6 @@ import { ArrowLeft, Tag, Calendar, CheckCircle } from 'lucide-react';
 import NewsletterSignup from '@/components/blog/NewsletterSignup';
 import RelatedPosts from '@/components/blog/RelatedPosts';
 import InternalLinkBox from '@/components/blog/InternalLinkBox';
-import ProductBox from '@/components/blog/ProductBox';
 import { Button } from '@/components/ui/button';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
@@ -583,9 +582,6 @@ export default function BlogPost() {
         </motion.div>
 
         <RelatedPosts currentPost={post} />
-
-        {/* Product Box */}
-        <ProductBox />
 
         {/* Newsletter */}
         <NewsletterSignup variant="inline" source="blog-artikel" />

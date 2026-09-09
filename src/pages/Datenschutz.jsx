@@ -44,14 +44,14 @@ export default function Datenschutz() {
                     <section className="mb-8">
                         <h2 className="text-xl font-semibold text-white mb-3">3. Newsletter und E-Mail-Kommunikation</h2>
                         <p className="text-gray-400">
-                            Wenn Sie den kostenlosen Guide anfordern, werden Ihre Daten (Name und E-Mail-Adresse) in unserer Subscriber-Liste gespeichert. Sie können sich jederzeit aus dieser Liste austragen, indem Sie uns eine E-Mail senden. Ihre Daten werden nicht an Dritte weitergegeben.
+                            Wenn Sie den Newsletter abonnieren oder den kostenlosen Anfragen-Check anfordern, werden Ihre Daten (Name und E-Mail-Adresse) in unserer Subscriber-Liste gespeichert. Sie können sich jederzeit aus dieser Liste austragen, indem Sie uns eine E-Mail senden. Ihre Daten werden nicht an Dritte weitergegeben.
                         </p>
                     </section>
 
                     <section className="mb-8">
-                        <h2 className="text-xl font-semibold text-white mb-3">4. Google-Dienste</h2>
+                        <h2 className="text-xl font-semibold text-white mb-3">4. Kontaktformular</h2>
                         <p className="text-gray-400">
-                            Zur Terminbuchung (KI-Analyse) nutzen wir Google Calendar und Google Meet. Dabei werden Ihre Termindaten (Name, E-Mail, gewählter Zeitslot) an Google weitergegeben. Es gelten die Datenschutzbestimmungen von Google (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:underline">policies.google.com/privacy</a>).
+                            Über das Anfragen-Check-Formular auf dieser Website werden Ihre Angaben (Name, E-Mail, Telefon, Nachricht) an uns übermittelt und per E-Mail verarbeitet. Diese Daten dienen ausschließlich der Bearbeitung Ihrer Anfrage und der Kontaktaufnahme. Die Daten werden nicht an Dritte weitergegeben.
                         </p>
                     </section>
 

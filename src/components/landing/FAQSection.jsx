@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: '„Wir haben das schon mit einer Agentur versucht, hat nichts gebracht."',
-    answer: 'Höre ich ständig. Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern.',
+    answer: 'Das höre ich oft. Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern.',
   },
   {
     question: '„Was kostet das Werbebudget?"',

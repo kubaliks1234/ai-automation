@@ -52,7 +52,7 @@ export default function Impressum() {
                     <section className="mb-8">
                         <h2 className="text-xl font-semibold text-white mb-3">Berufsrechtliche Angaben</h2>
                         <p className="text-gray-400 leading-relaxed">
-                            Tätigkeitsbereich: KI-Automatisierung und digitale Beratung
+                            Tätigkeitsbereich: Kundengewinnung für Handwerksbetriebe
                         </p>
                     </section>
 
