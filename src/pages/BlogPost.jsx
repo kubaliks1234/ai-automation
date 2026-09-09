@@ -652,11 +652,11 @@ export default function BlogPost() {
           <h3 className="text-2xl font-bold text-white mb-3">Bereit für KI Automationen?</h3>
           <p className="text-gray-400 mb-6">Lass uns herausfinden, wie du dieses Tool in deinem Unternehmen einsetzen kannst.</p>
           <Button
-            onClick={() => navigate('/#cta')}
+            onClick={() => navigate('/anfragen-check')}
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl"
           >
             <CheckCircle className="w-5 h-5 mr-2" />
-            Kostenlose KI Analyse
+            Anfrage senden
           </Button>
         </div>
       </main>

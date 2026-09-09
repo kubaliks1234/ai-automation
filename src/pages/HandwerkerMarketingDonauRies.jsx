@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, MapPin, Phone, Clock, ArrowRight } from 'lucide-react';
+import { CheckCircle, MapPin, Phone, ClipboardList, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SEOMeta from '@/components/SEOMeta';
 import Navbar from '@/components/landing/Navbar';
 import Footer from '@/components/landing/Footer';
@@ -156,15 +157,13 @@ export default function HandwerkerMarketingDonauRies() {
               Der Anfragen-Check dauert 20 Minuten und kostet nichts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://calendly.com/jakub-kaczmarek/anfragen-check"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/anfragen-check"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium rounded-xl hover:from-cyan-400 hover:to-blue-400 transition-all"
               >
-                <Clock className="w-5 h-5" />
-                Anfragen-Check buchen
-              </a>
+                <ClipboardList className="w-5 h-5" />
+                Anfragen-Check anfragen
+              </Link>
               <a
                 href="tel:+4917643942729"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-gray-700 text-white font-medium rounded-xl hover:border-cyan-500/50 transition-all"

@@ -1,12 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, Phone } from 'lucide-react';
+import { ArrowRight, ClipboardList, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 export default function CTASection() {
-  const handleCTA = () => {
-    window.open('https://calendly.com/jakub-kaczmarek', '_blank');
-  };
 
   return (
     <section id="cta" className="relative py-24 sm:py-32 bg-[#0a0a0f] overflow-hidden">
@@ -44,15 +42,16 @@ export default function CTASection() {
               </p>
             </div>
 
-            <Button
-              size="lg"
-              className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-10 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
-              onClick={handleCTA}
-            >
-              <Calendar className="mr-2 w-5 h-5" />
-              Termin für den Anfragen-Check wählen
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/anfragen-check">
+              <Button
+                size="lg"
+                className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-10 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
+              >
+                <ClipboardList className="mr-2 w-5 h-5" />
+                Anfrage für den Anfragen-Check senden
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
 
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
