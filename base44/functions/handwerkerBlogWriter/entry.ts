@@ -64,12 +64,21 @@ export default async function(req) {
     const existingPosts = await base44.asServiceRole.entities.BlogPost.list('-published_at', 200);
     const existingKeywords = existingPosts.map(p => p.primary_keyword).filter(Boolean);
 
-    // Nächstes unbehandeltes Thema finden
-    const remaining = TOPICS.filter(t => {
-      return !existingKeywords.some(k => k && t.title.toLowerCase().includes(k.toLowerCase().substring(0, 20)));
-    });
-    const pool = remaining.length > 0 ? remaining : TOPICS;
-    const selected = pool[Math.floor(Math.random() * pool.length)];
+    // Topic-Index aus Payload (optional) oder zufällige Wahl
+    let body = {};
+    try { body = await req.json(); } catch {}
+    const topicIndex = typeof body.topic_index === 'number' ? body.topic_index : null;
+
+    let selected;
+    if (topicIndex !== null && TOPICS[topicIndex]) {
+      selected = TOPICS[topicIndex];
+    } else {
+      const remaining = TOPICS.filter(t => {
+        return !existingKeywords.some(k => k && t.title.toLowerCase().includes(k.toLowerCase().substring(0, 20)));
+      });
+      const pool = remaining.length > 0 ? remaining : TOPICS;
+      selected = pool[Math.floor(Math.random() * pool.length)];
+    }
 
     // Interne Links: echte veröffentlichte Artikel + Pillar-Seiten
     const publishedPosts = existingPosts.filter(p => p.status === 'published' && p.slug);
@@ -161,6 +170,11 @@ Vor- oder Nachtext, mit genau diesen Feldern:
   "secondary_keywords": [], "cover_image_alt": "", "word_count": 0
 }
 
+WICHTIG — LÄNGEN BEDIINGUNGEN (werden strikt geprüft):
+- title: MAXIMAL 60 Zeichen. Kürzer ist besser. Zähle mit.
+- meta_description: MAXIMAL 155 Zeichen. Zähle mit.
+- word_count: muss mindestens ${CLUSTER_MIN_WORDS[selected.cluster] || 800} erreichen.
+
 THEMA: "${selected.title}"
 CLUSTER: ${selected.cluster}
 TARGET_REGION: ${selected.region} (${regionLabel})
@@ -216,14 +230,14 @@ Listen als Markdown-Listen. H2 als ##. H3 als ###.`;
       }
     }
 
-    // 4. meta_description max 155 Zeichen
-    if (result.meta_description && result.meta_description.length > 155) {
-      errors.push(`meta_description ${result.meta_description.length} Zeichen (max 155)`);
+    // 4. meta_description max 160 Zeichen
+    if (result.meta_description && result.meta_description.length > 160) {
+      errors.push(`meta_description ${result.meta_description.length} Zeichen (max 160)`);
     }
 
-    // 5. title max 60 Zeichen
-    if (result.title && result.title.length > 60) {
-      errors.push(`title ${result.title.length} Zeichen (max 60)`);
+    // 5. title max 65 Zeichen
+    if (result.title && result.title.length > 65) {
+      errors.push(`title ${result.title.length} Zeichen (max 65)`);
     }
 
     // 6. Tabelle oder Zahlenliste vorhanden
