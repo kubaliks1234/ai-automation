@@ -411,7 +411,7 @@ export default function BlogPost() {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Jakub Kaczmarek – AI Automation",
+      "name": "Jakub Kaczmarek – Anfragen für Handwerk",
       "url": "https://jakubkaczmarek.de"
     },
     "datePublished": post.published_at || post.created_date,
@@ -455,7 +455,7 @@ export default function BlogPost() {
     <div className="min-h-screen bg-[#0a0a0f]">
       {post && (
         <SEOMeta
-          title={`${post.meta_title || post.title} | Jakub Kaczmarek – KI Automatisierung`}
+          title={`${post.meta_title || post.title} | Jakub Kaczmarek – Anfragen für Handwerk`}
           description={post.meta_description || post.excerpt}
           keywords={post.tags?.join(', ')}
           canonical={`https://jakubkaczmarek.de/blog/${post.slug}`}
@@ -528,7 +528,7 @@ export default function BlogPost() {
           {/* Cover image */}
           {post.cover_image && (
             <div className="relative rounded-3xl overflow-hidden mb-10 aspect-video">
-              <img src={post.cover_image} alt={`${post.h1 || post.title} – Jakub Kaczmarek KI Automatisierung`} loading="eager" fetchpriority="high" decoding="async" className="w-full h-full object-cover" />
+              <img src={post.cover_image} alt={`${post.h1 || post.title} – Jakub Kaczmarek Anfragen für Handwerk`} loading="eager" fetchpriority="high" decoding="async" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f]/50 to-transparent" />
             </div>
           )}
@@ -649,8 +649,8 @@ export default function BlogPost() {
 
         {/* CTA */}
         <div className="mt-16 p-8 sm:p-12 bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-3xl text-center">
-          <h3 className="text-2xl font-bold text-white mb-3">Bereit für KI Automationen?</h3>
-          <p className="text-gray-400 mb-6">Lass uns herausfinden, wie du dieses Tool in deinem Unternehmen einsetzen kannst.</p>
+          <h3 className="text-2xl font-bold text-white mb-3">Mehr Anfragen für Ihren Handwerksbetrieb?</h3>
+          <p className="text-gray-400 mb-6">Kostenloser Anfragen-Check in 20 Minuten – schwarz auf weiß, welche Anzeigen Ihre Konkurrenz schaltet.</p>
           <Button
             onClick={() => navigate('/anfragen-check')}
             className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-3 rounded-xl"

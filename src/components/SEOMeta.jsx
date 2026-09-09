@@ -60,7 +60,7 @@ export default function SEOMeta({
     setMeta('og:image:width', '1200', true);
     setMeta('og:image:height', '630', true);
     setMeta('og:locale', 'de_DE', true);
-    setMeta('og:site_name', 'Jakub Kaczmarek – AI Automation', true);
+    setMeta('og:site_name', 'Jakub Kaczmarek – Anfragen für Handwerk', true);
     if (canonical) setMeta('og:url', canonical, true);
 
     // Twitter

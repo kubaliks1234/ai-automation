@@ -29,8 +29,8 @@ Deno.serve(async (req) => {
     const itemListSchema = JSON.stringify({
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": "KI Tools Blog – Alle Artikel",
-      "description": "Die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung. Ehrlich getestet und bewertet für Unternehmen.",
+      "name": "Handwerker Marketing Blog – Alle Artikel",
+      "description": "Praxisnahe Artikel rund um Kundengewinnung, Google Ads, Meta Ads und Anfragen-Automatisierung für Handwerksbetriebe in Donau-Ries und Umgebung.",
       "url": "https://jakubkaczmarek.de/blog",
       "numberOfItems": posts.length,
       "itemListElement": posts.map((p, i) => ({
@@ -46,24 +46,24 @@ Deno.serve(async (req) => {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KI Tools Blog 2026 | Beste AI Tools für Unternehmen getestet | Jakub Kaczmarek</title>
-  <meta name="description" content="Entdecke die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung. Ehrlich getestet und bewertet für Unternehmen. Über ${posts.length} AI Tools im Vergleich." />
-  <meta name="keywords" content="KI Tools, AI Tools, KI Software Vergleich, beste KI Tools 2026, KI Tool Vergleich, kostenlose KI Tools, AI Software, Automatisierung Tools" />
+  <title>Handwerker Marketing Blog | Mehr Anfragen & Kundengewinnung für Handwerk | Jakub Kaczmarek</title>
+  <meta name="description" content="Praxisnahe Artikel rund um Kundengewinnung, Google Ads, Meta Ads und Anfragen-Automatisierung für Handwerksbetriebe in Donau-Ries und Umgebung. Über ${posts.length} Artikel." />
+  <meta name="keywords" content="Handwerker Marketing, Kundengewinnung Handwerk, Google Ads Handwerker, Meta Ads Handwerk, Anfragen Handwerk, Marketing Handwerksbetrieb, Donau-Ries, Donauwörth" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Jakub Kaczmarek" />
   <link rel="canonical" href="https://jakubkaczmarek.de/blog" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="KI Tools Blog 2026 | Beste AI Tools für Unternehmen" />
-  <meta property="og:description" content="Die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung. Über ${posts.length} AI Tools im Vergleich." />
+  <meta property="og:title" content="Handwerker Marketing Blog | Jakub Kaczmarek" />
+  <meta property="og:description" content="Praxisnahe Artikel rund um Kundengewinnung und Anfragen-Automatisierung für Handwerksbetriebe. Über ${posts.length} Artikel." />
   <meta property="og:url" content="https://jakubkaczmarek.de/blog" />
   <meta property="og:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:site_name" content="Jakub Kaczmarek – AI Automation" />
+  <meta property="og:site_name" content="Jakub Kaczmarek – Anfragen für Handwerk" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KI Tools Blog 2026 | Beste AI Tools für Unternehmen" />
-  <meta name="twitter:description" content="Die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung." />
+  <meta name="twitter:title" content="Handwerker Marketing Blog | Jakub Kaczmarek" />
+  <meta name="twitter:description" content="Praxisnahe Artikel rund um Kundengewinnung und Anfragen-Automatisierung für Handwerksbetriebe." />
 
   <script type="application/ld+json">${itemListSchema}</script>
   <script>
@@ -90,14 +90,14 @@ Deno.serve(async (req) => {
     <nav>
       <a href="https://jakubkaczmarek.de/">Startseite</a> |
       <a href="https://jakubkaczmarek.de/blog">Blog</a> |
-      <a href="https://jakubkaczmarek.de/about">Über mich</a> |
-      <a href="https://jakubkaczmarek.de/contact">Kontakt</a>
+      <a href="https://jakubkaczmarek.de/ueber-mich">Über mich</a> |
+      <a href="https://jakubkaczmarek.de/anfragen-check">Anfragen-Check</a>
     </nav>
   </header>
 
   <main>
-    <h1>KI Tools Blog – Alle Artikel</h1>
-    <p>Die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung. Über ${posts.length} Artikel, ehrlich getestet und bewertet für Unternehmen im DACH-Raum.</p>
+    <h1>Handwerker Marketing Blog – Alle Artikel</h1>
+    <p>Praxisnahe Artikel rund um Kundengewinnung, Google Ads, Meta Ads und Anfragen-Automatisierung für Handwerksbetriebe in Donau-Ries und Umgebung. Über ${posts.length} Artikel.</p>
 
     <h2>Alle Artikel (${posts.length})</h2>
     <ul>
@@ -111,7 +111,7 @@ Deno.serve(async (req) => {
   </main>
 
   <footer>
-    <p>© ${new Date().getFullYear()} Jakub Kaczmarek – AI Automation | <a href="https://jakubkaczmarek.de/">jakubkaczmarek.de</a></p>
+    <p>© ${new Date().getFullYear()} Jakub Kaczmarek – Anfragen für Handwerk | <a href="https://jakubkaczmarek.de/">jakubkaczmarek.de</a></p>
   </footer>
 </body>
 </html>`;

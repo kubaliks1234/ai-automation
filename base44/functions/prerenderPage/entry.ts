@@ -23,7 +23,7 @@ const STATIC_PAGES = {
     canonical: `${BASE_URL}/anfragen-check`,
     noindex: false,
     h1: 'Anfragen-Check',
-    body: '<p>Wir schauen uns gemeinsam Ihren Google-Auftritt an, und ich zeige Ihnen live, welche Anzeigen Ihre Konkurrenz gerade schaltet. Kostet nichts, verpflichtet zu nichts.</p><p><a href="https://calendly.com/jakub-kaczmarek/anfragen-check">Termin buchen</a> | <a href="tel:+4917643942729">+49 176 43942729</a></p>',
+    body: '<p>Wir schauen uns gemeinsam Ihren Google-Auftritt an, und ich zeige Ihnen live, welche Anzeigen Ihre Konkurrenz gerade schaltet. Kostet nichts, verpflichtet zu nichts.</p><p><a href="' + BASE_URL + '/anfragen-check">Anfrage senden</a> | <a href="tel:+4917643942729">+49 176 43942729</a></p>',
     schema: { "@context": "https://schema.org", "@type": "Service", "name": "Anfragen-Check", "provider": { "@type": "Person", "name": "Jakub Kaczmarek" }, "areaServed": "Donau-Ries" }
   },
   'ueber-mich': {
@@ -95,7 +95,7 @@ function buildHtml({ title, description, keywords, canonical, noindex, h1, body,
   ${canonical ? `<meta property="og:url" content="${canonical}" />` : ''}
   <meta property="og:image" content="${DEFAULT_IMAGE}" />
   <meta property="og:locale" content="de_DE" />
-  <meta property="og:site_name" content="Jakub Kaczmarek – AI Automation" />
+  <meta property="og:site_name" content="Jakub Kaczmarek – Anfragen für Handwerk" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(title)}" />
   <meta name="twitter:description" content="${escapeHtml(description)}" />
@@ -134,7 +134,7 @@ function buildHtml({ title, description, keywords, canonical, noindex, h1, body,
     ${body}
   </main>
   <footer>
-    <p>&copy; ${new Date().getFullYear()} Jakub Kaczmarek – AI Automation | <a href="${BASE_URL}/">jakubkaczmarek.de</a></p>
+    <p>&copy; ${new Date().getFullYear()} Jakub Kaczmarek – Anfragen für Handwerk | <a href="${BASE_URL}/">jakubkaczmarek.de</a></p>
   </footer>
 </body>
 </html>`;
@@ -213,16 +213,16 @@ Deno.serve(async (req) => {
         title: city.metaTitle,
         description: city.metaDesc,
         keywords: city.keywords,
-        canonical: `${BASE_URL}/KiAgentur?city=${city.slug}`,
-        noindex: false,
+        canonical: `${BASE_URL}/anfragen-check`,
+        noindex: true,
         h1: `KI Agentur ${city.name}`,
-        body: `<p>${escapeHtml(city.description)}</p><h2>Branche in ${escapeHtml(city.name)}</h2><ul>${industriesList}</ul><p><a href="${BASE_URL}/Analyse">Kostenlose KI-Analyse anfragen</a></p>`,
+        body: `<p>Diese Seite ist nicht mehr verfügbar. <a href="${BASE_URL}/anfragen-check">Zum Anfragen-Check</a></p>`,
         schema
       }), {
         headers: {
           'Content-Type': 'text/html; charset=utf-8',
           'Cache-Control': 'public, max-age=3600',
-          'X-Robots-Tag': 'index, follow'
+          'X-Robots-Tag': 'noindex, nofollow'
         }
       });
     }
@@ -244,15 +244,14 @@ Deno.serve(async (req) => {
       };
       return new Response(buildHtml({
         title: 'KI Agentur Deutschland – KI Automatisierung für Unternehmen | Jakub Kaczmarek',
-        description: 'KI Agentur für Unternehmen in ganz Deutschland. Berlin, Hamburg, München, Köln, Frankfurt und mehr. Maßgeschneiderte KI-Automatisierung & AI Lösungen.',
-        keywords: 'KI Agentur Deutschland, AI Agentur, KI Beratung, KI Automatisierung, KI Lösungen',
-        canonical: `${BASE_URL}/KiAgentur`,
-        noindex: false,
-        h1: 'KI Agentur Deutschland – AI Lösungen für jede Stadt',
-        body: `<p>Wir helfen Unternehmen in ganz Deutschland, durch KI-Automatisierung Zeit zu sparen, Kosten zu senken und schneller zu wachsen. Wähle deine Stadt:</p><ul>${cityLinks}</ul>`,
+        description: '',
+        canonical: `${BASE_URL}/anfragen-check`,
+        noindex: true,
+        h1: 'KI Agentur',
+        body: `<p>Diese Seite ist nicht mehr verfügbar. <a href="${BASE_URL}/anfragen-check">Zum Anfragen-Check</a></p>`,
         schema
       }), {
-        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=3600', 'X-Robots-Tag': 'index, follow' }
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=3600', 'X-Robots-Tag': 'noindex, nofollow' }
       });
     }
 
@@ -271,13 +270,13 @@ Deno.serve(async (req) => {
       return new Response(buildHtml({
         title: service.metaTitle,
         description: service.metaDescription,
-        canonical: `${BASE_URL}/service?service=${serviceSlug}`,
-        noindex: false,
+        canonical: `${BASE_URL}/anfragen-check`,
+        noindex: true,
         h1: service.title,
-        body: `<p>${escapeHtml(service.description)}</p><p><a href="${BASE_URL}/Analyse">Kostenlose Analyse anfragen</a></p>`,
+        body: `<p>Diese Seite ist nicht mehr verfügbar. <a href="${BASE_URL}/anfragen-check">Zum Anfragen-Check</a></p>`,
         schema
       }), {
-        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=3600', 'X-Robots-Tag': 'index, follow' }
+        headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'public, max-age=3600', 'X-Robots-Tag': 'noindex, nofollow' }
       });
     }
 

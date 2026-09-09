@@ -16,19 +16,19 @@ export default function BlogHero({ postCount }) {
       >
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-8">
           <BookOpen className="w-4 h-4" />
-          <span>AI Tools & Wissen</span>
+          <span>Marketing & Kundengewinnung</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-          Die besten
+          Mehr Anfragen für
           <span className="block bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mt-2">
-            KI Tools & Systeme
+            Handwerksbetriebe
           </span>
         </h1>
 
         <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
-          Entdecke KI-Tools für Marketing, Vertrieb und Automatisierung – 
-          getestet und bewertet für Unternehmen.
+          Praxisnahe Artikel rund um Google Ads, Meta Ads und Anfragen-Automatisierung
+          für Handwerksbetriebe in Donau-Ries und Umgebung.
         </p>
 
         {postCount > 0 && (

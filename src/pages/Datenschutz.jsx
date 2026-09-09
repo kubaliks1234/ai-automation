@@ -9,7 +9,7 @@ export default function Datenschutz() {
         <div className="min-h-screen bg-[#0a0a0f]">
             <SEOMeta
                 title="Datenschutzerklärung | Jakub Kaczmarek"
-                description="Datenschutzerklärung von Jakub Kaczmarek – KI Automatisierung. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
+                description="Datenschutzerklärung von Jakub Kaczmarek – Anfragen für Handwerk. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
                 canonical="https://jakubkaczmarek.de/datenschutz"
                 noIndex={true}
             />

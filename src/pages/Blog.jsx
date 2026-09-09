@@ -76,9 +76,9 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <SEOMeta
-        title="KI Tools Blog 2026 | Beste AI Tools für Unternehmen getestet | Jakub Kaczmarek"
-        description="Entdecke die besten KI Tools 2026 für Marketing, Vertrieb und Automatisierung. Ehrlich getestet und bewertet für Unternehmen. Über 50 AI Tools im Vergleich – kostenlos & kostenpflichtig."
-        keywords="KI Tools, AI Tools, Künstliche Intelligenz, AI Blog, KI Software Vergleich, Automatisierung Tools, beste KI Tools 2026, KI Agentur Deutschland, KI Tool Vergleich, kostenlose KI Tools, AI Software, ChatGPT Alternative, Automatisierung Software"
+        title="Handwerker Marketing Blog | Mehr Anfragen & Kundengewinnung für Handwerk | Jakub Kaczmarek"
+        description="Praxisnahe Artikel rund um Kundengewinnung, Google Ads, Meta Ads und Anfragen-Automatisierung für Handwerksbetriebe in Donau-Ries und Umgebung."
+        keywords="Handwerker Marketing, Kundengewinnung Handwerk, Google Ads Handwerker, Meta Ads Handwerk, Anfragen Handwerk, Marketing Handwerksbetrieb, Donau-Ries, Donauwörth"
         canonical="https://jakubkaczmarek.de/blog"
         structuredData={blogListSchema}
       />

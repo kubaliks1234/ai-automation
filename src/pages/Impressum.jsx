@@ -8,8 +8,8 @@ export default function Impressum() {
     return (
         <div className="min-h-screen bg-[#0a0a0f]">
             <SEOMeta
-                title="Impressum | Jakub Kaczmarek – AI Automation"
-                description="Impressum von Jakub Kaczmarek – KI Automatisierung. Angaben gemäß § 5 TMG."
+                title="Impressum | Jakub Kaczmarek – Anfragen für Handwerk"
+                description="Impressum von Jakub Kaczmarek – Anfragen für Handwerk. Angaben gemäß § 5 TMG."
                 canonical="https://jakubkaczmarek.de/impressum"
                 noIndex={true}
             />
