@@ -1,66 +1,86 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 
-const features = [
-  'Aufbau und laufende Betreuung Ihrer Anzeigen (Meta und Google)',
-  'Landingpage mit Vorqualifizierung, auf Ihren Betrieb zugeschnitten',
-  'Automatische Antwort in unter 60 Sekunden, per WhatsApp und E-Mail',
-  'Nachfass-Sequenz für alle, die nicht sofort reagieren',
-  'Optimierung Ihres Google-Unternehmensprofils',
-  'Automatische Bewertungsanfrage nach abgeschlossenem Auftrag',
-  'Monatlicher Report auf einer Seite: Anfragen, Kosten pro Anfrage, Aufträge',
+const gewerke = [
+  'Trockenbau', 'Renovierung und Sanierung', 'Maler und Lackierer',
+  'Sanitär, Heizung, Klima', 'Elektro', 'Fliesenleger',
+  'Dachdecker', 'Bodenleger',
+];
+
+const konditionen = [
+  { label: 'Keine Mindestlaufzeit', desc: 'monatlich kündbar' },
+  { label: 'Exklusivität', desc: 'ein Betrieb pro Gewerk und Landkreis; ist dein Gewerk in deinem Landkreis vergeben, kann ich dich nicht aufnehmen' },
+  { label: 'Garantie', desc: '10 qualifizierte Anfragen in 60 Tagen. Wird das nicht erreicht, arbeite ich ohne Retainer weiter, bis es erreicht ist' },
+  { label: 'Werbebudget', desc: 'geht direkt an Meta/Google, ohne Aufschlag; Höhe wird im Erstgespräch nach Gewerk und Region festgelegt' },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="relative py-24 sm:py-32 bg-[#0a0a0f]">
+    <section className="relative py-24 sm:py-32 bg-[#0a0a0f] overflow-hidden">
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]" />
+
       <div className="relative max-w-4xl mx-auto px-6">
+        {/* Für welche Gewerke */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Was Sie{' '}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">
+            Für welche{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              bekommen
+              Gewerke?
             </span>
           </h2>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
+            {gewerke.map((g) => (
+              <span
+                key={g}
+                className="px-4 py-2 rounded-full bg-gray-900/60 border border-gray-800 text-gray-300 text-sm"
+              >
+                {g}
+              </span>
+            ))}
+          </div>
+          <p className="text-gray-400 text-center max-w-2xl mx-auto">
+            Betriebe mit 1 bis 25 Mitarbeitern, die planbare Anfragen wollen statt
+            Abhängigkeit von Empfehlungen oder Portalen.
+          </p>
         </motion.div>
 
+        {/* Was kostet das */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-3xl p-8 sm:p-12"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
         >
-          <ul className="space-y-5">
-            {features.map((feature, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="flex items-start gap-4"
-              >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mt-0.5">
-                  <Check className="w-4 h-4 text-cyan-400" />
-                </div>
-                <span className="text-lg text-gray-300 leading-relaxed">{feature}</span>
-              </motion.li>
-            ))}
-          </ul>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 text-center">
+            Was kostet das und welche{' '}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              Garantie gibt es?
+            </span>
+          </h2>
 
-          <div className="mt-10 pt-8 border-t border-gray-800">
-            <p className="text-center text-lg text-white font-medium">
-              Ihr Aufwand: 60 Minuten Onboarding. Danach fassen Sie nichts mehr an.
-            </p>
+          <div className="space-y-4 max-w-2xl mx-auto">
+            {konditionen.map((k) => (
+              <div key={k.label} className="flex gap-3 p-5 rounded-xl border border-gray-800 bg-gray-900/40">
+                <CheckCircle className="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="text-white font-medium">{k.label}</p>
+                  <p className="text-gray-400 text-sm mt-1">{k.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
+
+          <p className="text-center text-gray-500 mt-8">
+            Aktuell suche ich die ersten drei Betriebe im Landkreis Donau-Ries zu Startkonditionen.
+          </p>
         </motion.div>
       </div>
     </section>

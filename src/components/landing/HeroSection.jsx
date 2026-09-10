@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function HeroSection() {
   const scrollToSection = (id) => {
@@ -21,7 +21,7 @@ export default function HeroSection() {
           transition={{ delay: 0.2 }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-sm mb-8"
         >
-          <span>Für Handwerks- und Ausbaubetriebe in Donau-Ries</span>
+          <span>Für Handwerksbetriebe in Donau-Ries, Augsburg und München</span>
         </motion.div>
 
         {/* H1 */}
@@ -31,69 +31,60 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto"
         >
-          Planbar Anfragen aus Ihrer Region –{' '}
+          Kundengewinnung für{' '}
           <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-            ohne dass Sie sich um Marketing kümmern.
-          </span>
+            Handwerksbetriebe
+          </span>{' '}
+          in Donau-Ries, Augsburg und München
         </motion.h1>
 
-        {/* AI-extrahierbare Definition */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed"
-        >
-          Das Regional-Anfrage-System ist ein Kundengewinnungs-System für Handwerksbetriebe in
-          Donau-Ries, Augsburg und München. Es kombiniert Meta- und Google-Ads mit einer
-          vorqualifizierenden Landingpage und automatischer WhatsApp-Antwort in unter 60 Sekunden.
-          Nur ein Betrieb pro Gewerk und Landkreis. Garantie: 10 qualifizierte Anfragen in 60 Tagen.
-        </motion.p>
-
-        {/* Subheadline */}
+        {/* Unterzeile */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Ihre Anzeigen laufen. Ihre Landingpage filtert vor. Jede Anfrage bekommt in
-          unter 60 Sekunden eine Antwort. Sie sehen morgens nur noch, wer wirklich will.
+          Das Regional-Anfrage-System bringt dir exklusive, vorqualifizierte Anfragen –
+          ohne Portale, ohne geteilte Leads, ohne Mindestlaufzeit.
         </motion.p>
 
-        {/* CTA */}
+        {/* AI-extrahierbare Definition */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-base text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
+          Das Regional-Anfrage-System ist ein Kundengewinnungs-System für Handwerksbetriebe
+          im Landkreis Donau-Ries, in Augsburg und München. Es kombiniert regionale
+          Werbeanzeigen auf Meta und Google mit einer vorqualifizierenden Landingpage und
+          einer automatischen WhatsApp-Antwort in unter 60 Sekunden. Pro Gewerk und Landkreis
+          wird nur ein Betrieb betreut. Es gibt keine Mindestlaufzeit und eine Garantie von
+          10 qualifizierten Anfragen in 60 Tagen.
+        </motion.p>
+
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="flex flex-col items-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button
-            size="lg"
-            className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-8 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
-            onClick={() => scrollToSection('cta')}
+          <Link
+            to="/anfragen-check"
+            className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium rounded-xl hover:from-cyan-400 hover:to-blue-400 transition-all shadow-lg shadow-cyan-500/25"
           >
-            Kostenlosen Anfragen-Check sichern
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <p className="text-sm text-gray-500 max-w-md">
-            20 Minuten. Kostenlos. Ich zeige Ihnen live, welche Anzeigen Ihre Konkurrenz
-            in Donauwörth gerade schaltet.
-          </p>
-        </motion.div>
-
-        {/* Trust line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-12 text-sm text-gray-500"
-        >
-          <span>Erste Anfragen in 14 Tagen</span>
-          <span className="text-gray-600">·</span>
-          <span>Nur ein Betrieb pro Gewerk und Landkreis</span>
-          <span className="text-gray-600">·</span>
-          <span>Keine Mindestlaufzeit</span>
+            Erstgespräch anfragen
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <button
+            onClick={() => scrollToSection('mechanismus')}
+            className="inline-flex items-center gap-2 px-8 py-4 border border-gray-700 text-white font-medium rounded-xl hover:border-cyan-500/50 transition-all"
+          >
+            <MessageCircle className="w-5 h-5" />
+            So funktioniert's
+          </button>
         </motion.div>
       </div>
 

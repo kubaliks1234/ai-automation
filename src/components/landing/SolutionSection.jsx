@@ -2,94 +2,115 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Target, Filter, Zap } from 'lucide-react';
 
-const steps = [
+const bausteine = [
   {
-    number: '01',
     icon: Target,
-    title: 'Anzeigen in Ihrem Umkreis',
-    description: 'Ihre Anzeigen laufen auf Facebook, Instagram und Google – nur im Umkreis, den Sie bedienen, und ausgerichtet auf die Aufträge, die Sie wirklich wollen. Keine Kleinaufträge, wenn Sie Sanierungen suchen.',
+    num: '1',
+    title: 'Regionale Anzeigen auf Meta und Google',
+    desc: 'Anzeigen laufen nur in deinem Einzugsgebiet, für dein Gewerk, unter deinem Firmennamen. Das Werbebudget zahlst du direkt an Meta und Google – ohne Aufschlag.',
   },
   {
-    number: '02',
     icon: Filter,
-    title: 'Eine Seite, die vorsortiert',
-    description: 'Interessenten landen auf einer Seite, die vier Fragen stellt: Was, wie groß, wo, bis wann. Wer keine ernsthafte Absicht hat, füllt das nicht aus. Das ist Absicht.',
+    num: '2',
+    title: 'Vorqualifizierende Landingpage',
+    desc: 'Bevor jemand deine Nummer bekommt, beantwortet er drei bis fünf Fragen: Was für ein Projekt, wo, wann. Preisvergleicher, falsches Gewerk und Anfragen von außerhalb werden aussortiert, bevor sie dich Zeit kosten.',
   },
   {
-    number: '03',
     icon: Zap,
-    title: 'Antwort in unter 60 Sekunden',
-    description: 'Jede Anfrage bekommt sofort eine WhatsApp mit Terminvorschlag – auch nachts, auch sonntags. Sie bekommen die Zusammenfassung aufs Handy und rufen nur noch die an, bei denen es sich lohnt.',
+    num: '3',
+    title: 'Automatische WhatsApp-Antwort',
+    desc: 'Jede Anfrage wird in unter 60 Sekunden beantwortet. Die Automation ist eine Eigenentwicklung, kein gemietetes Fremdtool.',
   },
+];
+
+const comparisonRows = [
+  { label: 'Anfrage geht an', portal: '3–5 Betriebe gleichzeitig', system: 'nur dich' },
+  { label: 'Läuft unter', portal: 'Marke des Portals', system: 'deiner Marke' },
+  { label: 'Kundendaten gehören', portal: 'dem Portal', system: 'dir' },
+  { label: 'Exklusivität in deiner Region', portal: 'keine', system: 'ein Betrieb pro Gewerk und Landkreis' },
+  { label: 'Antwortzeit', portal: 'wenn du Zeit hast', system: 'unter 60 Sekunden, automatisch' },
+  { label: 'Laufzeit', portal: 'Jahresverträge üblich', system: 'keine Mindestlaufzeit' },
 ];
 
 export default function SolutionSection() {
   return (
     <section id="mechanismus" className="relative py-24 sm:py-32 bg-gradient-to-b from-[#0a0a0f] via-[#0f172a] to-[#0a0a0f] overflow-hidden">
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px]" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]" />
 
-      <div className="relative max-w-6xl mx-auto px-6">
+      <div className="relative max-w-5xl mx-auto px-6">
+        {/* Wie funktioniert das */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-20"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Das{' '}
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-12 text-center">
+            Wie funktioniert das{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              Regional-Anfrage-System
+              Regional-Anfrage-System?
             </span>
           </h2>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Drei Bausteine. Läuft nach dem Onboarding ohne Ihr Zutun.
-          </p>
+
+          <div className="space-y-6">
+            {bausteine.map((b, i) => (
+              <motion.div
+                key={b.num}
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="flex gap-5 p-6 rounded-2xl border border-gray-800 bg-gray-900/40 hover:border-cyan-500/30 transition-colors"
+              >
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                  <b.icon className="w-6 h-6 text-cyan-400" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    {b.num}. {b.title}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">{b.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="group relative"
-            >
-              <div className="relative h-full p-8 bg-gray-900/80 border border-gray-800 rounded-3xl hover:border-cyan-500/30 transition-all duration-300 flex flex-col">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="flex-shrink-0 w-14 h-14 flex items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
-                    <step.icon className="w-7 h-7" />
-                  </div>
-                  <span className="text-4xl font-bold text-gray-700 group-hover:text-gray-600 transition-colors">
-                    {step.number}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4">
-                  {step.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed flex-grow">
-                  {step.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
+        {/* Vergleichstabelle */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-12 max-w-3xl mx-auto"
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
         >
-          <p className="text-base text-gray-400 leading-relaxed">
-            Schritt 3 ist der Grund, warum das funktioniert. Studien und Praxis sagen
-            dasselbe: Wer innerhalb von Minuten reagiert, gewinnt den Auftrag. Wer nach
-            vier Stunden zurückruft, redet mit jemandem, der schon woanders unterschrieben hat.
-          </p>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-12 text-center">
+            Was unterscheidet das von{' '}
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+              MyHammer, Blauarbeit oder Aroundhome?
+            </span>
+          </h2>
+
+          <div className="overflow-x-auto rounded-2xl border border-gray-800">
+            <table className="w-full">
+              <thead>
+                <tr className="border-b border-gray-800">
+                  <th className="text-left p-4 text-gray-500 font-medium text-sm">&nbsp;</th>
+                  <th className="text-left p-4 text-gray-400 font-medium text-sm">Portale</th>
+                  <th className="text-left p-4 text-cyan-400 font-semibold text-sm">Regional-Anfrage-System</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonRows.map((row, i) => (
+                  <tr key={i} className="border-b border-gray-800/50 last:border-0">
+                    <td className="p-4 text-gray-300 text-sm font-medium">{row.label}</td>
+                    <td className="p-4 text-gray-500 text-sm">{row.portal}</td>
+                    <td className="p-4 text-white text-sm font-medium">{row.system}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </motion.div>
       </div>
     </section>

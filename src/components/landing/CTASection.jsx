@@ -1,11 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ClipboardList, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ArrowRight, MessageCircle, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function CTASection() {
-
   return (
     <section id="cta" className="relative py-24 sm:py-32 bg-[#0a0a0f] overflow-hidden">
       <div className="absolute inset-0">
@@ -25,41 +23,34 @@ export default function CTASection() {
 
           <div className="relative p-10 sm:p-16 bg-gradient-to-br from-gray-900/95 to-[#0a0a0f]/95 rounded-3xl border border-gray-800 backdrop-blur-sm text-center">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Ein Betrieb pro Gewerk.{' '}
+              Ist dein Gewerk in deinem{' '}
               <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Pro Landkreis.
+                Landkreis noch frei?
               </span>
             </h2>
 
-            <div className="space-y-4 text-lg text-gray-400 max-w-2xl mx-auto mb-10">
-              <p>
-                Für Trockenbau- und Sanierungsbetriebe in Donau-Ries ist der Platz aktuell frei.
-              </p>
-              <p>
-                Der Anfragen-Check dauert 20 Minuten, kostet nichts und Sie sehen dabei
-                schwarz auf weiß, was Ihre Konkurrenz gerade macht. Wenn Sie danach nicht
-                weitermachen wollen, haben Sie trotzdem etwas mitgenommen.
-              </p>
-            </div>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+              Schreib mir kurz Gewerk und Ort. Ich sage dir innerhalb eines Werktags,
+              ob der Platz frei ist und was realistisch drin ist.
+            </p>
 
-            <Link to="/anfragen-check">
-              <Button
-                size="lg"
-                className="group bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-white px-10 py-6 text-lg rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all duration-300"
-              >
-                <ClipboardList className="mr-2 w-5 h-5" />
-                Anfrage für den Anfragen-Check senden
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="tel:+4917643942729"
-                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                href="https://wa.me/4917643942729"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-medium rounded-xl hover:from-cyan-400 hover:to-blue-400 transition-all shadow-lg shadow-cyan-500/25"
               >
-                <Phone className="w-4 h-4" />
-                <span className="text-sm">Oder anrufen: +49 176 43942729</span>
+                <MessageCircle className="w-5 h-5" />
+                Verfügbarkeit prüfen – WhatsApp
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="mailto:jakub.kaczmarek669@gmail.com"
+                className="inline-flex items-center gap-2 px-8 py-4 border border-gray-700 text-white font-medium rounded-xl hover:border-cyan-500/50 transition-all"
+              >
+                <Mail className="w-5 h-5" />
+                E-Mail
               </a>
             </div>
           </div>

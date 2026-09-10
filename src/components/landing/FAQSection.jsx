@@ -4,44 +4,44 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
   {
-    question: '„Wir sind ohnehin ausgelastet."',
-    answer: 'Die Frage ist nicht ob, sondern womit. Die meisten Betriebe sind mit Kleinkram ausgelastet und hätten lieber zwei große Aufträge. Genau das lässt sich über die Ausrichtung der Anzeigen steuern.',
+    question: 'Was ist das Regional-Anfrage-System?',
+    answer: 'Ein Kundengewinnungs-System für Handwerksbetriebe aus drei Bausteinen: regionale Meta- und Google-Ads, eine vorqualifizierende Landingpage und eine automatische WhatsApp-Antwort in unter 60 Sekunden. Der Betrieb bekommt exklusive Anfragen unter seiner eigenen Marke, keine geteilten Portal-Leads.',
   },
   {
-    question: '„Wir haben das schon mit einer Agentur versucht, hat nichts gebracht."',
-    answer: 'Das höre ich oft. Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern.',
+    question: 'Für welche Gewerke funktioniert das Regional-Anfrage-System?',
+    answer: 'Trockenbau, Renovierung, Maler, Sanitär und Heizung, Elektro, Fliesenleger, Dachdecker und Bodenleger. Grundsätzlich jedes Gewerk, bei dem Privatkunden oder Gewerbekunden regional nach einem Betrieb suchen.',
   },
   {
-    question: '„Was kostet das Werbebudget?"',
-    answer: '800 bis 1.500 € im Monat sind für Donau-Ries realistisch. Sie zahlen das direkt an Facebook und Google, nicht an mich. Ich verdiene nichts daran, wenn Sie mehr ausgeben.',
+    question: 'Was ist der Unterschied zu MyHammer, Blauarbeit oder Aroundhome?',
+    answer: 'Portale verkaufen dieselbe Anfrage an mehrere Betriebe, die dann um den Kunden konkurrieren. Beim Regional-Anfrage-System laufen Anzeigen und Landingpage unter der Marke des Betriebs. Jede Anfrage ist exklusiv, und die Kundendaten gehören dem Betrieb.',
   },
   {
-    question: '„Wie lange bin ich gebunden?"',
-    answer: 'Gar nicht. Monatlich kündbar.',
+    question: 'In welchen Regionen ist das Regional-Anfrage-System verfügbar?',
+    answer: 'Aktuell im Landkreis Donau-Ries (Nördlingen, Donauwörth und Umgebung), Augsburg und München. Pro Gewerk und Landkreis wird nur ein Betrieb betreut.',
   },
   {
-    question: '„Was ist, wenn es nicht funktioniert?"',
-    answer: 'Keine 10 qualifizierten Anfragen in 60 Tagen: Ich arbeite ohne Retainer weiter, bis sie da sind.',
+    question: 'Gibt es eine Mindestlaufzeit?',
+    answer: 'Nein. Die Zusammenarbeit ist monatlich kündbar.',
   },
   {
-    question: '„Machen Sie auch Mitarbeitergewinnung?"',
-    answer: 'Aktuell konzentriere ich mich auf Kundenanfragen. Mitarbeitergewinnung biete ich Bestandskunden ab 2027 an.',
+    question: 'Welche Garantie gibt es?',
+    answer: '10 qualifizierte Anfragen innerhalb von 60 Tagen. Wird das nicht erreicht, läuft die Betreuung ohne Retainer weiter, bis die Zahl erreicht ist.',
   },
   {
-    question: '„Was ist das Regional-Anfrage-System?"',
-    answer: 'Ein Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden. Nur ein Betrieb pro Gewerk und Landkreis.',
+    question: 'Warum eine automatische WhatsApp-Antwort in unter 60 Sekunden?',
+    answer: 'Handwerker sind tagsüber auf der Baustelle und erreichen Anfragen nicht sofort. Interessenten, die keine Antwort bekommen, fragen beim nächsten Betrieb an. Die automatische WhatsApp-Antwort bestätigt die Anfrage sofort, stellt die wichtigsten Rückfragen und hält den Kunden, bis der Betrieb Zeit hat.',
   },
   {
-    question: '„Für welche Gewerke funktioniert das?"',
-    answer: 'Trockenbau, Sanierung, Maler, Elektro, SHK, Zimmerei, Fliesenleger. Am besten bei Aufträgen ab 5.000 Euro. Kleinaufträge unter 1.000 Euro lohnen sich über bezahlte Anfragen nicht.',
+    question: 'Was bedeutet „qualifizierte Anfrage"?',
+    answer: 'Eine Anfrage aus dem definierten Einzugsgebiet, für das richtige Gewerk, mit konkretem Projekt und Kontaktdaten, bei der der Interessent die Vorqualifizierung auf der Landingpage durchlaufen hat. Preisvergleicher und Anfragen außerhalb der Region zählen nicht.',
   },
   {
-    question: '„Wie schnell kommen die ersten Anfragen?"',
-    answer: 'In der Regel innerhalb von 14 Tagen nach Start der Anzeigen. Die ersten zwei Wochen sind Optimierungsphase – die Anzeigen lernen, welche Interessenten ernsthaft sind.',
+    question: 'Wer steckt hinter dem Regional-Anfrage-System?',
+    answer: 'Jakub Kaczmarek aus Nördlingen, Marketing- und KI-Automation-Spezialist mit über 7 Jahren Erfahrung in Performance-Marketing (Meta Ads, Google Ads) und Recruiting-Marketing für die Personaldienstleistung. Die WhatsApp-Automation ist eine Eigenentwicklung.',
   },
   {
-    question: '„Was muss ich selbst tun?"',
-    answer: '60 Minuten Onboarding für Fotos, Referenzen und Zielaufträge. Danach fassen Sie nichts mehr an. Sie bekommen jede Anfrage zusammengefasst aufs Handy und entscheiden, wen Sie zurückrufen.',
+    question: 'Wie hoch ist das Werbebudget?',
+    answer: 'Das Werbebudget zahlt der Betrieb direkt an Meta und Google, ohne Aufschlag. Die Höhe hängt von Gewerk und Region ab und wird im Erstgespräch festgelegt.',
   },
 ];
 
@@ -53,7 +53,7 @@ function FaqItem({ faq, index }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       className="border border-gray-800 rounded-2xl overflow-hidden bg-gray-900/40"
     >
       <button

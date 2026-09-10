@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Linkedin } from 'lucide-react';
 
 export default function AboutSection() {
   return (
@@ -17,13 +18,13 @@ export default function AboutSection() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
             Wer{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-              das macht
+              steckt dahinter?
             </span>
           </h2>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 items-center">
-          {/* Photo placeholder */}
+          {/* Photo */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -33,10 +34,10 @@ export default function AboutSection() {
           >
             <div className="relative aspect-square max-w-sm mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-3xl blur-2xl" />
-              <div className="relative h-full bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-3xl overflow-hidden flex items-center justify-center">
+              <div className="relative h-full bg-gradient-to-br from-gray-900/80 to-gray-900/40 border border-gray-800 rounded-3xl overflow-hidden">
                 <img
                   src="https://media.base44.com/images/public/69a7f4930f0e951070ab8bb0/b2fa5f40c_md.jpeg"
-                  alt="Jakub Kaczmarek"
+                  alt="Jakub Kaczmarek – Marketing- und KI-Automation-Spezialist"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
@@ -54,21 +55,26 @@ export default function AboutSection() {
           >
             <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
               <p>
-                Ich bin Jakub Kaczmarek. Seit über sieben Jahren arbeite ich im Marketing
-                und in der Personalvermittlung – ich habe Anzeigen in sieben Ländern
-                geschaltet, Bewerberprozesse automatisiert und Systeme gebaut, die Anfragen
-                in Sekunden statt in Stunden beantworten.
+                Ich bin <span className="text-white font-medium">Jakub Kaczmarek</span>,
+                Marketing- und KI-Automation-Spezialist aus Nördlingen. Seit über sieben
+                Jahren mache ich Performance-Marketing (Meta Ads, Google Ads) für die
+                Personaldienstleistung – mehrsprachig, in mehreren europäischen Märkten,
+                mit messbaren Kosten pro Anfrage. Die Automationen dahinter baue ich selbst
+                (n8n, Claude API, WhatsApp Business API).
               </p>
               <p>
-                Das Gleiche baue ich jetzt für{' '}
-                <span className="text-white font-medium">Handwerksbetriebe in Donau-Ries</span>.
+                Das Regional-Anfrage-System ist die Übertragung dieser Systeme auf
+                Handwerksbetriebe in meiner Region.
               </p>
-              <p>
-                Ich bin keine Agentur mit zwölf Leuten und Etage in München. Sie reden mit
-                mir, ich baue es, ich betreue es. Deshalb nehme ich pro Gewerk und Landkreis
-                nur einen Betrieb – alles andere wäre unseriös gegenüber dem Ersten,
-                der unterschrieben hat.
-              </p>
+              <a
+                href="https://www.linkedin.com/in/jakub-kaczmarek"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+              >
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
+              </a>
             </div>
           </motion.div>
         </div>

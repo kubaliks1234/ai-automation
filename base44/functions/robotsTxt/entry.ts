@@ -1,23 +1,7 @@
 Deno.serve(async (_req) => {
-  const baseUrl = 'https://jakubkaczmarek.de';
+  const robots = `# jakubkaczmarek.de – AI- und Suchmaschinen-Crawler explizit erlauben
 
-  const robots = `User-agent: *
-Allow: /
-Disallow: /SeoAdmin
-Disallow: /backlink-manager
-Disallow: /SeoOptimierung
-Disallow: /Upsell
-Disallow: /Analyse
-Disallow: /oauth/
-Disallow: /api/
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: ClaudeBot
+User-agent: Googlebot
 Allow: /
 
 User-agent: Google-Extended
@@ -26,7 +10,50 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-Sitemap: ${baseUrl}/sitemap.xml`;
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /Upsell
+Disallow: /upsell
+Disallow: /admin
+Disallow: /login
+
+Sitemap: https://jakubkaczmarek.de/sitemap.xml`;
 
   return new Response(robots, {
     headers: {
