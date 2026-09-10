@@ -27,6 +27,22 @@ const faqs = [
     question: '„Machen Sie auch Mitarbeitergewinnung?"',
     answer: 'Aktuell konzentriere ich mich auf Kundenanfragen. Mitarbeitergewinnung biete ich Bestandskunden ab 2027 an.',
   },
+  {
+    question: '„Was ist das Regional-Anfrage-System?"',
+    answer: 'Ein Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden. Nur ein Betrieb pro Gewerk und Landkreis.',
+  },
+  {
+    question: '„Für welche Gewerke funktioniert das?"',
+    answer: 'Trockenbau, Sanierung, Maler, Elektro, SHK, Zimmerei, Fliesenleger. Am besten bei Aufträgen ab 5.000 Euro. Kleinaufträge unter 1.000 Euro lohnen sich über bezahlte Anfragen nicht.',
+  },
+  {
+    question: '„Wie schnell kommen die ersten Anfragen?"',
+    answer: 'In der Regel innerhalb von 14 Tagen nach Start der Anzeigen. Die ersten zwei Wochen sind Optimierungsphase – die Anzeigen lernen, welche Interessenten ernsthaft sind.',
+  },
+  {
+    question: '„Was muss ich selbst tun?"',
+    answer: '60 Minuten Onboarding für Fotos, Referenzen und Zielaufträge. Danach fassen Sie nichts mehr an. Sie bekommen jede Anfrage zusammengefasst aufs Handy und entscheiden, wen Sie zurückrufen.',
+  },
 ];
 
 function FaqItem({ faq, index }) {

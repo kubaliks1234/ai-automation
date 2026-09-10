@@ -29,6 +29,10 @@ const TOPICS = [
   { title: "Handwerker-Marketing München: warum hier andere Regeln gelten", cluster: "money", region: "muenchen", cta: "anfragen-check" },
   { title: "Marketing für Sanierungsbetriebe: Auftragsgröße steuern", cluster: "gewerk", region: "bundesweit", cta: "anfragen-check" },
   { title: "Kosten pro Anfrage im Handwerk: Richtwerte nach Gewerk", cluster: "kosten", region: "bundesweit", cta: "anfragen-check" },
+  { title: "Meta Ads für Handwerker: Was kostet eine Anfrage wirklich?", cluster: "kosten", region: "bundesweit", cta: "anfragen-check" },
+  { title: "MyHammer und Blauarbeit vs. eigenes Anfrage-System: der Vergleich für Handwerksbetriebe", cluster: "problem", region: "bundesweit", cta: "anfragen-check" },
+  { title: "Warum Handwerker in Donau-Ries Anfragen verlieren: die 60-Sekunden-Regel", cluster: "problem", region: "donau-ries", cta: "anfragen-check" },
+  { title: "Wie viele Anfragen kann ein Trockenbauer pro Monat erwarten?", cluster: "problem", region: "bundesweit", cta: "anfragen-check" },
 ];
 
 const FORBIDDEN_PHRASES = [

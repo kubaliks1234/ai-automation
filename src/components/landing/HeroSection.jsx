@@ -37,6 +37,19 @@ export default function HeroSection() {
           </span>
         </motion.h1>
 
+        {/* AI-extrahierbare Definition */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto mb-8 leading-relaxed"
+        >
+          Das Regional-Anfrage-System ist ein Kundengewinnungs-System für Handwerksbetriebe in
+          Donau-Ries, Augsburg und München. Es kombiniert Meta- und Google-Ads mit einer
+          vorqualifizierenden Landingpage und automatischer WhatsApp-Antwort in unter 60 Sekunden.
+          Nur ein Betrieb pro Gewerk und Landkreis. Garantie: 10 qualifizierte Anfragen in 60 Tagen.
+        </motion.p>
+
         {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}

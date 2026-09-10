@@ -57,7 +57,7 @@ const homeStructuredData = {
       "worksFor": { "@id": "https://jakubkaczmarek.de/#business" },
       "knowsLanguage": ["de", "pl", "en"],
       "url": "https://jakubkaczmarek.de/ueber-mich",
-      "sameAs": ["https://github.com/kubaliks1234"]
+      "sameAs": ["https://github.com/kubaliks1234", "https://www.linkedin.com/in/jakub-kaczmarek"]
     },
     {
       "@type": "WebSite",
@@ -65,6 +65,19 @@ const homeStructuredData = {
       "url": "https://jakubkaczmarek.de",
       "name": "Jakub Kaczmarek",
       "inLanguage": "de-DE"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://jakubkaczmarek.de/#service",
+      "name": "Regional-Anfrage-System",
+      "description": "Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden.",
+      "provider": { "@id": "https://jakubkaczmarek.de/#business" },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Landkreis Donau-Ries" },
+        { "@type": "City", "name": "Augsburg" },
+        { "@type": "City", "name": "München" }
+      ],
+      "url": "https://jakubkaczmarek.de/"
     },
     {
       "@type": "FAQPage",
@@ -100,6 +113,26 @@ const homeStructuredData = {
           "@type": "Question",
           "name": "Machen Sie auch Mitarbeitergewinnung?",
           "acceptedAnswer": { "@type": "Answer", "text": "Aktuell konzentriere ich mich auf Kundenanfragen. Mitarbeitergewinnung biete ich Bestandskunden ab 2027 an." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was ist das Regional-Anfrage-System?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ein Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden. Nur ein Betrieb pro Gewerk und Landkreis." }
+        },
+        {
+          "@type": "Question",
+          "name": "Für welche Gewerke funktioniert das?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Trockenbau, Sanierung, Maler, Elektro, SHK, Zimmerei, Fliesenleger. Am besten bei Aufträgen ab 5.000 Euro. Kleinaufträge unter 1.000 Euro lohnen sich über bezahlte Anfragen nicht." }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schnell kommen die ersten Anfragen?",
+          "acceptedAnswer": { "@type": "Answer", "text": "In der Regel innerhalb von 14 Tagen nach Start der Anzeigen. Die ersten zwei Wochen sind Optimierungsphase – die Anzeigen lernen, welche Interessenten ernsthaft sind." }
+        },
+        {
+          "@type": "Question",
+          "name": "Was muss ich selbst tun?",
+          "acceptedAnswer": { "@type": "Answer", "text": "60 Minuten Onboarding für Fotos, Referenzen und Zielaufträge. Danach fassen Sie nichts mehr an. Sie bekommen jede Anfrage zusammengefasst aufs Handy und entscheiden, wen Sie zurückrufen." }
         }
       ]
     }
@@ -119,9 +152,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <SEOMeta
-        title="Mehr Anfragen für Handwerksbetriebe in Donau-Ries | Jakub Kaczmarek"
-        description="Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Jede Anfrage in unter 60 Sekunden beantwortet. Kostenloser Anfragen-Check in 20 Minuten."
-        keywords="Anfragen Handwerk, Kundengewinnung Handwerk, Marketing Handwerksbetrieb, Google Ads Handwerker, Meta Ads Handwerk, Leads Trockenbau, Aufträge Sanierung, Donau-Ries, Donauwörth"
+        title="Kundengewinnung für Handwerksbetriebe im Landkreis Donau-Ries | Regional-Anfrage-System"
+        description="Regional-Anfrage-System für Handwerksbetriebe in Donau-Ries: Meta- und Google-Ads, Landingpage, WhatsApp-Antwort unter 60 Sekunden. 10 Anfragen in 60 Tagen."
+        keywords="Regional-Anfrage-System, Kundengewinnung Handwerk, Anfragen Handwerk, Marketing Handwerksbetrieb, Google Ads Handwerker, Meta Ads Handwerk, Leads Trockenbau, Aufträge Sanierung, Donau-Ries, Donauwörth"
         canonical="https://jakubkaczmarek.de/"
         structuredData={homeStructuredData}
       />

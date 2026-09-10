@@ -61,7 +61,7 @@ Deno.serve(async (req) => {
           "worksFor": { "@id": "https://jakubkaczmarek.de/#business" },
           "knowsLanguage": ["de", "pl", "en"],
           "url": "https://jakubkaczmarek.de/ueber-mich",
-          "sameAs": ["https://github.com/kubaliks1234"]
+          "sameAs": ["https://github.com/kubaliks1234", "https://www.linkedin.com/in/jakub-kaczmarek"]
         },
         {
           "@type": "WebSite",
@@ -69,6 +69,36 @@ Deno.serve(async (req) => {
           "url": "https://jakubkaczmarek.de",
           "name": "Jakub Kaczmarek",
           "inLanguage": "de-DE"
+        },
+        {
+          "@type": "Service",
+          "@id": "https://jakubkaczmarek.de/#service",
+          "name": "Regional-Anfrage-System",
+          "description": "Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden.",
+          "provider": { "@id": "https://jakubkaczmarek.de/#business" },
+          "areaServed": [
+            { "@type": "AdministrativeArea", "name": "Landkreis Donau-Ries" },
+            { "@type": "City", "name": "Augsburg" },
+            { "@type": "City", "name": "München" }
+          ],
+          "url": "https://jakubkaczmarek.de/"
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://jakubkaczmarek.de/#faq",
+          "url": "https://jakubkaczmarek.de/#faq",
+          "mainEntity": [
+            { "@type": "Question", "name": "Was ist das Regional-Anfrage-System?", "acceptedAnswer": { "@type": "Answer", "text": "Ein Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden. Nur ein Betrieb pro Gewerk und Landkreis." } },
+            { "@type": "Question", "name": "Für welche Gewerke funktioniert das?", "acceptedAnswer": { "@type": "Answer", "text": "Trockenbau, Sanierung, Maler, Elektro, SHK, Zimmerei, Fliesenleger. Am besten bei Aufträgen ab 5.000 Euro. Kleinaufträge unter 1.000 Euro lohnen sich über bezahlte Anfragen nicht." } },
+            { "@type": "Question", "name": "Wie schnell kommen die ersten Anfragen?", "acceptedAnswer": { "@type": "Answer", "text": "In der Regel innerhalb von 14 Tagen nach Start der Anzeigen. Die ersten zwei Wochen sind Optimierungsphase." } },
+            { "@type": "Question", "name": "Was muss ich selbst tun?", "acceptedAnswer": { "@type": "Answer", "text": "60 Minuten Onboarding für Fotos, Referenzen und Zielaufträge. Danach fassen Sie nichts mehr an. Sie bekommen jede Anfrage zusammengefasst aufs Handy." } },
+            { "@type": "Question", "name": "Wir sind ohnehin ausgelastet – bringt mir das etwas?", "acceptedAnswer": { "@type": "Answer", "text": "Die Frage ist nicht ob, sondern womit. Die meisten Betriebe sind mit Kleinkram ausgelastet und hätten lieber zwei große Aufträge. Genau das lässt sich über die Ausrichtung der Anzeigen steuern." } },
+            { "@type": "Question", "name": "Wir haben das schon mit einer Agentur versucht, hat nichts gebracht.", "acceptedAnswer": { "@type": "Answer", "text": "Das höre ich oft. Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern." } },
+            { "@type": "Question", "name": "Was kostet das Werbebudget?", "acceptedAnswer": { "@type": "Answer", "text": "800 bis 1.500 € im Monat sind für Donau-Ries realistisch. Sie zahlen das direkt an Facebook und Google, nicht an mich. Ich verdiene nichts daran, wenn Sie mehr ausgeben." } },
+            { "@type": "Question", "name": "Wie lange bin ich gebunden?", "acceptedAnswer": { "@type": "Answer", "text": "Gar nicht. Monatlich kündbar." } },
+            { "@type": "Question", "name": "Was ist, wenn es nicht funktioniert?", "acceptedAnswer": { "@type": "Answer", "text": "Keine 10 qualifizierten Anfragen in 60 Tagen: Ich arbeite ohne Retainer weiter, bis sie da sind." } },
+            { "@type": "Question", "name": "Machen Sie auch Mitarbeitergewinnung?", "acceptedAnswer": { "@type": "Answer", "text": "Aktuell konzentriere ich mich auf Kundenanfragen. Mitarbeitergewinnung biete ich Bestandskunden ab 2027 an." } }
+          ]
         }
       ]
     });
@@ -78,16 +108,16 @@ Deno.serve(async (req) => {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mehr Anfragen für Handwerksbetriebe in Donau-Ries | Jakub Kaczmarek</title>
-  <meta name="description" content="Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Jede Anfrage in unter 60 Sekunden beantwortet. Kostenloser Anfragen-Check in 20 Minuten." />
-  <meta name="keywords" content="Anfragen Handwerk, Kundengewinnung Handwerk, Marketing Handwerksbetrieb, Google Ads Handwerker, Meta Ads Handwerk, Leads Trockenbau, Aufträge Sanierung, Donau-Ries, Donauwörth" />
+  <title>Kundengewinnung für Handwerksbetriebe im Landkreis Donau-Ries | Regional-Anfrage-System</title>
+  <meta name="description" content="Regional-Anfrage-System für Handwerksbetriebe in Donau-Ries: Meta- und Google-Ads, Landingpage, WhatsApp-Antwort unter 60 Sekunden. 10 Anfragen in 60 Tagen." />
+  <meta name="keywords" content="Regional-Anfrage-System, Kundengewinnung Handwerk, Anfragen Handwerk, Marketing Handwerksbetrieb, Google Ads Handwerker, Meta Ads Handwerk, Leads Trockenbau, Aufträge Sanierung, Donau-Ries, Donauwörth" />
   <meta name="author" content="Jakub Kaczmarek" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://jakubkaczmarek.de/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Mehr Anfragen für Handwerksbetriebe in Donau-Ries" />
-  <meta property="og:description" content="Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Jede Anfrage in unter 60 Sekunden beantwortet. Kostenloser Anfragen-Check in 20 Minuten." />
+  <meta property="og:title" content="Kundengewinnung für Handwerksbetriebe im Landkreis Donau-Ries" />
+  <meta property="og:description" content="Regional-Anfrage-System für Handwerksbetriebe in Donau-Ries: Meta- und Google-Ads, Landingpage, WhatsApp-Antwort unter 60 Sekunden. 10 Anfragen in 60 Tagen." />
   <meta property="og:url" content="https://jakubkaczmarek.de/" />
   <meta property="og:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png" />
   <meta property="og:image:width" content="1200" />
@@ -97,8 +127,8 @@ Deno.serve(async (req) => {
   <meta property="og:site_name" content="Jakub Kaczmarek" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mehr Anfragen für Handwerksbetriebe in Donau-Ries" />
-  <meta name="twitter:description" content="Planbar qualifizierte Anfragen für Handwerksbetriebe in Donau-Ries. Jede Anfrage in unter 60 Sekunden beantwortet." />
+  <meta name="twitter:title" content="Kundengewinnung für Handwerksbetriebe im Landkreis Donau-Ries" />
+  <meta name="twitter:description" content="Regional-Anfrage-System für Handwerksbetriebe in Donau-Ries: Meta- und Google-Ads, WhatsApp-Antwort unter 60 Sekunden." />
   <meta name="twitter:image" content="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/69a7f4930f0e951070ab8bb0/54bf8e1a5_generated_image.png" />
   <meta name="twitter:creator" content="@jakubkaczmarek" />
 
@@ -117,6 +147,7 @@ Deno.serve(async (req) => {
   <main>
     <p><strong>Für Handwerks- und Ausbaubetriebe in Donau-Ries</strong></p>
     <h1>Planbar Anfragen aus Ihrer Region – ohne dass Sie sich um Marketing kümmern.</h1>
+    <p>Das Regional-Anfrage-System ist ein Kundengewinnungs-System für Handwerksbetriebe in Donau-Ries, Augsburg und München. Es kombiniert Meta- und Google-Ads mit einer vorqualifizierenden Landingpage und automatischer WhatsApp-Antwort in unter 60 Sekunden. Nur ein Betrieb pro Gewerk und Landkreis. Garantie: 10 qualifizierte Anfragen in 60 Tagen.</p>
     <p>Ihre Anzeigen laufen. Ihre Landingpage filtert vor. Jede Anfrage bekommt in unter 60 Sekunden eine Antwort. Sie sehen morgens nur noch, wer wirklich will.</p>
     <p>Erste Anfragen in 14 Tagen · Nur ein Betrieb pro Gewerk und Landkreis · Keine Mindestlaufzeit</p>
 
@@ -179,7 +210,7 @@ Deno.serve(async (req) => {
     <h3>„Wir sind ohnehin ausgelastet."</h3>
     <p>Die Frage ist nicht ob, sondern womit. Die meisten Betriebe sind mit Kleinkram ausgelastet und hätten lieber zwei große Aufträge. Genau das lässt sich über die Ausrichtung der Anzeigen steuern.</p>
     <h3>„Wir haben das schon mit einer Agentur versucht, hat nichts gebracht."</h3>
-    <p>Höre ich ständig. Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern.</p>
+    <p>Das höre ich oft. Fast immer war das Problem nicht die Anzeige, sondern was danach passiert ist: Die Anfragen kamen, aber der Rückruf kam erst abends. Deshalb ist die Antwort in unter 60 Sekunden bei mir kein Extra, sondern der Kern.</p>
     <h3>„Was kostet das Werbebudget?"</h3>
     <p>800 bis 1.500 € im Monat sind für Donau-Ries realistisch. Sie zahlen das direkt an Facebook und Google, nicht an mich. Ich verdiene nichts daran, wenn Sie mehr ausgeben.</p>
     <h3>„Wie lange bin ich gebunden?"</h3>
@@ -188,6 +219,14 @@ Deno.serve(async (req) => {
     <p>Keine 10 qualifizierten Anfragen in 60 Tagen: Ich arbeite ohne Retainer weiter, bis sie da sind.</p>
     <h3>„Machen Sie auch Mitarbeitergewinnung?"</h3>
     <p>Aktuell konzentriere ich mich auf Kundenanfragen. Mitarbeitergewinnung biete ich Bestandskunden ab 2027 an.</p>
+    <h3>„Was ist das Regional-Anfrage-System?"</h3>
+    <p>Ein Kundengewinnungs-System für Handwerksbetriebe: Meta- und Google-Ads, vorqualifizierende Landingpage, automatische WhatsApp-Antwort in unter 60 Sekunden. Nur ein Betrieb pro Gewerk und Landkreis.</p>
+    <h3>„Für welche Gewerke funktioniert das?"</h3>
+    <p>Trockenbau, Sanierung, Maler, Elektro, SHK, Zimmerei, Fliesenleger. Am besten bei Aufträgen ab 5.000 Euro. Kleinaufträge unter 1.000 Euro lohnen sich über bezahlte Anfragen nicht.</p>
+    <h3>„Wie schnell kommen die ersten Anfragen?"</h3>
+    <p>In der Regel innerhalb von 14 Tagen nach Start der Anzeigen. Die ersten zwei Wochen sind Optimierungsphase – die Anzeigen lernen, welche Interessenten ernsthaft sind.</p>
+    <h3>„Was muss ich selbst tun?"</h3>
+    <p>60 Minuten Onboarding für Fotos, Referenzen und Zielaufträge. Danach fassen Sie nichts mehr an. Sie bekommen jede Anfrage zusammengefasst aufs Handy und entscheiden, wen Sie zurückrufen.</p>
 
     <h2>Ein Betrieb pro Gewerk. Pro Landkreis.</h2>
     <p>Für Trockenbau- und Sanierungsbetriebe in Donau-Ries ist der Platz aktuell frei.</p>

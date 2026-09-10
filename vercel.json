@@ -9,6 +9,10 @@
       "destination": "/functions/robotsTxt"
     },
     {
+      "source": "/llms.txt",
+      "destination": "/functions/llmsTxt"
+    },
+    {
       "source": "/",
       "missing": [{ "type": "query", "key": "app" }],
       "destination": "/functions/prerenderHome"

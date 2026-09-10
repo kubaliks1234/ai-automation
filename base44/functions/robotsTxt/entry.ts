@@ -23,6 +23,9 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
 Sitemap: ${baseUrl}/sitemap.xml`;
 
   return new Response(robots, {
