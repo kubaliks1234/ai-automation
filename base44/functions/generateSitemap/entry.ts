@@ -5,6 +5,7 @@ const BASE_URL = 'https://jakubkaczmarek.de';
 const STATIC_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/handwerker-marketing-donau-ries', priority: '0.9', changefreq: 'monthly' },
+  { path: '/handwerker', priority: '0.9', changefreq: 'monthly' },
   { path: '/anfragen-check', priority: '0.9', changefreq: 'monthly' },
   { path: '/ueber-mich', priority: '0.7', changefreq: 'monthly' },
   { path: '/blog', priority: '0.8', changefreq: 'daily' },
